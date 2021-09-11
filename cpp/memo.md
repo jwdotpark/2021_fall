@@ -1,16 +1,16 @@
 lecture 0
 
-[main] 
+# main
 - is a function that returns an error code
 - error 0  === okay
 - error can be in range [1, 255]
 
 
-[#include directive]
+# include directive
 - #include <file> - system include files
 - #include "file" - local include files
 
-[compilers]
+# compilers
 - gcc
 - clang
 
@@ -18,18 +18,22 @@ lecture 0
 
 lecture 1: https://www.youtube.com/watch?v=k290gC3eP44
 
-[declaring variables]
+# declaring variables
 
-<type> <name> [ = <value>];
+type name [ = value];
+- usually_snake_case
 - every var has a type
 - var cannot change their type
 - always initialize var if you can
+- use descriptive and long name if possible for preventing confusion
 
 i.e.
-int sad_uninitialized_var;
-bool intializing_is_good = true;
+```
+int sad_uninitialized_var; // bad
+bool intializing_is_good = true; // good
+```
 
-[built-in types]
+# built-in types
 - bool
 - char
 - int
@@ -39,11 +43,10 @@ bool intializing_is_good = true;
 - double // double precision float
 - auto
 
-[Strings]
+# Strings
 - #include <string> to use std::string
 - concatenate strings with '+'
 - check if str is empty with str.empty()
 - works out of the box with I/O streams
 
-17:09
-[Use std::array for fixed sized collections of items]
+# Use std::array for fixed sized collections of items
