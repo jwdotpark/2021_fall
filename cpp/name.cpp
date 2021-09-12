@@ -3,10 +3,10 @@
 
 int main()
 {
-  std::string hello = "hello";
-  std::cout << "Type your name:" << std::endl;
-  std::string name = ""; // init empty
-  std::cin >> name;
-  std::cout << hello + ", " + name + "!" << std::endl;
+  std::string test = "test";
+  std::cout << "input:" << std::endl;
+  std::string placeholder = ""; // init empty
+  std::cin >> placeholder;
+  std::cout << test + ", " + placeholder + "!" << std::endl;
   return 0; //
 }
