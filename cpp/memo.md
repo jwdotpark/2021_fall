@@ -18,6 +18,7 @@ https://www.notion.so/Follow-C-course-from-university-of-bonn-a8f39c64ecb14c8199
 - gcc
 - clang
 
+---
 # lecture 1: https://www.youtube.com/watch?v=k290gC3eP44
 
 ## declaring variables
@@ -243,3 +244,7 @@ while (true) {
   }
 }
 ```
+---
+
+# lecture2: Compilation, Debugging, Functions, Header/Source, Libraries, CMake https://www.youtube.com/watch?v=7e71KWARrNQ
+
