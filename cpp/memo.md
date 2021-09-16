@@ -19,6 +19,7 @@ https://www.notion.so/Follow-C-course-from-university-of-bonn-a8f39c64ecb14c8199
 - clang
 
 ---
+
 # lecture 1: https://www.youtube.com/watch?v=k290gC3eP44
 
 ## declaring variables
@@ -244,7 +245,134 @@ while (true) {
   }
 }
 ```
+
 ---
 
 # lecture2: Compilation, Debugging, Functions, Header/Source, Libraries, CMake https://www.youtube.com/watch?v=7e71KWARrNQ
 
+## Compilation flag
+
+- there is a lot of flags that can be passed while compiling the code
+- we have seen some already: `-std=c++11, -o`, etc
+
+### other useful options
+
+- enable all warnings, treat them as errors: `-Wall -Wextra -Werror`
+- optimization options:
+  - `-O0`: no optimization
+  - `-O1`: default optimization
+  - `-O2`: more optimization
+  - `-Ofast`: maximum optimization
+- keep debugging symbols: `-g`
+
+## Debugging tools
+
+- the best option is to use `gdb`
+- insanely polular and powerful
+- no build-in gui
+- use `gdbgui` for a user-friendly gui
+- install gdbgui from pip:
+  `sudo pip3 install --upgrade gdbgui`
+
+## Functions
+
+```cpp
+ReturnType FuncName(ParamType1 in_1, PramType2 in_2) {
+  // some code
+  return return_value;
+}
+```
+
+- code can be organized into functions
+- functions create a scope
+- single return value from a function
+- any number of input variables of any types
+- should do only one thing and do it right
+- name must show what the function does
+- `GOOGLE-STYLE` name functions in `CamelCase`
+- `GOOGLE-STYLE` write small functions
+
+### good function example
+
+```cpp
+#include <vector>
+using namespace std;
+
+vector<int> CreateVectorFOfFullSquare(int size) {
+  vector<int> result(size); // vector of size 'size'
+  for (int i = 0; i < size; i++) {
+    result[i] = i * i;
+    return result;
+  }
+
+  int main() {
+    auto squares = CreateVectorFOfFullSquare(10);
+    return 0;
+  }
+}
+```
+
+- is small enough to see all the code at once
+- name clearly states what the function does
+- function does a _single_ thing
+
+### bad function example
+
+```cpp
+#include <vector>
+using namespace std;
+vector<int> Func(int a, bool b) {
+  if (b) {
+    return vector<int>(10, a);
+  }
+  vector<int> vec(a);
+  for (int i = 0; i < a; ++i) { vec[i] = a * i; }
+  if (vec.size() > a * 2) { vec[a] /= 2.0f; }
+  return vec;
+}
+```
+
+- name of the function means nothing
+- names of variables mean nothing
+- function does not have a single purpose
+
+## Declaration and definition
+
+- function declaration can be separated from the implementation details
+- function declaration sets up an interface
+
+```cpp
+void FuncName(int param)
+```
+
+- function definition holds the implementataion of the function that can even be hidden from the user
+
+```cpp
+void Funcname(int param) {
+  // implementation details
+  cout << "this function is called FuncName! ";
+  cout << "did you expect anything useful from it? ";
+}
+```
+
+## Passing big objects
+
+- by default in c++, objects are copied when passed into functions
+- if objects are big, it might be slow
+- **Pass by reference** to avoid copy
+
+```cpp
+void DoSmth(std::string huge_string); // slow
+void DoSmth(std::string& huge_string); // faster
+```
+
+### Is the string still same?
+
+```cpp
+string hello = "some_importanat_long+string";
+DoSmth(hello);
+```
+
+## Pass by reference intuition
+
+![pass by reference intuition](https://i.imgur.com/Yyl0ZMh.png)
