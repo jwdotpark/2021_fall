@@ -376,3 +376,56 @@ DoSmth(hello);
 ## Pass by reference intuition
 
 ![pass by reference intuition](https://i.imgur.com/Yyl0ZMh.png)
+
+https://www.youtube.com/watch?v=7e71KWARrNQ
+
+### solution: use const reference
+
+- pass `const` reference to the function
+- great speed as we pass a reference
+  passed object statys intact
+
+```cpp
+void DoSmth(const std::string& huge_string); // fast
+```
+
+- use snake_case for all function arguments
+- non-const refs are used in older code written before c++ 11
+- they can be useful but destroy readability
+- `GOOGLE-STYLE` avoid using non-const refs
+
+## Function overloading
+- compiler infers a function from arguments
+- cannot overload based on return type
+- return type plays no role at all
+- `GOOGLE-STYLE` avoid non-obvious overloads
+
+```cpp
+include <iostream>
+#include <iostream>
+#include <string>
+using namespace std;
+
+string Func(int num) { return "int"; }
+
+string Func(const string& str) 
+{ 
+  return "string"; 
+}
+
+int main() {
+  cout << Func(1) << endl;
+  cout << Func("hello") << endl;
+  return 0;
+}
+```
+
+## Default arguments
+- functions can accept default arguments
+- only set in declaration not in definition
+- PRO: simplifyf function calls
+- CONS:
+  - evaluated upon every call
+  - values are hidden in declaration
+  - can lead to unexpected behavior when overused
+- `GOOGLE-STYLE` only use them when readability gets much better
