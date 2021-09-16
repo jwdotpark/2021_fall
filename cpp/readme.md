@@ -429,3 +429,235 @@ int main() {
   - values are hidden in declaration
   - can lead to unexpected behavior when overused
 - `GOOGLE-STYLE` only use them when readability gets much better
+
+## Don't reinvent the wheel
+- when using `std::vector, std::array` etc, try to avoid writing your own functions
+- use #include <algorithm>
+- there is aa lot of functions in std which are at least as fast as hand-written ones
+
+## Header / Source separation
+- move all declarations to header files(*.h)
+- implementation goes to *.cpp or *.cc
+```cpp
+// some_file.h
+Type Somefunc(... args ...);
+
+// some_file.cpp
+#include "some_file.h"
+Type SomeFunc(... args ...) { /* some code */ }
+
+// program.cpp
+#include "some_file.h"
+int main() {
+  SomeFunc( /* some code */ );
+  return 0;
+} 
+```
+
+## How to build this?
+```cpp
+folder/
+   --- tools.h
+   --- tools.cpp
+   --- main.cpp
+```
+
+- short: we separate the code into modules
+
+- declaration: tools.h
+```cpp
+#pragma once // ensure file is included only once
+void MakeItSunny();
+void MakeitRain();
+```
+
+- definition: tools.cpp
+```cpp
+#include <iostream>
+#include "tools.h"
+
+void MakeItRain() {
+  // important weather manipulation code
+  std::cout << "here now it rains";
+}
+
+void MakeItSunny() {
+  std::cerr << "not available..";
+} 
+```
+
+- calling: main.cpp
+```cpp
+#include "tools.h"
+int main() {
+  MakeItRain();
+  MakeItSunny();
+  return 0;
+}
+```
+
+## Just build it as before?
+```cpp
+c++ -std=c++11 main.cpp -o main  
+```
+
+## Use modules and libraries!
+
+- compile modules:
+```cpp
+c++ -std=c++11 -c tools.cpp -o tools.o
+```
+- organize modules into libraries:
+```cpp
+ar rcs libtools.a tools.o <other_modules>
+```
+- link libraries when building code:
+```cpp
+c++ -std=c++11 main.cpp -L . -ltools -o main
+```
+- run the code
+```cpp
+./main
+```
+
+## Libraries
+- library: multiple object files that are logically connected
+- types of library: 
+  - static: faster, take a lot of space, become part of the end binary, named: `lib*.a`
+  - dynamic: slower, take less space, not part of the end binary, named: `lib*.so`
+- create a static library with
+```cpp
+ar rcs libname.a module.o module.o ...
+```
+- static libraries are just archives just like `zip/tar/...`
+
+## What is linking?
+- the library is a binary object that containts the compiled implemenation of some methods
+- linking maps a function declaration to its compiled implementation
+- to use a library, we need a header and the compliled library object
+
+## Use CMake to simplify the build
+- one of the most popular build tools
+- does not build the code, generates files to feed into a build system
+- cross-platform
+- very powerful, still build receipt is readable
+- the library creation and linking can be rewritten as follows:
+```cpp
+add_library(tools tools.cpp)
+add_executable(main main.cpp)
+target_link_libraries(main tools)
+```
+
+## Typical project structure
+```
+1  |-- project_name/
+2  |  |-- CMakeLists.txt
+3  |  |-- build/ # All generated build files
+4  |  |-- bin/
+5  |  |   |-- tools_demo
+6  |  |-- lib/
+7  |  |   |-- libtools.a
+8  |  |-- src/
+9  |  |   |-- CMakeLists.txt
+10 |  |   |-- project_name
+11 |  |   |-- CMakeLists.txt
+12 |  |   |-- tools.h
+13 |  |   |-- tools.cpp
+14 |  |   |-- tools_demo.cpp
+15 |  |-- tests/ # Tests for your code
+16 |  |   |-- test_tools.cpp
+17 |  |   |-- CMakeLists.txt
+18 |  |-- readme.md # How to use your code
+```
+
+## Build process
+- `CMakeLists.txt` defines the whole build
+- CMake reads `CMakeLists.txt` __sequentially__
+- Build Process:
+```bash
+  1. cd <projejct_folder>
+  2. mkdir build
+  3. cd build
+  4. cmake ..
+  5. make -j2 # pass your number of cores here
+```
+
+## First working CMakeLists.txt
+
+```CMake
+1  project(first_project) # Mandatory.
+2  cmake_minimum_required(VERSION 3.1) # Mandatory.
+3  set(CMAKE_CXX_STANDARD 11) # Use c++11.
+4  # tell cmake to output binaries here:
+5  set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+6  set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+7  # tell cmake where to look for *.h files
+8  include_directories(${PROJECT_SOURCE_DIR}/src)
+9  # create library "libtools"
+10 add_library(tools src/tools.cpp)
+11 # add executable main
+12 add_executable(main src/tools_main.cpp)
+13 # tell the linker to bind these objects together
+14 target_link_libraries(main tools)
+```
+
+## Useful commands in CMake
+- just a scripting language
+- has features of a scripiting language, i.e. functions, control structures, variables, etc
+- all variables are string
+- set variables with `set(VAR VALUE)`
+- get value of a variable with `${VAR}`
+- show a message `message(STATUS "hello world")`
+- also possible `WARNING, FATAL_ERROR` 
+
+## Use CMake in your builds
+- build process is standard and simple
+- no need to remember sequence of commands
+- all generated builds files are in one place
+- CMake detects changes to the files
+- Do this after changing files:
+```bash
+1. cd project/build
+2. make -j2 # pass your number of cores here
+```
+
+## Set compilation options in CMake
+```CMake
+1 set (CMAKE_CXX_STANDARD 14)
+2 # Set build type if not set.
+3 if(NOT CMAKE_BUILD_TYPE)
+4 set(CMAKE_BUILD_TYPE Release)
+5 endif()
+6 # Set additional flags.
+7 set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+8 set(CMAKE_CXX_FLAGS_DEBUG "-g -O0")
+9 set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+```
+
+- -Wall -Wextra: show all warnings
+- -g: keep debug information in binary
+- 0`<num>`: optimization level in {0, 1, 2, 3}
+  - 0: no optimization
+  - 3: full optimization
+
+## Remove build folder for performing a clean build
+- sometimes you want a clean build
+- it is very easy to do with CMake
+```CMake
+1. cd projejct/build
+2. make clean #remove generated binaries
+3. rm -r * #make sure you are in build folder
+```
+
+## Use pre-compiled library
+- sometimes you get a compiled library
+- you can use it in your build
+- for example, given `libtools.so` it can be used in the project as follows:
+
+```CMake
+1 find_library(TOOLS
+2 NAMES tools
+3 PATHS ${LIBRARY_OUTPUT_PATH})
+4 # Use it for linking:
+5 target_link_libraries(<some_binary > ${TOOLS})
+```
