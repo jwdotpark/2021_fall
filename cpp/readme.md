@@ -661,3 +661,5 @@ target_link_libraries(main tools)
 4 # Use it for linking:
 5 target_link_libraries(<some_binary > ${TOOLS})
 ```
+
+https://docs.microsoft.com/en-us/cpp/cpp/declarations-and-definitions-cpp?view=msvc-160
