@@ -11,6 +11,7 @@ int main()
   int user_input;
   cout << "Guess a number between 1 and 100" << endl;
   cin >> user_input;
+
   while (user_input != random_number)
   {
     if (user_input > random_number)
@@ -23,10 +24,12 @@ int main()
       cout << "Too low, guess again" << endl;
       cin >> user_input;
     }
+
     if (user_input == random_number)
     {
       cout << "You guess the right number, " << user_input;
     }
   }
+
   return 0;
 }
