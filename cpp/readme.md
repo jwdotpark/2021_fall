@@ -10,7 +10,7 @@ https://www.notion.so/Follow-C-course-from-university-of-bonn-a8f39c64ecb14c8199
 
 ## include directive
 
-- #include <file> - system include files
+- #include `<file>` - system include files
 - #include "file" - local include files
 
 ## compilers
@@ -178,6 +178,7 @@ int main() { // start of main scope
 > ### return 0 vs return 1
 
 - https://www.geeksforgeeks.org/return-0-vs-return-1-in-c/
+- https://en.cppreference.com/w/cpp/language/return
 - return 0: A return 0 means that the program will execute successfully and did what it was intended to do
 - return 1: A return 1 means that there is some error while executing the program and it is not performing what it was intended to do
 
