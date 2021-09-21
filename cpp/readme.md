@@ -110,7 +110,7 @@ const int kIterNum = 100;
 // always call reserver when you know the size
 vec.reserve(kIterNum);
 for (int i = 0; i < kIterNum; i++) {
-  vec.emplace_back("hello);
+	vec.emplace_back("hello);
 }
 ```
 
@@ -132,11 +132,11 @@ for (int i = 0; i < kIterNum; i++) {
 
 ```cpp
 int main() { // start of main scope
-  float some_float = 13.13f; // create var
-  { // new inner scope
-    auto another_float = some_float; // copy variable
-  } //another_float dies
-  return 0;
+	float some_float = 13.13f; // create var
+	{ // new inner scope
+		auto another_float = some_float; // copy variable
+	} //another_float dies
+	return 0;
 } // some_float dies
 ```
 
@@ -191,7 +191,7 @@ int main() { // start of main scope
 
 ```cpp
 while (statement) {
-  // loop while statement == true
+	// loop while statement == true
 }
 ```
 
@@ -202,13 +202,13 @@ while (statement) {
 
 ```cpp
 for (initial_condition; end_condition; increment) {
-  // loop while end_condition == true
+	// loop while end_condition == true
 }
 ```
 
 ```cpp
 for (int i = 0; i < count; i++) {
-  // this happens till count times
+	// this happens till count times
 }
 ```
 
@@ -225,7 +225,7 @@ for (int i = 0; i < count; i++) {
 
 ```cpp
 for (const auto& value: container) {
-  // this happens for each value in the container
+	// this happens for each value in the container
 }
 ```
 
@@ -237,12 +237,12 @@ for (const auto& value: container) {
 
 ```cpp
 while (true) {
-  int i = // magically get new int
-  if (i % 2 == 0) {
-    cerr << i << endl;
-  } else {
-    break;
-  }
+	int i = // magically get new int
+	if (i % 2 == 0) {
+		cerr << i << endl;
+	} else {
+		break;
+	}
 }
 ```
 
@@ -278,8 +278,8 @@ while (true) {
 
 ```cpp
 ReturnType FuncName(ParamType1 in_1, PramType2 in_2) {
-  // some code
-  return return_value;
+	// some code
+	return return_value;
 }
 ```
 
@@ -299,16 +299,16 @@ ReturnType FuncName(ParamType1 in_1, PramType2 in_2) {
 using namespace std;
 
 vector<int> CreateVectorFOfFullSquare(int size) {
-  vector<int> result(size); // vector of size 'size'
-  for (int i = 0; i < size; i++) {
-    result[i] = i * i;
-    return result;
-  }
+	vector<int> result(size); // vector of size 'size'
+	for (int i = 0; i < size; i++) {
+		result[i] = i * i;
+		return result;
+	}
 
-  int main() {
-    auto squares = CreateVectorFOfFullSquare(10);
-    return 0;
-  }
+	int main() {
+		auto squares = CreateVectorFOfFullSquare(10);
+		return 0;
+	}
 }
 ```
 
@@ -322,13 +322,13 @@ vector<int> CreateVectorFOfFullSquare(int size) {
 #include <vector>
 using namespace std;
 vector<int> Func(int a, bool b) {
-  if (b) {
-    return vector<int>(10, a);
-  }
-  vector<int> vec(a);
-  for (int i = 0; i < a; ++i) { vec[i] = a * i; }
-  if (vec.size() > a * 2) { vec[a] /= 2.0f; }
-  return vec;
+	if (b) {
+		return vector<int>(10, a);
+	}
+	vector<int> vec(a);
+	for (int i = 0; i < a; ++i) { vec[i] = a * i; }
+	if (vec.size() > a * 2) { vec[a] /= 2.0f; }
+	return vec;
 }
 ```
 
@@ -349,9 +349,9 @@ void FuncName(int param)
 
 ```cpp
 void Funcname(int param) {
-  // implementation details
-  cout << "this function is called FuncName! ";
-  cout << "did you expect anything useful from it? ";
+	// implementation details
+	cout << "this function is called FuncName! ";
+	cout << "did you expect anything useful from it? ";
 }
 ```
 
@@ -395,6 +395,7 @@ void DoSmth(const std::string& huge_string); // fast
 - `GOOGLE-STYLE` avoid using non-const refs
 
 ## Function overloading
+
 - compiler infers a function from arguments
 - cannot overload based on return type
 - return type plays no role at all
@@ -408,19 +409,20 @@ using namespace std;
 
 string Func(int num) { return "int"; }
 
-string Func(const string& str) 
-{ 
-  return "string"; 
+string Func(const string& str)
+{
+	return "string";
 }
 
 int main() {
-  cout << Func(1) << endl;
-  cout << Func("hello") << endl;
-  return 0;
+	cout << Func(1) << endl;
+	cout << Func("hello") << endl;
+	return 0;
 }
 ```
 
 ## Default arguments
+
 - functions can accept default arguments
 - only set in declaration not in definition
 - PRO: simplifyf function calls
@@ -431,13 +433,16 @@ int main() {
 - `GOOGLE-STYLE` only use them when readability gets much better
 
 ## Don't reinvent the wheel
+
 - when using `std::vector, std::array` etc, try to avoid writing your own functions
 - use #include <algorithm>
 - there is aa lot of functions in std which are at least as fast as hand-written ones
 
 ## Header / Source separation
-- move all declarations to header files(*.h)
-- implementation goes to *.cpp or *.cc
+
+- move all declarations to header files(\*.h)
+- implementation goes to _.cpp or _.cc
+
 ```cpp
 // some_file.h
 Type Somefunc(... args ...);
@@ -449,22 +454,24 @@ Type SomeFunc(... args ...) { /* some code */ }
 // program.cpp
 #include "some_file.h"
 int main() {
-  SomeFunc( /* some code */ );
-  return 0;
-} 
+	SomeFunc( /* some code */ );
+	return 0;
+}
 ```
 
 ## How to build this?
+
 ```cpp
 folder/
-   --- tools.h
-   --- tools.cpp
-   --- main.cpp
+	 --- tools.h
+	 --- tools.cpp
+	 --- main.cpp
 ```
 
 - short: we separate the code into modules
 
 - declaration: tools.h
+
 ```cpp
 #pragma once // ensure file is included only once
 void MakeItSunny();
@@ -472,76 +479,92 @@ void MakeitRain();
 ```
 
 - definition: tools.cpp
+
 ```cpp
 #include <iostream>
 #include "tools.h"
 
 void MakeItRain() {
-  // important weather manipulation code
-  std::cout << "here now it rains";
+	// important weather manipulation code
+	std::cout << "here now it rains";
 }
 
 void MakeItSunny() {
-  std::cerr << "not available..";
-} 
+	std::cerr << "not available..";
+}
 ```
 
 - calling: main.cpp
+
 ```cpp
 #include "tools.h"
 int main() {
-  MakeItRain();
-  MakeItSunny();
-  return 0;
+	MakeItRain();
+	MakeItSunny();
+	return 0;
 }
 ```
 
 ## Just build it as before?
+
 ```cpp
-c++ -std=c++11 main.cpp -o main  
+c++ -std=c++11 main.cpp -o main
 ```
 
 ## Use modules and libraries!
 
 - compile modules:
+
 ```cpp
 c++ -std=c++11 -c tools.cpp -o tools.o
 ```
+
 - organize modules into libraries:
+
 ```cpp
 ar rcs libtools.a tools.o <other_modules>
 ```
+
 - link libraries when building code:
+
 ```cpp
 c++ -std=c++11 main.cpp -L . -ltools -o main
 ```
+
 - run the code
+
 ```cpp
 ./main
 ```
 
 ## Libraries
+
 - library: multiple object files that are logically connected
-- types of library: 
+- types of library:
   - static: faster, take a lot of space, become part of the end binary, named: `lib*.a`
   - dynamic: slower, take less space, not part of the end binary, named: `lib*.so`
 - create a static library with
+
 ```cpp
 ar rcs libname.a module.o module.o ...
 ```
+
 - static libraries are just archives just like `zip/tar/...`
 
 ## What is linking?
+
 - the library is a binary object that containts the compiled implemenation of some methods
 - linking maps a function declaration to its compiled implementation
 - to use a library, we need a header and the compliled library object
 
 ## Use CMake to simplify the build
+
 - one of the most popular build tools
 - does not build the code, generates files to feed into a build system
 - cross-platform
 - very powerful, still build receipt is readable
 - the library creation and linking can be rewritten as follows:
+
 ```cpp
 add_library(tools tools.cpp)
 add_executable(main main.cpp)
@@ -549,6 +572,7 @@ target_link_libraries(main tools)
 ```
 
 ## Typical project structure
+
 ```
 1  |-- project_name/
 2  |  |-- CMakeLists.txt
@@ -571,15 +595,17 @@ target_link_libraries(main tools)
 ```
 
 ## Build process
+
 - `CMakeLists.txt` defines the whole build
-- CMake reads `CMakeLists.txt` __sequentially__
+- CMake reads `CMakeLists.txt` **sequentially**
 - Build Process:
+
 ```bash
-  1. cd <projejct_folder>
-  2. mkdir build
-  3. cd build
-  4. cmake ..
-  5. make -j2 # pass your number of cores here
+	1. cd <projejct_folder>
+	2. mkdir build
+	3. cd build
+	4. cmake ..
+	5. make -j2 # pass your number of cores here
 ```
 
 ## First working CMakeLists.txt
@@ -602,26 +628,30 @@ target_link_libraries(main tools)
 ```
 
 ## Useful commands in CMake
+
 - just a scripting language
 - has features of a scripiting language, i.e. functions, control structures, variables, etc
 - all variables are string
 - set variables with `set(VAR VALUE)`
 - get value of a variable with `${VAR}`
 - show a message `message(STATUS "hello world")`
-- also possible `WARNING, FATAL_ERROR` 
+- also possible `WARNING, FATAL_ERROR`
 
 ## Use CMake in your builds
+
 - build process is standard and simple
 - no need to remember sequence of commands
 - all generated builds files are in one place
 - CMake detects changes to the files
 - Do this after changing files:
+
 ```bash
 1. cd project/build
 2. make -j2 # pass your number of cores here
 ```
 
 ## Set compilation options in CMake
+
 ```CMake
 1 set (CMAKE_CXX_STANDARD 14)
 2 # Set build type if not set.
@@ -641,8 +671,10 @@ target_link_libraries(main tools)
   - 3: full optimization
 
 ## Remove build folder for performing a clean build
+
 - sometimes you want a clean build
 - it is very easy to do with CMake
+
 ```CMake
 1. cd projejct/build
 2. make clean #remove generated binaries
@@ -650,6 +682,7 @@ target_link_libraries(main tools)
 ```
 
 ## Use pre-compiled library
+
 - sometimes you get a compiled library
 - you can use it in your build
 - for example, given `libtools.so` it can be used in the project as follows:
@@ -662,4 +695,209 @@ target_link_libraries(main tools)
 5 target_link_libraries(<some_binary > ${TOOLS})
 ```
 
-https://docs.microsoft.com/en-us/cpp/cpp/declarations-and-definitions-cpp?view=msvc-160
+- https://docs.microsoft.com/en-us/cpp/cpp/declarations-and-definitions-cpp?view=msvc-160
+
+- cmake tutorial: https://code.visualstudio.com/docs/cpp/cmake-linux
+
+# Lecture 3, Google Test, Namespaces, Classes
+
+## Google Test
+
+### Use GTest to test your functions
+
+- catch bugs earlier
+- testing is crucial to catch bugs early
+- tested functions are easier to trust
+- for every function write at least **two tests**
+  - one for normal cases
+  - one for edge cases
+- **Make writing tests a habit**
+
+### How do tests look?
+
+- A single dummy google test looks like:
+
+```cpp
+Test(TestModule, FunctionName) {
+	EXPECT_EQ(4, FunctionName());
+}
+```
+
+- ssuccessful output looks like:
+
+```zsh
+Running main() from gtest_main.cc
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from TesModule
+[ RUN      ] TesModule.FunctionName
+[ OK       ] TesModule.FunctionName (0 ms)
+[----------] 1 test from TesModule (0 ms total)
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test case ran.
+[ PASSED ] 1 test.
+```
+
+### Add GTests with Cmake
+
+- install GTest source files(build them later):
+  `sudo apt install libgtst-dev`
+- add folder `tests` to your CMake project:
+
+```cpp
+# Must be in the top-most CMakelists.txt file.
+enable_testing()
+# outsource tests to another folder
+addLsubdirectory(tests)
+```
+
+### configure test
+
+```cpp
+# Add gtest sources folder. Provides gtest, gtest_main.
+add_subdirectory(/usr/src/gtest
+${PROJECT_BINARY_DIR}/gtest)
+include(CTest) # Include testing cmake package.
+# Set binary name for convenience.
+set(TEST_BINARY ${PROJECT_NAME}_test)
+# This is an executable that runs the tests.
+add_executable(${TEST_BINARY} test_tools.cpp)
+# Link the executable to needed libraries.
+target_link_libraries(${TEST_BINARY}
+tools # Library we are testing
+gtest gtest_main # GTest libraries
+)
+# Add gtest to be able to run ctest
+add_test(
+NAME ${TEST_BINARY}
+COMMAND ${EXECUTABLE_OUTPUT_PATH}/${TEST_BINARY})
+```
+
+- https://www.youtube.com/watch?v=q8xO2eJijy4&list=PLgnQpQtFTOGR50iIOtO36nK6aNPtVq98C&index=4
+- https://www.ipb.uni-bonn.de/wp-content/uploads/2018/05/lecture_3.pdf
+
+### Run your tests
+
+- build your code just like before
+- add one **additional step** after building
+
+```bash
+1. cd <project_folder>
+2. mkdir build
+3. cd build
+4. cmake ..
+5. make
+6. __ctest -VV
+```
+
+## Namespaces
+
+```cpp
+1 #include <iostream>
+2
+3 namespace fun {
+4   int GetMeaningOfLife() { return 42; }
+5 } // namespace fun
+6
+7 namespace boring {
+8   int GetMeaningOfLife() { return 0; }
+9 } // namespace boring
+10
+11 int main() {
+12  std::cout << "The answer to everything is not "
+13  << boring::GetMeaningOfLife() << " but "
+14  << fun::GetMeaningOfLife() << std::endl;
+15  return 0;
+16 }
+```
+
+### Only use what you need
+
+### Namespaces wrap up
+
+- use namespaces to avoid name conflicts
+
+```cpp
+namespace some_name {
+	<your_code>
+} // namespace some_name
+```
+
+- use using correctly
+- GOOD
+  - `using my_namespace::myFunc;`
+  - my_namespace::myFunc();
+- NEVER use `using name space name` in \*.h files
+- PREFER using explicit `using` even in \*.cpp files
+
+### Nameless namespaces
+
+- If you find yourself relying on some constants in aa file and these constants should not be seen in any other file, put them into a nameless namespace on top of this file.
+- To avoid hard coded value
+
+```cpp
+namespace {
+	const  int kLocalImportantInt = 13;
+	const float kLocalImportantFloat = 13.0f;
+} // namespace
+```
+
+## Classes
+
+### Create new types with classes and structs
+
+- classes are used to encapsulate data along with methods to process them
+- evry `class` or `struct` defines a new type
+- **Terminology**:
+  - `type` or `class` to talk about the defined type
+  - a variable of such type is an `instance of class` or an `object`
+- classes allow c++ to be used as an Object Oriented Programming language
+- `string, vector`, etc arer all classes
+
+```cpp
+// Example class definition
+
+class Image
+{
+public:
+  Image(const std::string& file_name);
+  void Draw();
+private:
+  int rows_ = 0;
+  int cols_ = 0;
+};
+
+//implementation omitted here
+
+int main() {
+  Image image("some_image.pgm");
+  image.Draw();
+  return 0;
+}
+```
+
+### Classes syntax
+
+- definition starts with the keyword `class`
+- classes have three access modifiers: `private, protected` and `public`
+- by default, everything is private
+- classes can contain data and functions
+- access members with a "."
+- have two types of special functions:
+  - constructors: called upon creation of an instance of the class
+  - descructors: called upon destruction of an instance of the class
+- `GOOGLE-STYLE` use `CamelCase` for class name
+
+### What about structs?
+- definition starts with the keyword `struct`:
+```cpp
+struct ExampleStruct {
+	Type value;
+	Type valaue;
+	Type value;
+	// no funcitons!
+}
+```
+- `struct` is a class where everything is `public`
+- `GOOGLE-STYLE` use `struct` as a simple __data container__, if it needs a function it should be a `class` instead
+
