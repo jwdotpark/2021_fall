@@ -890,7 +890,9 @@ int main() {
 - `GOOGLE-STYLE` use `CamelCase` for class name
 
 ### What about structs?
+
 - definition starts with the keyword `struct`:
+
 ```cpp
 struct ExampleStruct {
 	Type value;
@@ -899,6 +901,154 @@ struct ExampleStruct {
 	// no funcitons!
 }
 ```
+
 - `struct` is a class where everything is `public`
-- `GOOGLE-STYLE` use `struct` as a simple __data container__, if it needs a function it should be a `class` instead
+- `GOOGLE-STYLE` use `struct` as a simple **data container**, if it needs a function it should be a `class` instead
+
+### Always initialize structs using braced initialization
+
+- https://youtu.be/q8xO2eJijy4?t=5282
+- order in struct matters!
+
+### Data stored in a class
+
+- classes can store data of any type
+- `GOOGLE-STYLE` all data must be `private`
+- `GOOGLE-STYLE` use `snake_case` with a trailing "\_" for `private` data members
+- data should be set in the constructor
+- clean up data in the destructor if needed
+
+### Constructors and Destructors
+
+- classes always have **at least one constructor** and **exactly one destructor**
+- constructors crash course:
+  - are functions with no return type
+  - named exactly as the class
+  - there can be many constructors
+  - if there is no explicit constructor, an implicit default constructor will be generated
+- destructors for class `SomeClass()`
+  - is a function named `~SomeClass()`
+  - last function called in the lifetime of an object
+  - generated automatically if not explicitly defined
+
+### Many ways to create instances of a classes
+
+```cpp
+class SomeClass {
+	public:
+		SomeClass();                 // default constructor
+		SomeClass(int a);            // custom constructor
+		SomeClass(int a, float b);   // custom cunstructor
+		~SomeClass();                // destructor
+};
+
+// how to use them?
+int main() {
+	SomeClass var_1;               // default constructor
+	SomeClass var_2(10);					 // custom constructor
+
+	// type is checked when using {} braces. use them!
+
+	SomeClass var_3{10}; 				   // custom constructor
+	SomeClass var_4 = {10};        // same as var_3
+	SomeClass var_5{10, 10.0};     // custom constructor
+	SomeClass var_6 = {10, 10.0};  // same as var_5
+	return 0;
+}
+```
+
+### Setting and getting data
+
+- Use **initializer list** to set data
+- name getter functions as the private member they return
+- make getters `const`
+- _Avoid setters_, set data in the constructor
+
+```cpp
+class Student {
+	public:
+	  Student(int id, string  name): id_{id}, naame_{name} {}
+		// initializer
+		int id() const { return id_; } // return getter
+		const string& name() const { return name_;}
+		                     // this function will never change the object
+	private:
+		int id_;
+		string name_;
+};
+```
+
+### Const correctness
+
+- `const` after function states that this function _does not change the object_
+- mark all functions that _should not_ change the state of the object as `const`
+- ensures that we can pass objects by a `const` reference and still call their functions
+- substantially reduces number of errors
+- https://isocpp.org/wiki/faq/const-correctness
+
+### Typical const error
+
+```cpp
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+class Student {
+	public:
+		Student(string, name): name_{name} {}
+		const string& name() /* const */ { return name_; }
+	private:
+		string name_;
+};
+
+void Print(const Student& student) {
+	cout << "Student: " << student.name() << endl;
+}
+```
+- `error: discards qualifiers` meaning that the function doesn't return const
+
+### Declaration and definition
+- data members belong to declaration
+- class methods can be defined elsewhere
+- class name becomes a part of function name
+```cpp
+// declare class
+class SomeClass {
+	public:
+		SomeClass();
+		int var() const;
+	private:
+		void DoSmth();
+		int var_ = 0;
+};
+
+// define all methods
+SomeClass::SomeClass() {}
+int SomeClass::var() const { return var_; }
+void SomeClass::DoSmth() {} 
+```
+
+### Always initialize members for classes
+- c++11 allows to initialize variables in-place
+- do not initialize them in the constructor
+- noneed for an explicit default constructor
+```cpp
+class Student {
+	public:
+		// no need for default constructor
+		// getters and functions omitted
+	private:
+		int earned_points_ = 0;
+		float happiness_ = 1.0f;
+};
+```
+- __NOTE__: leave the members of `structs` uninitialized as defining them forbids using brace initialization
+
+### Classes as modules
+- prefer encapsulating information that belongs together into a class
+- separate declaration and definition of the class into header rand source files
+- typically, class `SomeClass` is declared in `some_class.h` and is defined in `some_class.cpp`
+
+
 
