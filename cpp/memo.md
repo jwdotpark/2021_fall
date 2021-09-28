@@ -66,3 +66,11 @@ y + x++;
 
 *** 
 while
+***
+
+## For loop
+```cpp
+for (init; condition; increment) {
+  statement(s);
+}
+```
