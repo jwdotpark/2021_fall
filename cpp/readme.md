@@ -1,6 +1,6 @@
-https://www.notion.so/Follow-C-course-from-university-of-bonn-a8f39c64ecb14c819932e6c16eca6a81
+<https://www.notion.so/Follow-C-course-from-university-of-bonn-a8f39c64ecb14c819932e6c16eca6a81>
 
-# lecture 0: https://www.youtube.com/watch?v=F_vIB3yjxaM
+# lecture 0: <https://www.youtube.com/watch?v=F_vIB3yjxaM>
 
 ## main
 
@@ -20,7 +20,7 @@ https://www.notion.so/Follow-C-course-from-university-of-bonn-a8f39c64ecb14c8199
 
 ---
 
-# lecture 1: https://www.youtube.com/watch?v=k290gC3eP44
+# lecture 1: <https://www.youtube.com/watch?v=k290gC3eP44>
 
 ## declaring variables
 
@@ -110,7 +110,7 @@ const int kIterNum = 100;
 // always call reserver when you know the size
 vec.reserve(kIterNum);
 for (int i = 0; i < kIterNum; i++) {
-	vec.emplace_back("hello);
+ vec.emplace_back("hello);
 }
 ```
 
@@ -132,11 +132,11 @@ for (int i = 0; i < kIterNum; i++) {
 
 ```cpp
 int main() { // start of main scope
-	float some_float = 13.13f; // create var
-	{ // new inner scope
-		auto another_float = some_float; // copy variable
-	} //another_float dies
-	return 0;
+ float some_float = 13.13f; // create var
+ { // new inner scope
+  auto another_float = some_float; // copy variable
+ } //another_float dies
+ return 0;
 } // some_float dies
 ```
 
@@ -163,7 +163,7 @@ int main() { // start of main scope
 - whatever happens to a reference happens to the variable and vice versa
 - yields performance gain as references - **avoid copying data**
 
-### rvalue:
+### rvalue
 
 - right-hand side of an assignment
 
@@ -177,8 +177,8 @@ int main() { // start of main scope
 
 > ### return 0 vs return 1
 
-- https://www.geeksforgeeks.org/return-0-vs-return-1-in-c/
-- https://en.cppreference.com/w/cpp/language/return
+- <https://www.geeksforgeeks.org/return-0-vs-return-1-in-c/>
+- <https://en.cppreference.com/w/cpp/language/return>
 - return 0: A return 0 means that the program will execute successfully and did what it was intended to do
 - return 1: A return 1 means that there is some error while executing the program and it is not performing what it was intended to do
 
@@ -192,7 +192,7 @@ int main() { // start of main scope
 
 ```cpp
 while (statement) {
-	// loop while statement == true
+ // loop while statement == true
 }
 ```
 
@@ -203,13 +203,13 @@ while (statement) {
 
 ```cpp
 for (initial_condition; end_condition; increment) {
-	// loop while end_condition == true
+ // loop while end_condition == true
 }
 ```
 
 ```cpp
 for (int i = 0; i < count; i++) {
-	// this happens till count times
+ // this happens till count times
 }
 ```
 
@@ -226,7 +226,7 @@ for (int i = 0; i < count; i++) {
 
 ```cpp
 for (const auto& value: container) {
-	// this happens for each value in the container
+ // this happens for each value in the container
 }
 ```
 
@@ -238,18 +238,18 @@ for (const auto& value: container) {
 
 ```cpp
 while (true) {
-	int i = // magically get new int
-	if (i % 2 == 0) {
-		cerr << i << endl;
-	} else {
-		break;
-	}
+ int i = // magically get new int
+ if (i % 2 == 0) {
+  cerr << i << endl;
+ } else {
+  break;
+ }
 }
 ```
 
 ---
 
-# lecture2: Compilation, Debugging, Functions, Header/Source, Libraries, CMake https://www.youtube.com/watch?v=7e71KWARrNQ
+# lecture2: Compilation, Debugging, Functions, Header/Source, Libraries, CMake <https://www.youtube.com/watch?v=7e71KWARrNQ>
 
 ## Compilation flag
 
@@ -279,8 +279,8 @@ while (true) {
 
 ```cpp
 ReturnType FuncName(ParamType1 in_1, PramType2 in_2) {
-	// some code
-	return return_value;
+ // some code
+ return return_value;
 }
 ```
 
@@ -300,16 +300,16 @@ ReturnType FuncName(ParamType1 in_1, PramType2 in_2) {
 using namespace std;
 
 vector<int> CreateVectorFOfFullSquare(int size) {
-	vector<int> result(size); // vector of size 'size'
-	for (int i = 0; i < size; i++) {
-		result[i] = i * i;
-		return result;
-	}
+ vector<int> result(size); // vector of size 'size'
+ for (int i = 0; i < size; i++) {
+  result[i] = i * i;
+  return result;
+ }
 
-	int main() {
-		auto squares = CreateVectorFOfFullSquare(10);
-		return 0;
-	}
+ int main() {
+  auto squares = CreateVectorFOfFullSquare(10);
+  return 0;
+ }
 }
 ```
 
@@ -323,13 +323,13 @@ vector<int> CreateVectorFOfFullSquare(int size) {
 #include <vector>
 using namespace std;
 vector<int> Func(int a, bool b) {
-	if (b) {
-		return vector<int>(10, a);
-	}
-	vector<int> vec(a);
-	for (int i = 0; i < a; ++i) { vec[i] = a * i; }
-	if (vec.size() > a * 2) { vec[a] /= 2.0f; }
-	return vec;
+ if (b) {
+  return vector<int>(10, a);
+ }
+ vector<int> vec(a);
+ for (int i = 0; i < a; ++i) { vec[i] = a * i; }
+ if (vec.size() > a * 2) { vec[a] /= 2.0f; }
+ return vec;
 }
 ```
 
@@ -350,9 +350,9 @@ void FuncName(int param)
 
 ```cpp
 void Funcname(int param) {
-	// implementation details
-	cout << "this function is called FuncName! ";
-	cout << "did you expect anything useful from it? ";
+ // implementation details
+ cout << "this function is called FuncName! ";
+ cout << "did you expect anything useful from it? ";
 }
 ```
 
@@ -378,7 +378,7 @@ DoSmth(hello);
 
 ![pass by reference intuition](https://i.imgur.com/Yyl0ZMh.png)
 
-https://www.youtube.com/watch?v=7e71KWARrNQ
+<https://www.youtube.com/watch?v=7e71KWARrNQ>
 
 ### solution: use const reference
 
@@ -412,13 +412,13 @@ string Func(int num) { return "int"; }
 
 string Func(const string& str)
 {
-	return "string";
+ return "string";
 }
 
 int main() {
-	cout << Func(1) << endl;
-	cout << Func("hello") << endl;
-	return 0;
+ cout << Func(1) << endl;
+ cout << Func("hello") << endl;
+ return 0;
 }
 ```
 
@@ -442,7 +442,7 @@ int main() {
 ## Header / Source separation
 
 - move all declarations to header files(\*.h)
-- implementation goes to _.cpp or _.cc
+- implementation goes to _.cpp or_.cc
 
 ```cpp
 // some_file.h
@@ -455,8 +455,8 @@ Type SomeFunc(... args ...) { /* some code */ }
 // program.cpp
 #include "some_file.h"
 int main() {
-	SomeFunc( /* some code */ );
-	return 0;
+ SomeFunc( /* some code */ );
+ return 0;
 }
 ```
 
@@ -464,9 +464,9 @@ int main() {
 
 ```cpp
 folder/
-	 --- tools.h
-	 --- tools.cpp
-	 --- main.cpp
+  --- tools.h
+  --- tools.cpp
+  --- main.cpp
 ```
 
 - short: we separate the code into modules
@@ -486,12 +486,12 @@ void MakeitRain();
 #include "tools.h"
 
 void MakeItRain() {
-	// important weather manipulation code
-	std::cout << "here now it rains";
+ // important weather manipulation code
+ std::cout << "here now it rains";
 }
 
 void MakeItSunny() {
-	std::cerr << "not available..";
+ std::cerr << "not available..";
 }
 ```
 
@@ -500,9 +500,9 @@ void MakeItSunny() {
 ```cpp
 #include "tools.h"
 int main() {
-	MakeItRain();
-	MakeItSunny();
-	return 0;
+ MakeItRain();
+ MakeItSunny();
+ return 0;
 }
 ```
 
@@ -512,7 +512,7 @@ int main() {
 c++ -std=c++11 main.cpp -o main
 ```
 
-## Use modules and libraries!
+## Use modules and libraries
 
 - compile modules:
 
@@ -602,11 +602,11 @@ target_link_libraries(main tools)
 - Build Process:
 
 ```bash
-	1. cd <projejct_folder>
-	2. mkdir build
-	3. cd build
-	4. cmake ..
-	5. make -j2 # pass your number of cores here
+ 1. cd <projejct_folder>
+ 2. mkdir build
+ 3. cd build
+ 4. cmake ..
+ 5. make -j2 # pass your number of cores here
 ```
 
 ## First working CMakeLists.txt
@@ -696,9 +696,9 @@ target_link_libraries(main tools)
 5 target_link_libraries(<some_binary > ${TOOLS})
 ```
 
-- https://docs.microsoft.com/en-us/cpp/cpp/declarations-and-definitions-cpp?view=msvc-160
+- <https://docs.microsoft.com/en-us/cpp/cpp/declarations-and-definitions-cpp?view=msvc-160>
 
-- cmake tutorial: https://code.visualstudio.com/docs/cpp/cmake-linux
+- cmake tutorial: <https://code.visualstudio.com/docs/cpp/cmake-linux>
 
 # Lecture 3, Google Test, Namespaces, Classes
 
@@ -720,7 +720,7 @@ target_link_libraries(main tools)
 
 ```cpp
 Test(TestModule, FunctionName) {
-	EXPECT_EQ(4, FunctionName());
+ EXPECT_EQ(4, FunctionName());
 }
 ```
 
@@ -774,8 +774,8 @@ NAME ${TEST_BINARY}
 COMMAND ${EXECUTABLE_OUTPUT_PATH}/${TEST_BINARY})
 ```
 
-- https://www.youtube.com/watch?v=q8xO2eJijy4&list=PLgnQpQtFTOGR50iIOtO36nK6aNPtVq98C&index=4
-- https://www.ipb.uni-bonn.de/wp-content/uploads/2018/05/lecture_3.pdf
+- <https://www.youtube.com/watch?v=q8xO2eJijy4&list=PLgnQpQtFTOGR50iIOtO36nK6aNPtVq98C&index=4>
+- <https://www.ipb.uni-bonn.de/wp-content/uploads/2018/05/lecture_3.pdf>
 
 ### Run your tests
 
@@ -820,7 +820,7 @@ COMMAND ${EXECUTABLE_OUTPUT_PATH}/${TEST_BINARY})
 
 ```cpp
 namespace some_name {
-	<your_code>
+ <your_code>
 } // namespace some_name
 ```
 
@@ -838,8 +838,8 @@ namespace some_name {
 
 ```cpp
 namespace {
-	const  int kLocalImportantInt = 13;
-	const float kLocalImportantFloat = 13.0f;
+ const  int kLocalImportantInt = 13;
+ const float kLocalImportantFloat = 13.0f;
 } // namespace
 ```
 
@@ -895,10 +895,10 @@ int main() {
 
 ```cpp
 struct ExampleStruct {
-	Type value;
-	Type valaue;
-	Type value;
-	// no funcitons!
+ Type value;
+ Type valaue;
+ Type value;
+ // no funcitons!
 }
 ```
 
@@ -907,7 +907,7 @@ struct ExampleStruct {
 
 ### Always initialize structs using braced initialization
 
-- https://youtu.be/q8xO2eJijy4?t=5282
+- <https://youtu.be/q8xO2eJijy4?t=5282>
 - order in struct matters!
 
 ### Data stored in a class
@@ -935,25 +935,25 @@ struct ExampleStruct {
 
 ```cpp
 class SomeClass {
-	public:
-		SomeClass();                 // default constructor
-		SomeClass(int a);            // custom constructor
-		SomeClass(int a, float b);   // custom cunstructor
-		~SomeClass();                // destructor
+ public:
+  SomeClass();                 // default constructor
+  SomeClass(int a);            // custom constructor
+  SomeClass(int a, float b);   // custom cunstructor
+  ~SomeClass();                // destructor
 };
 
 // how to use them?
 int main() {
-	SomeClass var_1;               // default constructor
-	SomeClass var_2(10);					 // custom constructor
+ SomeClass var_1;               // default constructor
+ SomeClass var_2(10);      // custom constructor
 
-	// type is checked when using {} braces. use them!
+ // type is checked when using {} braces. use them!
 
-	SomeClass var_3{10}; 				   // custom constructor
-	SomeClass var_4 = {10};        // same as var_3
-	SomeClass var_5{10, 10.0};     // custom constructor
-	SomeClass var_6 = {10, 10.0};  // same as var_5
-	return 0;
+ SomeClass var_3{10};        // custom constructor
+ SomeClass var_4 = {10};        // same as var_3
+ SomeClass var_5{10, 10.0};     // custom constructor
+ SomeClass var_6 = {10, 10.0};  // same as var_5
+ return 0;
 }
 ```
 
@@ -966,15 +966,15 @@ int main() {
 
 ```cpp
 class Student {
-	public:
-	  Student(int id, string  name): id_{id}, naame_{name} {}
-		// initializer
-		int id() const { return id_; } // return getter
-		const string& name() const { return name_;}
-		                     // this function will never change the object
-	private:
-		int id_;
-		string name_;
+ public:
+   Student(int id, string  name): id_{id}, naame_{name} {}
+  // initializer
+  int id() const { return id_; } // return getter
+  const string& name() const { return name_;}
+                       // this function will never change the object
+ private:
+  int id_;
+  string name_;
 };
 ```
 
@@ -984,7 +984,7 @@ class Student {
 - mark all functions that _should not_ change the state of the object as `const`
 - ensures that we can pass objects by a `const` reference and still call their functions
 - substantially reduces number of errors
-- https://isocpp.org/wiki/faq/const-correctness
+- <https://isocpp.org/wiki/faq/const-correctness>
 
 ### Typical const error
 
@@ -995,62 +995,179 @@ class Student {
 using namespace std;
 
 class Student {
-	public:
-		Student(string, name): name_{name} {}
-		const string& name() /* const */ { return name_; }
-	private:
-		string name_;
+ public:
+  Student(string, name): name_{name} {}
+  const string& name() /* const */ { return name_; }
+ private:
+  string name_;
 };
 
 void Print(const Student& student) {
-	cout << "Student: " << student.name() << endl;
+ cout << "Student: " << student.name() << endl;
 }
 ```
+
 - `error: discards qualifiers` meaning that the function doesn't return const
 
 ### Declaration and definition
+
 - data members belong to declaration
 - class methods can be defined elsewhere
 - class name becomes a part of function name
+
 ```cpp
 // declare class
 class SomeClass {
-	public:
-		SomeClass();
-		int var() const;
-	private:
-		void DoSmth();
-		int var_ = 0;
+ public:
+  SomeClass();
+  int var() const;
+ private:
+  void DoSmth();
+  int var_ = 0;
 };
 
 // define all methods
 SomeClass::SomeClass() {}
 int SomeClass::var() const { return var_; }
-void SomeClass::DoSmth() {} 
+void SomeClass::DoSmth() {}
 ```
 
 ### Always initialize members for classes
+
 - c++11 allows to initialize variables in-place
 - do not initialize them in the constructor
 - noneed for an explicit default constructor
+
 ```cpp
 class Student {
-	public:
-		// no need for default constructor
-		// getters and functions omitted
-	private:
-		int earned_points_ = 0;
-		float happiness_ = 1.0f;
+ public:
+  // no need for default constructor
+  // getters and functions omitted
+ private:
+  int earned_points_ = 0;
+  float happiness_ = 1.0f;
 };
 ```
-- __NOTE__: leave the members of `structs` uninitialized as defining them forbids using brace initialization
+
+- **NOTE**: leave the members of `structs` uninitialized as defining them forbids using brace initialization
 
 ### Classes as modules
+
 - prefer encapsulating information that belongs together into a class
 - separate declaration and definition of the class into header rand source files
 - typically, class `SomeClass` is declared in `some_class.h` and is defined in `some_class.cpp`
 
+# Lecture 4: Move Sematics, Classes: <https://www.youtube.com/watch?v=Et2I5zKqAk0&t=32s>
 
-# Lecture 4: Move Sematics, Classes: https://www.youtube.com/watch?v=Et2I5zKqAk0&t=32s
+## Move Semantics
 
+## Intuition lvalues, rvalues
 
+- every expression is an `lvalue` or an `rvalue`
+- `lvalues` can be written on the left of assignment operator(=)
+- `rvalues` are all the other expressions
+- explicit `rvalue` defined using `&&`
+- use `std::move(...)` to explicitly convert an `lvalue` to `rvalue`
+
+```cpp
+int a;           // "a" is an lvalue
+int& a_ref = a;  // "a" is an lvalue
+                 // "a_ref" is a reference to an lvalue
+a = 2 + 2;       // "a" is an lvalue
+                 // "2+2" is an rvalue
+int b = a + 2;   // "b" is an rvalue
+                 // "a + 2" is an rvalue
+int&& c = std::move(a); // "c" is an rvalue
+```
+
+- generally after move, the object is no longer a value
+- always consider a ownership of an object
+
+## Never access values after move
+
+- the value after `move` is undefined
+
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+int main() {
+ string hello = "hello";
+ vector<string> owner;
+ owner.emplace_back(hello);         // copy
+ owner.emplace.back(move(hello))    // move
+ cout << hello endl;                // undefined
+ return 0;
+```
+
+## How to think about std::move
+
+- think about **ownership**
+- entity **owns** a variable if it deletes
+  - a function scope owns a variable defined in it
+  - an object of a class owns its data members
+- **moving a variable transfers ownership**
+- when designing, your program think **"who should own this thing?"**
+- **runtime:** better than copying, worse than passing by reference
+
+# Class
+
+## Custom operator for class
+
+- operators are functions with a signature:
+  - `<RETURN_TYPE> operator<NAME>(<PARAMS>)`
+- `<NAME>` represents the target operation, e.g. `>, <, =, ==, <<` etc
+- have all attributes of functions
+- always contain word `operator` in name
+- all available operators: <https://en.cppreference.com/w/cpp/language/operators>
+
+## Copy constructor
+
+- **called automatically** when the object is **copied**
+- for a class `MyClass` has the signature: `MyClass(const MyClass& other)`
+
+```cpp
+MyClass a;      // calling default constructor
+MyClass b(a);   // calling copy constructor
+MyClass c = a;  // calling copy constructor
+```
+
+## Copy assignment operator
+
+- copy assignment operator is `called automatically` when the object is **assigned a new value** from _L_ value
+- for a class `MyClass` has the signature: `MyClass& operator=(const MyClass& other)`
+- **Returns a reference** to the changed object
+- use `*this` from within a function of a class to get a reference to the current object
+
+```cpp
+MyClass a;      // calling default constructor
+MyClass b(a);   // calling copy constructor
+MyClass c = a;  // calling copy constructor
+a = b;          // calling copy assignment operator
+```
+
+### this
+- reference this.cpp file for more information
+
+## Move constructor
+
+- Called __automatically__ when the object is moved
+- For a class `MyClass` has the signature: `MyClass(MyClass&& other)`
+
+```cpp
+MyClass a;                 // default constructor
+MyClass b(std::move(a));   // move constructor
+MyClass c = std::move(a);  // move constructor
+```
+
+## Move assignment operator
+- called __automatically__ when the object is __assigned a new value__ from an Rvalue
+- for class `MyClass` has the signature: `MyClass& operator=(MyClass&& other)`
+- __returns a reference__ to the changed object
+```cpp
+MyClass a;                  // default constructor
+MyClass b(std::move(a));    // move constructor 
+MyClass c = std::move(a);   // move constructor
+b = std::move(c);           // move assignment operator
+```

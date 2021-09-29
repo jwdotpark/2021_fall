@@ -19,5 +19,8 @@ int main() {
   const Blah& someFunc_ref = someVar;
   someFunc_ref.SomeFunc();
 
+  // can call exactly same name function 
+  // but one is const and one is not
+
   return 0;
 }
