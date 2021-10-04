@@ -249,10 +249,12 @@ Removal: depends
 Searching: O(n)
 Access: O(1)
 ```
+
 - adding/removing index at the beginning is expensive
   - `push/pop` is always fater than `unshift/shift`
 
 ## Array methods
+
 ```
 - push: O(1)
 - pop: O(1)
@@ -262,9 +264,9 @@ Access: O(1)
 - unshift: O(n)
   - basic accessing with shifting all the indexes afterwards
 
-- concat: O(n) 
+- concat: O(n)
   - merge two or more array into one
-- slice: O(n)  
+- slice: O(n)
   - returns a shallow copy of a portion of an array into a new array that is selected from begin to end, original array will not be modified
 - splice: O(n)
   - changes the content of an array by removing existing elements and/or adding new elements
@@ -277,3 +279,16 @@ Access: O(1)
 ```
 
 # Problem solving approach
+
+- a process or set of steps to accomplish a certain task
+- the steps are usually small and easy to understand
+
+## Understand the problem
+
+- can I restate the problem in my own words?
+- checking out what's in and out
+  - what are the inputs that go into the problem?
+  - what are the outputs that should come from the solution to the problem?
+- can the outputs be determined from the inputs?
+- = do I have enough information to solve the problem?
+
