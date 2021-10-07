@@ -7,4 +7,9 @@
 - Big Theta Notation: usually best case
 
 ### Homework
+- homework_1 notebook
 
+# Session_2
+
+- 
+ 
