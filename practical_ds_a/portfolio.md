@@ -1,4 +1,4 @@
-> Table of Contents
+Table of Contents
 - [Data structure & Algorithm](#data-structure--algorithm)
   - [Algorithm theory & Application](#algorithm-theory--application)
     - [What's the goal of the algorithm?](#whats-the-goal-of-the-algorithm)
