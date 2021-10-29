@@ -1,7 +1,11 @@
-# Data structure & Algorithm
+CODE University 2021 Fall Semester<br />
+SE_02 Algorithms and Data Structures<br />
+Jongwoo Park<br />
+***
+# Algorithms & Data Structures
 
 Table of Contents
-- [Data structure & Algorithm](#data-structure--algorithm)
+- [Algorithms & Data Structures](#algorithms--data-structures)
   - [Analysis of algorithms](#analysis-of-algorithms)
     - [What's The Goal of The Algorithm?](#whats-the-goal-of-the-algorithm)
     - [Time and Space Complexity Theory](#time-and-space-complexity-theory)
@@ -49,7 +53,7 @@ Table of Contents
       - [Merge Sort](#merge-sort)
       - [Quick Sort](#quick-sort)
       - [Radix Sort](#radix-sort)
-  - [Data structures](#data-structures)
+  - [Analysis of Data structures](#analysis-of-data-structures)
     - [Arrays](#arrays)
       - [Traversing](#traversing)
       - [Searching](#searching)
@@ -69,7 +73,7 @@ Table of Contents
     - [Tries](#tries)
 
 
-
+***
 ## Analysis of algorithms
 ### What's The Goal of The Algorithm?
 
@@ -434,22 +438,21 @@ function naiveStringSearch(long, short) {
 - If characters do match, keep going
 - If character matching complete, increment the count of matches
 - return the count of matches
-- 
+- The best case would be `O(n)` and the worst would show exponential growth of `O(n^2)`
 
 ### Sorting
 #### What is Sorting?
 - It is a process of rearranging the items in a collection so that the items are in order.
 - e.g. 
-  - sorting numbers from small to large
-  - sorting names in alphabetical order
-  - sorting items in a yearly basis
-  - sorting objects in a price basis
+  - Numbers from small to large
+  - Names in alphabetical order
+  - Items in a yearly basis
+  - Objects in a price basis
   - [Visualization](https://www.youtube.com/watch?v=kPRA0W1kECg) and [Comparison](https://www.toptal.com/developers/sorting-algorithms) on various sorting algorithms
   - Efficiency is depend on the shape of the data, the number of items and the number of comparisons.
 #### Bubble Sort
 - Not very efficient, but it's a good example of how to implement a sorting algorithm.
 - It's called bubble because largest value bubbles up to the top.
-
 
 ##### How it works?
 - It loops through each item and compares it to the next item.
@@ -512,7 +515,6 @@ function bubbleSort(arr) {
 ##### Big O of Bubble Sort
 - In general, it's O(n^2), there's two nested for loops. 
 - If it's nearly ordered array, it's almost O(n) because of noSwap condition checking.
-- 
 
 #### Selection Sort
 
@@ -529,7 +531,7 @@ function bubbleSort(arr) {
 
 
 
-## Data structures
+## Analysis of Data structures
 ### Arrays
 ```
 - push: O(1)
