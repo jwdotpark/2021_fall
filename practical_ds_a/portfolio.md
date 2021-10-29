@@ -35,7 +35,7 @@ I still don't fully understand the implementation detail of this function but th
 This example was a good inspiration for me to understand why it is important to have good algorithms. Precision is important but sometimes efficiency is more important and good algorithms are the key to achieve that.
 
 
-## Time and Space Complexity
+## Time and Space Complexity Theory
 
 ### Time Complexity
 
@@ -55,11 +55,77 @@ To my understanding, time and space tend to be inversly proportional, the algori
 
 ## Big O Notation
 
-## Motivation for Big O Notation
+### Definition
 
 - Big O Notation is a way of generalizing code and comparing its performance to other pieces of code regardless of machine/runtime it is running on.
 - It is way to formalize the time and space complexity of an algorithm. 
 - It cares about trend, not the detail(constant) inside.
-- An algorithm is `O(f(n))` if the number of simple operations the computer has to do is eventually less than a constant times f(n), as `n` increases
+- Big O Notation can be expressed as `O(n)`.
+
+Let's say make a function that takes an array of integers and returns the sum of all the integers in the array.
+
+#### Example 1
+
+```js
+function addUpTo(n) {
+  let total = 0;
+  for (let i = 1; i <= n; i++) {
+    total += i;
+  }
+  return total;
+}
+```
+The number of operation is eventually bounded by a multiple of n. this function takes an argument of interger `n` and returns the sum of all the integers from 1 to `n`. In this case, Big O of this function is `O(n)`. 
+
+```js
+function addUpTo(n) {
+  return (n * (n + 1)) / 2;
+}
+```
+
+This function has always 3 operations no matter what argument is, so Big O of this function is `O(1)`. 
+
+#### Example 2
+```js
+function countUpAndDown(n) {
+  console.log("going up");
+  for (let i = 0; i < n; i++) {
+    console.log(i);
+  }
+  console.log("At the top! \n Going down");
+  for (let j = n - 1; j >= 0; j--) {
+    console.log(j);
+  }
+  console.log("Back to the ground. bye");
+}
+```
+`countUpAndDown()` prints out the message n times, then prints out the message at exact n, and it goes down till it reaches the baseline 0. This functions has n + n + 1 operations, so Big O of this function is `O(n)`.
+
+#### Example 3
+```js
+function printAllPairs(n) {
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      console.log(i, j);
+    }
+  }
+}
+```
+`printAllPairs()` is consist of O(n) operation inside of an O(n) operation, so Big O is O(n^2), a exponential growth of calculation.
+
+### Constants don't matter
+
+- In general, proportional input of constant doesn't affect the time complexity much. 
+```
+O(2n)       // wrong
+O(n)        // right
+
+O(500)      // wrong
+O(1)        // right
+
+O(13n^2)    // wrong
+O(n^2)      // right
+```
+
 
 
