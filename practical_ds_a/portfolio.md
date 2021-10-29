@@ -18,9 +18,6 @@ Table of Contents
       - [Shorthands For Big O Notation](#shorthands-for-big-o-notation)
       - [Logarithms](#logarithms)
       - [Visualizing Complexities](#visualizing-complexities)
-    - [Problem Solving Approach](#problem-solving-approach)
-      - [Understand Problems](#understand-problems)
-      - [Refactoring Questions](#refactoring-questions)
     - [Recursion](#recursion)
       - [Definition](#definition-1)
       - [Call Stack](#call-stack)
@@ -239,7 +236,7 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
 5. O(n + n + n + n) -> O(n)
 ```
 
-
+<!-- FIXME logarithm markdown formatting  -->
 #### Logarithms
 - Logarithm is the inverse of exponentiation
 - $log{_2}{(8)} = 3$
@@ -254,7 +251,7 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
 #### Visualizing Complexities 
 ![big o graph](https://i.imgur.com/pRab1sg.png)
 
-### Problem Solving Approach
+<!-- ### Problem Solving Approach
 
 - A process or set of steps to accomplish a certain task
 - The steps are usually small and easy to understand
@@ -276,7 +273,7 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
 - Can you use the result or method for some other problem?
 - Can you improve the performance of your solution?
 - Can you think of other ways to refactor?
-- How have other people solved this problem?
+- How have other people solved this problem? -->
 
 
 ### Recursion
