@@ -1,5 +1,5 @@
-CODE University 2021 Fall Semester<br />
-SE_02 Algorithms and Data Structures<br />
+__CODE University 2021 Fall Semester<br />__
+__SE_02 Algorithms and Data Structures<br />__
 Jongwoo Park<br />
 ***
 # Algorithms & Data Structures
