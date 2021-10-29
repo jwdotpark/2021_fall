@@ -216,7 +216,7 @@ O(n^2)         // right
 
 #### Best, Average and Worst Case
 
-Asymptotic notations can be refered to best, average and worst case. In reality, Big O notation is often used because many times algorithms can be O(1) if a specific data or edge case is considered. 
+Asymptotic notations can be refered to best, average and worst case. In reality, worst case Big O is often most used because many times algorithms can be O(1) if a specific data or edge case is provided. 
 - Big O Notation
   - Worst, it gives a lower bound  for the time complexity.
 - Big Theta Notation
