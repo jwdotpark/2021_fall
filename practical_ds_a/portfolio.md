@@ -34,22 +34,35 @@ I still don't fully understand the implementation detail of this function but th
 
 This example was a good inspiration for me to understand why it is important to have good algorithms. Precision is important but sometimes efficiency is more important and good algorithms are the key to achieve that.
 
+***
 
+## Time and Space Complexity
 
-## Time Complexity
+### Time Complexity
 
 - Time Complexity refers to the time it takes to solve a problem and a function of the input.
 - It quantifies the amount of time by taking an algorithm that works as a function of the length of the represented input.
 - It is usually expressed using Big O Notation, which is a method of excluding coefficient and low-order terms from a mathematical expression.
+- It doesn't indicate the absolute execution time of an algorithm, rather indicates how many operations are performed to execute an algorithm. 
 
-## Space Complexity
+### Space Complexity
 
-- 
+- Space Complexity refers to the amount of resource space required to complete a program after running it. 
+- Total space requirement can be fixed and variable space.
+- Fixed space refers to the requirement for space regardless of the number or size of input and output.
+- Variable space is the space required for structured variables that its size depends on the particular instance of the calculation, i.e. the dynamic space.
+
+To my understanding, time and space tend to be inversly proportional, the algorithm's quality is usually basaed on time complexity. But it'll depend on the problem.
+
+***
 
 ## Big O Notation
 
 ## Motivation for Big O Notation
 
 - Big O Notation is a way of generalizing code and comparing its performance to other pieces of code regardless of machine/runtime it is running on.
+- It is way to formalize the time and space complexity of an algorithm. 
+- It cares about trend, not the detail(constant) inside.
+- An algorithm is `O(f(n))` if the number of simple operations the computer has to do is eventually less than a constant times f(n), as `n` increases
 
--  
+
