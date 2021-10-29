@@ -1,29 +1,43 @@
+# Data structure & Algorithm
+
 Table of Contents
 - [Data structure & Algorithm](#data-structure--algorithm)
-  - [Algorithm theory & Application](#algorithm-theory--application)
-    - [What's the goal of the algorithm?](#whats-the-goal-of-the-algorithm)
+  - [Analysis of algorithms](#analysis-of-algorithms)
+    - [What's The Goal of The Algorithm?](#whats-the-goal-of-the-algorithm)
     - [Time and Space Complexity Theory](#time-and-space-complexity-theory)
       - [Time Complexity](#time-complexity)
       - [Space Complexity](#space-complexity)
     - [Big O Notation](#big-o-notation)
       - [Definition](#definition)
-        - [Example 1](#example-1)
-        - [Example 2](#example-2)
-        - [Example 3](#example-3)
-      - [Constants don't matter](#constants-dont-matter)
-      - [Smaller terms don't matter](#smaller-terms-dont-matter)
-      - [Best, average and worst case](#best-average-and-worst-case)
-      - [Shorthands for Big O Notation](#shorthands-for-big-o-notation)
+        - [Big O Example 1](#big-o-example-1)
+        - [Big O Example 2](#big-o-example-2)
+        - [Big O Example 3](#big-o-example-3)
+      - [Constants Don't Matter](#constants-dont-matter)
+      - [Smaller Terms Don't Matter](#smaller-terms-dont-matter)
+      - [Best, Average and Worst Case](#best-average-and-worst-case)
+      - [Shorthands For Big O Notation](#shorthands-for-big-o-notation)
       - [Logarithms](#logarithms)
-      - [Visualizing complexities](#visualizing-complexities)
-    - [Problem solving approach](#problem-solving-approach)
-      - [Understand the problem](#understand-the-problem)
-      - [Refactoring questions](#refactoring-questions)
+      - [Visualizing Complexities](#visualizing-complexities)
+    - [Problem Solving Approach](#problem-solving-approach)
+      - [Understand Problems](#understand-problems)
+      - [Refactoring Questions](#refactoring-questions)
     - [Recursion](#recursion)
+      - [Definition](#definition-1)
+      - [Call Stack](#call-stack)
+      - [Why Recursion?](#why-recursion)
+      - [Base Case](#base-case)
+      - [Example of Recursion 1](#example-of-recursion-1)
+      - [Example of Recursion 2](#example-of-recursion-2)
+      - [Common Recursion Pitfalls](#common-recursion-pitfalls)
+      - [Pure Recursion](#pure-recursion)
     - [Searching Algorithms](#searching-algorithms)
       - [Linear Search](#linear-search)
+        - [Linear Search Example](#linear-search-example)
       - [Binary Search](#binary-search)
+        - [Divide and Conquer](#divide-and-conquer)
+        - [Binary Search Example](#binary-search-example)
       - [Naive String Search](#naive-string-search)
+      - [Naive String Searach Example](#naive-string-searach-example)
     - [Bubble Sort](#bubble-sort)
     - [Selection Sort](#selection-sort)
     - [Insertion Sort](#insertion-sort)
@@ -51,10 +65,9 @@ Table of Contents
     - [Tries](#tries)
 
 
-# Data structure & Algorithm
 
-## Algorithm theory & Application
-### What's the goal of the algorithm?
+## Analysis of algorithms
+### What's The Goal of The Algorithm?
 
 The scale of the program grows over time and the amount of data that needs to be processed increases. If the amount of input data is small, ignoring it may not matter much. But if the amount of it is large, the difference in efficiency between algorithms will inevitably increase.
 
@@ -118,7 +131,7 @@ To my understanding, time and space tend to be inversly proportional, the algori
 
 Let's say make a function that takes an array of integers and returns the sum of all the integers in the array.
 
-##### Example 1
+##### Big O Example 1
 
 ```js
 function addUpTo(n) {
@@ -139,7 +152,7 @@ function addUpTo(n) {
 
 This function has always 3 operations no matter what argument is, so Big O of this function is `O(1)`. 
 
-##### Example 2
+##### Big O Example 2
 ```js
 function countUpAndDown(n) {
   console.log("going up");
@@ -155,7 +168,7 @@ function countUpAndDown(n) {
 ```
 `countUpAndDown()` prints out the message n times, then prints out the message at exact n, and it goes down till it reaches the baseline 0. This functions has n + n + 1 operations, so Big O of this function is `O(n)`.
 
-##### Example 3
+##### Big O Example 3
 ```js
 function printAllPairs(n) {
   for (let i = 0; i < n; i++) {
@@ -167,7 +180,7 @@ function printAllPairs(n) {
 ```
 `printAllPairs()` is consist of O(n) operation inside of an O(n) operation, so Big O is O(n^2), a exponential growth of calculation.
 
-#### Constants don't matter
+#### Constants Don't Matter
 
 - In general, proportional input of constant doesn't affect the time complexity much. 
 ```
@@ -181,7 +194,7 @@ O(13n^2)    // wrong
 O(n^2)      // right
 ```
 
-#### Smaller terms don't matter
+#### Smaller Terms Don't Matter
 
 ```
 O(n+10)        // wrong
@@ -194,7 +207,7 @@ O(n^2 + 5n + 8)// wrong
 O(n^2)         // right
 ```
 
-#### Best, average and worst case
+#### Best, Average and Worst Case
 
 Asymptotic notations can be refered to best, average and worst case. In reality, Big O notation is often used because many times algorithms can be O(1) if a specific data or edge case is considered. 
 - Big O Notation
@@ -205,7 +218,7 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
   - Best case, any algorithm for same problem can't be faster than Big Omega Notation.
 
 
-#### Shorthands for Big O Notation
+#### Shorthands For Big O Notation
 - Arithmetic operations(addition, subtraction, multiplication, division) are usually constant
 - Variable assignment is usually constant.
 - Accessing elements in an array (by index) or object(by key) is constant.
@@ -231,15 +244,15 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
 - Certain searching algorithms have logarithmic time complexity
 - Efficient sorting algorithms involve log
 - Recursion sometimes involves logarithmic space complexity
-#### Visualizing complexities 
+#### Visualizing Complexities 
 ![big o graph](https://i.imgur.com/pRab1sg.png)
 
-### Problem solving approach
+### Problem Solving Approach
 
 - A process or set of steps to accomplish a certain task
 - The steps are usually small and easy to understand
 
-#### Understand the problem
+#### Understand Problems
 
 - Can I restate the problem in my own words?
 - Checking out what's in and out
@@ -248,7 +261,7 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
 - Can the outputs be determined from the inputs?
 - Do I have enough information to solve the problem?
 
-#### Refactoring questions
+#### Refactoring Questions
 
 - Can you check the result?
 - Can you derive the result differently?
@@ -261,14 +274,166 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
 
 ### Recursion
 
+#### Definition
+- A process or function that calls itself.
+- e.g. JSON.parse, JSON.stringify, document.getElementById(), DOM traversal algorithms, object traversal and so on.
+
+#### Call Stack
+- In most program languages, there is a built-in data structure that manages what happens when functions are invoked.
+- Any time a function is invoked, it is placed(pushed) on top of the call stack.
+- When Javascript sees the `return` keyword or when the function ends, the compiler will remove(pop).
+
+#### Why Recursion?
+- In general, functions are being pushed on the call stack and popped off when they are done.
+- When writing recursive functions, we keep pushing new functions onto the call stack.
+
+#### Base Case
+- The condition where recursion ends. 
+
+#### Example of Recursion 1
+```js
+function countDown(n) {
+  for (let i = n; i>0; i--) {
+    console.log(i);
+  }
+  console.log("Done!");
+}
+
+// print n
+// print n-1
+// print n-2
+// ...
+// print "Done!"
+
+function countDownRecursively(n) {
+  if (n <= 0) { // base case
+    console.log("Done!");
+    return;
+  }
+  console.log(n);
+  n--;
+  countDown(n);
+}
+
+// print n
+// countDown(n-1)
+// print n-1
+// countDown(n-2)
+// print n-2
+// ...
+// print Done!
+```
+- `countDown()` uses for loop to print out the numbers from n to 0, then it prints out the message. 
+- `countDownRecursively()` checks the condition if `n` is smaller than 0, then proceeds to print out the n and then it calls it self again recursively. 
+
+#### Example of Recursion 2
+
+```js
+function sumRange(n) {
+  if (n === 1) {
+    return 1;
+  }
+  return n + sumRange(n-1);
+}
+
+// sumRange(3)
+//   return 3 + sumRange(2)
+//                return 2 + sumRange(1)
+//                             return 1
+// 6
+```
+#### Common Recursion Pitfalls
+#### Pure Recursion
 ### Searching Algorithms
 
 #### Linear Search
-#### Binary Search
+- It's the simplest search algorithm, checking every single element at a time. e.g. indexOf(), includes(), find(), findIndex()
+- Linear searcch accepts an array and a value, looking through the array. And it checks if the current array element is equal to the value.
+- If the value is not found, return `-1`.
 
+##### Linear Search Example
+```js
+function linearSearch(arr, value) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == value) {
+      return i;
+    }
+  }
+  return -1;
+}
+```
+
+- Time complexity grows as the length of `arr` grows, so big O of this linear searach is `O(n)`.
+
+
+#### Binary Search
+- It's a search algorithm that works by comparing the middle element of the array with the value.
+- Rather than eliminating one element at a time sequentially, it eliminates half of the array at a time.
+- So it's much faster than linear search but __only__ works on sorted array. 
+
+##### Divide and Conquer
+- Pick a pivot point(usually half length of array) and check the left and right side to find the value.
+- If the value is in the left side, then it checks the left side and same goes for right side too. 
+
+##### Binary Search Example
+```js
+function binarySearch(arr, value) {
+  let left = 0;
+  let right = arr.length - 1;
+  while (left <= right) {
+    let mid = Math.floor(left + right) / 2;
+    if (arr[mid] === value) {
+      return mid;
+    }
+    if (arr[mid] < value) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;
+}
+```
+- This function accepts a __sorted__ array and a value
+- Create a left pointer at the start of the array and a right pointer at the end of the array(length - 1)
+- While the left pointer comes before the right pointer, check if the middle element is equal to the value.
+- If the value is too small, move the left pointer to the middle + 1.
+- If the value is too large, move the right pointer to the middle - 1.
+- If no value, just return -1.
+- Best case would be O(1) and worst/average case would be O(log n). 
 #### Naive String Search
+- It's a search algorithm that checks a smaller string appears in a longer string.
+- Naive string search involves checking pairs of character individudally.
+
+#### Naive String Searach Example
+```js
+let long = "hello world goodbye earth";
+let short = "bye";
+function naiveStringSearch(long, short) {  
+  for (let i = 0; i < long.length; i++) {
+    if (long[i] === short[0]) {
+      let j = 1;
+      while (long[i + j] === short[j]) {
+        j++;
+        if (j === short.length) {
+          return i;
+        }
+      }
+    }
+  }
+}
+```
+- First, define a long string and a short string
+- Loop over the longer string
+- Loop over the shorter string
+- If characters don't match, move to the next character in the longer string / break the loop
+- If characters do match, keep going
+- If character matching complete, increment the count of matches
+- return the count of matches
+- 
 
 ### Bubble Sort
+
 
 ### Selection Sort
 
