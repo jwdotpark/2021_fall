@@ -34,7 +34,6 @@ I still don't fully understand the implementation detail of this function but th
 
 This example was a good inspiration for me to understand why it is important to have good algorithms. Precision is important but sometimes efficiency is more important and good algorithms are the key to achieve that.
 
-***
 
 ## Time and Space Complexity
 
@@ -53,8 +52,6 @@ This example was a good inspiration for me to understand why it is important to 
 - Variable space is the space required for structured variables that its size depends on the particular instance of the calculation, i.e. the dynamic space.
 
 To my understanding, time and space tend to be inversly proportional, the algorithm's quality is usually basaed on time complexity. But it'll depend on the problem.
-
-***
 
 ## Big O Notation
 
