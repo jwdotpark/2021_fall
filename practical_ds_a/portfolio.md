@@ -38,13 +38,20 @@ Table of Contents
         - [Binary Search Example](#binary-search-example)
       - [Naive String Search](#naive-string-search)
       - [Naive String Searach Example](#naive-string-searach-example)
-    - [Bubble Sort](#bubble-sort)
-    - [Selection Sort](#selection-sort)
-    - [Insertion Sort](#insertion-sort)
-    - [Comparing Bubble, Selection and Insertion Sort](#comparing-bubble-selection-and-insertion-sort)
-    - [Merge Sort](#merge-sort)
-    - [Quick Sort](#quick-sort)
-    - [Radix Sort](#radix-sort)
+    - [Sorting](#sorting)
+      - [What is Sorting?](#what-is-sorting)
+      - [Bubble Sort](#bubble-sort)
+        - [How it works?](#how-it-works)
+        - [swap(): sorting helper function](#swap-sorting-helper-function)
+        - [Bubble Sort Example](#bubble-sort-example)
+        - [Bubble Sort Optimization](#bubble-sort-optimization)
+        - [Big O of Bubble Sort](#big-o-of-bubble-sort)
+      - [Selection Sort](#selection-sort)
+      - [Insertion Sort](#insertion-sort)
+      - [Comparing Bubble, Selection and Insertion Sort](#comparing-bubble-selection-and-insertion-sort)
+      - [Merge Sort](#merge-sort)
+      - [Quick Sort](#quick-sort)
+      - [Radix Sort](#radix-sort)
   - [Data structures](#data-structures)
     - [Arrays](#arrays)
       - [Traversing](#traversing)
@@ -432,20 +439,95 @@ function naiveStringSearch(long, short) {
 - return the count of matches
 - 
 
-### Bubble Sort
+### Sorting
+#### What is Sorting?
+- It is a process of rearranging the items in a collection so that the items are in order.
+- e.g. 
+  - sorting numbers from small to large
+  - sorting names in alphabetical order
+  - sorting items in a yearly basis
+  - sorting objects in a price basis
+  - [Visualization](https://www.youtube.com/watch?v=kPRA0W1kECg) and [Comparison](https://www.toptal.com/developers/sorting-algorithms) on various sorting algorithms
+  - Efficiency is depend on the shape of the data, the number of items and the number of comparisons.
+#### Bubble Sort
+- Not very efficient, but it's a good example of how to implement a sorting algorithm.
+- It's called bubble because largest value bubbles up to the top.
 
 
-### Selection Sort
+##### How it works?
+- It loops through each item and compares it to the next item.
+- If it's larger than what's comparing it, it swap with it. 
+- Loop till the largest number goes to the end of array.
+- Start over from the beginning, comparing/swapping again till it reaches the next biggest value to the end.
+- [Bubble Sort visualization](https://visualgo.net/en/sorting)
 
-### Insertion Sort
+##### swap(): sorting helper function
+- Most sorting algorithms commonly involve swapping theh items. 
+```js
+const swap = (arr, index1, index2) =>{
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+}
+```
 
-### Comparing Bubble, Selection and Insertion Sort
+##### Bubble Sort Example
+```js
+function bubbleSort(arr) {
+  for (let i = arr.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      console.log(arr, arr[j], arr[j + 1]);
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+      }
+    }
+  }
+  return arr;
+}
+```
+- Make a function that accepts an array(assuming unordered numbers)
+- Start looping with a variable `i` at the end of the array towards the beginning i.e. shrinking the array backwards.
+- Start looping with a variable `j` at the beginning of the array towards the end i.e. expanding the array forwards
+- If arr[j] is greater than arr[j+1], swap them.
+- Return the sorted array
 
-### Merge Sort
+##### Bubble Sort Optimization
+- Within above logic, swap checking happens till it reachs to the end point.
+- Make a condition that checks if swap happened or not and if there's no swap, consider it's ordered array without actually looping all over the array, make the loop break.
+- Works best with nearly sorted array!
+  
+```js
+function bubbleSort(arr) {
+  let noSwap;
+  for (let i = arr.length; i > 0; i--) {
+    for (let j = 0; j < i - 1; j++) {
+      console.log(arr, arr[j], arr[j + 1]);
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+      } else {
+        noSwap = false;
+      }
+    }
+    if (noSwap) break;
+  }
+  return arr;
+}
+```
 
-### Quick Sort
+##### Big O of Bubble Sort
+- In general, it's O(n^2), there's two nested for loops. 
+- If it's nearly ordered array, it's almost O(n) because of noSwap condition checking.
+- 
 
-### Radix Sort
+#### Selection Sort
+
+#### Insertion Sort
+
+#### Comparing Bubble, Selection and Insertion Sort
+
+#### Merge Sort
+
+#### Quick Sort
+
+#### Radix Sort
 
 
 
