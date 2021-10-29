@@ -1,4 +1,15 @@
-# Algorithms and Data Structures
+> Table of Contents
+- [Why do we need algorithms?](#why-do-we-need-algorithms)
+- [Time and Space Complexity Theory](#time-and-space-complexity-theory)
+  - [Time Complexity](#time-complexity)
+  - [Space Complexity](#space-complexity)
+- [Big O Notation](#big-o-notation)
+  - [Definition](#definition)
+    - [Example 1](#example-1)
+    - [Example 2](#example-2)
+    - [Example 3](#example-3)
+  - [Constants don't matter](#constants-dont-matter)
+
 
 ## Why do we need algorithms?
 
@@ -32,10 +43,10 @@ I still don't fully understand the implementation detail of this function but th
   <center>The difference between fast InvSqrt() and the original libstdc direct inversison of square root</center>
 </p>
 
-This example was a good inspiration for me to understand why it is important to have good algorithms. Precision is important but sometimes efficiency is more important and good algorithms are the key to achieve that.
 
 
 ## Time and Space Complexity Theory
+
 
 ### Time Complexity
 
