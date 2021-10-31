@@ -6,7 +6,7 @@ Jongwoo Park<br />
 
 Table of Contents
 - [Algorithms & Data Structures](#algorithms--data-structures)
-  - [Analysis of algorithms](#analysis-of-algorithms)
+  - [Analysis of Algorithms](#analysis-of-algorithms)
     - [What's The Goal of The Algorithm?](#whats-the-goal-of-the-algorithm)
     - [Time and Space Complexity Theory](#time-and-space-complexity-theory)
       - [Time Complexity](#time-complexity)
@@ -48,6 +48,8 @@ Table of Contents
         - [Bubble Sort Optimization](#bubble-sort-optimization)
         - [Big O of Bubble Sort](#big-o-of-bubble-sort)
       - [Selection Sort](#selection-sort)
+        - [Example of Selection Sort](#example-of-selection-sort)
+        - [Big O of Selection Sort](#big-o-of-selection-sort)
       - [Insertion Sort](#insertion-sort)
       - [Comparing Bubble, Selection and Insertion Sort](#comparing-bubble-selection-and-insertion-sort)
       - [Merge Sort](#merge-sort)
@@ -74,7 +76,7 @@ Table of Contents
 
 
 ***
-## Analysis of algorithms
+## Analysis of Algorithms
 ### What's The Goal of The Algorithm?
 
 The scale of the program grows over time and the amount of data that needs to be processed increases. If the amount of input data is small, ignoring it may not matter much. But if the amount of it is large, the difference in efficiency between algorithms will inevitably increase.
@@ -517,7 +519,44 @@ function bubbleSort(arr) {
 - If it's nearly ordered array, it's almost O(n) because of noSwap condition checking.
 
 #### Selection Sort
+![selection sort](./img/selection_sort.png)
 
+- It works by finding the smallest element in the array and swapping it with the first element.
+- In the first loop, Compare first two value, find the small value and set the index on it and move on till find a smaller value.
+- When hit the baseline, swap the first value with the smallest value that was found.
+- Repeat the process with second starting point and so on till every element is sorted.
+- For optimal result: if minimum is not the one to begin with, swap the two values.
+
+##### Example of Selection Sort
+```js
+function selectionSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      // comparing the current min with the next value
+      console.log(i, j);
+      // assign the smaller to the min
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
+    }]
+    // min is not the first value, swap them
+    if (i !== min) {
+      swap(arr, i, min);
+    }
+    // swap the index of the min with the first index
+    let temp = arr[i];
+    arr[i] = arr[min];
+    arr[min] = temp;
+  }
+  return arr;
+}
+```
+
+##### Big O of Selection Sort
+- In general, it's O(n^2), because of two nested for loops.
+- It compares a lot but only swaps one time at the end of the loop.
+- It's only effective when trying to minimize the number of swapping.
 #### Insertion Sort
 
 #### Comparing Bubble, Selection and Insertion Sort
