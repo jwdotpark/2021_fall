@@ -602,7 +602,7 @@ function insertionSort(arr) {
 #### Comparing Bubble, Selection and Insertion Sort
 
 
-[![Visual Comparison of Sorting Algorithms](./img/sorting_visual_comparison.png)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "15 Sorting Algorithms in 6 Minutes")
+[![Visual Comparison of Sorting Algorithms](./img/sorting_visual_comparison.png)](https://www.youtube.com/watch?v=kPRA0W1kECg "15 Sorting Algorithms in 6 Minutes")
 Visual Comparison of Sorting Algorithms
 
 ![Sorting Algorithms with Animation](./img/sorting_algorithms_with_animation.png)
