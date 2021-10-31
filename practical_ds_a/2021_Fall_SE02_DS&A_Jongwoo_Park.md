@@ -38,12 +38,12 @@ Table of Contents
         - [Divide and Conquer](#divide-and-conquer)
         - [Binary Search Example](#binary-search-example)
       - [Naive String Search](#naive-string-search)
-      - [Naive String Searach Example](#naive-string-searach-example)
+        - [Naive String Searach Example](#naive-string-searach-example)
     - [Sorting](#sorting)
       - [What is Sorting?](#what-is-sorting)
+      - [swap(): sorting helper function](#swap-sorting-helper-function)
       - [Bubble Sort](#bubble-sort)
         - [How it works?](#how-it-works)
-        - [swap(): sorting helper function](#swap-sorting-helper-function)
         - [Bubble Sort Example](#bubble-sort-example)
         - [Bubble Sort Optimization](#bubble-sort-optimization)
         - [Big O of Bubble Sort](#big-o-of-bubble-sort)
@@ -54,7 +54,6 @@ Table of Contents
         - [Example of Insertion Sort](#example-of-insertion-sort)
         - [Big O of Insertion Sort](#big-o-of-insertion-sort)
       - [Comparing Bubble, Selection and Insertion Sort](#comparing-bubble-selection-and-insertion-sort)
-        - [](#)
       - [Merge Sort](#merge-sort)
       - [Quick Sort](#quick-sort)
       - [Radix Sort](#radix-sort)
@@ -418,7 +417,7 @@ function binarySearch(arr, value) {
 - It's a search algorithm that checks a smaller string appears in a longer string.
 - Naive string search involves checking pairs of character individudally.
 
-#### Naive String Searach Example
+##### Naive String Searach Example
 ```js
 let long = "hello world goodbye earth";
 let short = "bye";
@@ -455,6 +454,14 @@ function naiveStringSearch(long, short) {
   - Objects in a price basis
   - [Visualization](https://www.youtube.com/watch?v=kPRA0W1kECg) and [Comparison](https://www.toptal.com/developers/sorting-algorithms) on various sorting algorithms
   - Efficiency is depend on the shape of the data, the number of items and the number of comparisons.
+
+#### swap(): sorting helper function
+- Most sorting algorithms commonly involve swapping theh items. 
+```js
+const swap = (arr, index1, index2) =>{
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+}
+```
 #### Bubble Sort
 - Not very efficient, but it's a good example of how to implement a sorting algorithm.
 - It's called bubble because largest value bubbles up to the top.
@@ -466,13 +473,7 @@ function naiveStringSearch(long, short) {
 - Start over from the beginning, comparing/swapping again till it reaches the next biggest value to the end.
 - [Bubble Sort visualization](https://visualgo.net/en/sorting)
 
-##### swap(): sorting helper function
-- Most sorting algorithms commonly involve swapping theh items. 
-```js
-const swap = (arr, index1, index2) =>{
-  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
-}
-```
+
 
 ##### Bubble Sort Example
 ```js
@@ -576,12 +577,13 @@ function insertionSort(arr) {
   // we already know the first is sorted
   for (let i = 1; i < arr.length; i++) {
     let currentVal = arr[i];
+    let j = i - 1;
     // only compare when the value is smaller than the left
-    for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+    while (j >= 0 && arr[j] > currentVal) {
       arr[j + 1] = arr[j];
+      j--;
     }
     arr[j + 1] = currentVal;
-    console.log(arr, j, j - 1);
   }
   return arr;
 }
@@ -599,9 +601,12 @@ function insertionSort(arr) {
 
 #### Comparing Bubble, Selection and Insertion Sort
 
-![Big O Graph](./img/time_complexity.png)
 
 [![Visual Comparison of Sorting Algorithms](./img/sorting_visual_comparison.png)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "15 Sorting Algorithms in 6 Minutes")
+Visual Comparison of Sorting Algorithms
+
+![Sorting Algorithms with Animation](./img/sorting_algorithms_with_animation.png)
+Sorting Algorithms with Animation
 
 | Algorithm      | Big Omega(best) | Big Theta(avg) | Big O(worst) | Space Complexity |
 |----------------|-----------------|----------------|--------------|------------------|
@@ -609,10 +614,18 @@ function insertionSort(arr) {
 | Insertion Sort | O(n)            | O(n^2)         | O(n^2)       | O(1)             |
 | Selection Sort | O(n^2)          | O(n^2)         | O(n^2)       | O(1)             |
 
+|   10^5 rnd int arr  | Bubble Sort | Selection Sort | Insertion Sort |
+|:-------------------:|:-----------:|:--------------:|:--------------:|
+|       Time          |     22s     |       6s       |       3s       |
 
-#####  
+- Bubble and Insertion Sort works well with nearly sorted data but inefficient in most scenario. i.e. don't scale properly
+- Selection Sort doesn't work well with nearly sorted data.
+- Space Complexities are all same because it is not creating any space(new array or object). 
+- Though it's inefficient compared to more complex algorithms, all in all it still works well in the small set of data.
 
 #### Merge Sort
+ 
+
 
 #### Quick Sort
 
