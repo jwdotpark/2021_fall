@@ -54,6 +54,7 @@ Table of Contents
         - [Example of Insertion Sort](#example-of-insertion-sort)
         - [Big O of Insertion Sort](#big-o-of-insertion-sort)
       - [Comparing Bubble, Selection and Insertion Sort](#comparing-bubble-selection-and-insertion-sort)
+        - [](#)
       - [Merge Sort](#merge-sort)
       - [Quick Sort](#quick-sort)
       - [Radix Sort](#radix-sort)
@@ -257,7 +258,7 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
 - Efficient sorting algorithms involve log
 - Recursion sometimes involves logarithmic space complexity
 #### Visualizing Complexities 
-![big o graph](https://i.imgur.com/pRab1sg.png)
+![big o graph](./img/time_complexity.png)
 
 <!-- ### Problem Solving Approach
 
@@ -565,6 +566,7 @@ function selectionSort(arr) {
 - It builds up the sort by gradually creating a larger left half which is always sorted.
 - It takes each element and place it where it should go in the sorted half.
 - The value being compared moves to the left sorted array by comparing it to the value to the left.
+- It gets slower as array grows larger, 
 
 ![Insertion sort](./img/insertion_sort.png)
 
@@ -585,7 +587,7 @@ function insertionSort(arr) {
 }
 ```
 
-- First, pick up the second element in the array.
+- First, pick up the second element in the array.q
 - Compares the picked up element with the left one and swap it if it's needed.
 - Go to next element and if it's in wrong order(or smaller), swap it with the left one.
 - Repeat until the array is sorted.
@@ -596,6 +598,19 @@ function insertionSort(arr) {
 - Best usage could be a stream of data in real time, where the items are already pretty much sorted.
 
 #### Comparing Bubble, Selection and Insertion Sort
+
+![Big O Graph](./img/time_complexity.png)
+
+[![Visual Comparison of Sorting Algorithms](./img/sorting_visual_comparison.png)](https://www.youtube.com/watch?v=StTqXEQ2l-Y "15 Sorting Algorithms in 6 Minutes")
+
+| Algorithm      | Big Omega(best) | Big Theta(avg) | Big O(worst) | Space Complexity |
+|----------------|-----------------|----------------|--------------|------------------|
+| Bubble Sort    | O(n)            | O(n^2)         | O(n^2)       | O(1)             |
+| Insertion Sort | O(n)            | O(n^2)         | O(n^2)       | O(1)             |
+| Selection Sort | O(n^2)          | O(n^2)         | O(n^2)       | O(1)             |
+
+
+#####  
 
 #### Merge Sort
 
