@@ -601,7 +601,7 @@ function insertionSort(arr) {
 
 #### Comparing Bubble, Selection and Insertion Sort
 
-
+<!-- FIXME move these two visual aid after finising sorting part -->
 [![Visual Comparison of Sorting Algorithms](./img/sorting_visual_comparison.png)](https://www.youtube.com/watch?v=kPRA0W1kECg "15 Sorting Algorithms in 6 Minutes")
 Visual Comparison of Sorting Algorithms
 
@@ -616,7 +616,7 @@ Sorting Algorithms with Animation
 
 |   10^5 rnd int arr  | Bubble Sort | Selection Sort | Insertion Sort |
 |:-------------------:|:-----------:|:--------------:|:--------------:|
-|       Time          |     22s     |       6s       |       3s       |
+|       Time took     |     22s     |       6s       |       3s       |
 
 - Bubble and Insertion Sort works well with nearly sorted data but inefficient in most scenario. i.e. don't scale properly
 - Selection Sort doesn't work well with nearly sorted data.
