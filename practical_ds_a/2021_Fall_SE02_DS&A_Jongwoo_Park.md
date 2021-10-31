@@ -51,6 +51,8 @@ Table of Contents
         - [Example of Selection Sort](#example-of-selection-sort)
         - [Big O of Selection Sort](#big-o-of-selection-sort)
       - [Insertion Sort](#insertion-sort)
+        - [Example of Insertion Sort](#example-of-insertion-sort)
+        - [Big O of Insertion Sort](#big-o-of-insertion-sort)
       - [Comparing Bubble, Selection and Insertion Sort](#comparing-bubble-selection-and-insertion-sort)
       - [Merge Sort](#merge-sort)
       - [Quick Sort](#quick-sort)
@@ -557,7 +559,41 @@ function selectionSort(arr) {
 - In general, it's O(n^2), because of two nested for loops.
 - It compares a lot but only swaps one time at the end of the loop.
 - It's only effective when trying to minimize the number of swapping.
+  
+<!-- NOTE very confusing one -->
 #### Insertion Sort
+- It builds up the sort by gradually creating a larger left half which is always sorted.
+- It takes each element and place it where it should go in the sorted half.
+- The value being compared moves to the left sorted array by comparing it to the value to the left.
+
+![Insertion sort](./img/insertion_sort.png)
+
+##### Example of Insertion Sort
+```js
+function insertionSort(arr) {
+  // we already know the first is sorted
+  for (let i = 1; i < arr.length; i++) {
+    let currentVal = arr[i];
+    // only compare when the value is smaller than the left
+    for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
+    }
+    arr[j + 1] = currentVal;
+    console.log(arr, j, j - 1);
+  }
+  return arr;
+}
+```
+
+- First, pick up the second element in the array.
+- Compares the picked up element with the left one and swap it if it's needed.
+- Go to next element and if it's in wrong order(or smaller), swap it with the left one.
+- Repeat until the array is sorted.
+
+##### Big O of Insertion Sort
+- In general, Insertion Sort time complexity is O(n^2) when the array is completely inversed, because of two nested loops.
+- Best case would be when the data is almost sorted, it's O(n) because it only swaps once.
+- Best usage could be a stream of data in real time, where the items are already pretty much sorted.
 
 #### Comparing Bubble, Selection and Insertion Sort
 
