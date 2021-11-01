@@ -55,6 +55,7 @@ Table of Contents
         - [Big O of Insertion Sort](#big-o-of-insertion-sort)
       - [Comparing Bubble, Selection and Insertion Sort](#comparing-bubble-selection-and-insertion-sort)
       - [Merge Sort](#merge-sort)
+        - [Merging Arrays](#merging-arrays)
       - [Quick Sort](#quick-sort)
       - [Radix Sort](#radix-sort)
   - [Analysis of Data structures](#analysis-of-data-structures)
@@ -616,7 +617,7 @@ Sorting Algorithms with Animation
 
 |   10^5 rnd int arr  | Bubble Sort | Selection Sort | Insertion Sort |
 |:-------------------:|:-----------:|:--------------:|:--------------:|
-|       Time took     |     22s     |       6s       |       3s       |
+|       Time took     |     21s     |       6s       |       3s       |
 
 - Bubble and Insertion Sort works well with nearly sorted data but inefficient in most scenario. i.e. don't scale properly
 - Selection Sort doesn't work well with nearly sorted data.
@@ -624,7 +625,13 @@ Sorting Algorithms with Animation
 - Though it's inefficient compared to more complex algorithms, all in all it still works well in the small set of data.
 
 #### Merge Sort
- 
+![Merge Sort](./img/merge__sort.png)
+[Merge Sort Analysis](https://www.wikiwand.com/en/Merge_sort)
+- It's a combination of splitting, merging and sorting.
+- Arrays of 0 or 1 element are always sorted.
+- It works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array(divide and conquer)
+
+##### Merging Arrays
 
 
 #### Quick Sort
