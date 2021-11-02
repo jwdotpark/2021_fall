@@ -55,7 +55,8 @@ Table of Contents
         - [Big O of Insertion Sort](#big-o-of-insertion-sort)
       - [Comparing Bubble, Selection and Insertion Sort](#comparing-bubble-selection-and-insertion-sort)
       - [Merge Sort](#merge-sort)
-        - [Merging Arrays](#merging-arrays)
+        - [Merge Helper Function](#merge-helper-function)
+        - [Example of Merge Sort](#example-of-merge-sort)
       - [Quick Sort](#quick-sort)
       - [Radix Sort](#radix-sort)
   - [Analysis of Data structures](#analysis-of-data-structures)
@@ -631,7 +632,71 @@ Sorting Algorithms with Animation
 - Arrays of 0 or 1 element are always sorted.
 - It works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array(divide and conquer)
 
-##### Merging Arrays
+##### Merge Helper Function
+- For implementing merge sort, it's useful to first implement a separated function for merging two sorted arrays.
+- Given two sorted arrays, this helper function will create a new array which is also sorted, and consists of all the elements from the two arrays.
+- This function should run in O(n+m) time and O(n+m) space, and should not modify the parameters passed in.
+
+```js
+function merge(arr1, arr2) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
+  }
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
+  while (j < arr1.length) {
+    result.push(arr2[j]);
+    j++;
+  }
+  return result;
+}
+
+
+function merge(arr1, arr2) {
+  let result = [];
+  while (arr1.length && arr2.length) {
+    if (arr1[0] < arr2[0]) {
+      result.push(arr1.shift());
+    } else {
+      result.push(arr2.shift());
+    }
+  }
+  return result.concat(arr1, arr2);
+} 
+```
+
+- Create an empty array, take a look at the smallest values in each input array.
+- While there are still left over values:
+  - If the value in the first array is SMALLER than the value in the second array, push the valaue in the first array into our results and move on to the next value in the first array.
+  - If the value in the first array is LARGER than the value in the second array, push the value in the second array into our results and move on to the next value in the second array.
+  - Once we finish one array, push in all remaining values from the other array.
+
+##### Example of Merge Sort
+```js
+function mergeSort(arr) {
+  if (arr.length === 1) {
+    return arr;
+  }
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+```
+- Break up the array into halves until you have arrays that are empty or have one element.
+- Once you have smaller sorted arrays, merge those arrays with other sroted arrays until you have one sorted array.
+- Once the array has been merged back together, return the merged/sorted array.
 
 
 #### Quick Sort
