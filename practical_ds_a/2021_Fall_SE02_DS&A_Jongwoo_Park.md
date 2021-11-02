@@ -57,6 +57,7 @@ Table of Contents
       - [Merge Sort](#merge-sort)
         - [Merge Helper Function](#merge-helper-function)
         - [Example of Merge Sort](#example-of-merge-sort)
+        - [Big O of Merge Sort](#big-o-of-merge-sort)
       - [Quick Sort](#quick-sort)
       - [Radix Sort](#radix-sort)
   - [Analysis of Data structures](#analysis-of-data-structures)
@@ -627,6 +628,7 @@ Sorting Algorithms with Animation
 
 #### Merge Sort
 ![Merge Sort](./img/merge__sort.png)
+
 [Merge Sort Analysis](https://www.wikiwand.com/en/Merge_sort)
 - It's a combination of splitting, merging and sorting.
 - Arrays of 0 or 1 element are always sorted.
@@ -662,6 +664,7 @@ function merge(arr1, arr2) {
   return result;
 }
 
+// or
 
 function merge(arr1, arr2) {
   let result = [];
@@ -685,7 +688,7 @@ function merge(arr1, arr2) {
 ##### Example of Merge Sort
 ```js
 function mergeSort(arr) {
-  if (arr.length === 1) {
+  if (arr.length <= 1) {
     return arr;
   }
   let mid = Math.floor(arr.length / 2);
@@ -698,6 +701,23 @@ function mergeSort(arr) {
 - Once you have smaller sorted arrays, merge those arrays with other sroted arrays until you have one sorted array.
 - Once the array has been merged back together, return the merged/sorted array.
 
+![Merge Sort Diagram](./img/merge_sort_diagram.png)
+
+##### Big O of Merge Sort
+
+| Best       | Avg        | Worst      | Space Complexity |
+|------------|------------|------------|------------------|
+| O(n log n) | O(n log n) | O(n log n) | O(n)             |
+
+
+- Best, average and worst case all have the same time complexity.
+- No edge case, it doesn't matter if the array is sorted or not, it's still O(n log n).
+- Time complexity O(n log n) comes from:
+  - `merge()`, it takes O(n) as a size of array to merge grows linearly.
+  - `mergeSort()`, it takes O(log n) as the size of array grows logarithmically.
+- Space complexity O(n) takes linear growth of the size of the array, It doesn't work well with large data.
+
+![Merge Sort Time Complexity](./img/merge_sort_time_complexity.png)
 
 #### Quick Sort
 
