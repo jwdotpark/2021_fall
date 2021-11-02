@@ -1,5 +1,8 @@
-const array = require("../utils/array");
-const swap = require("../utils/swap");
+const array = Array.from({length: 100000}, () => Math.floor(Math.random() * 100000));
+
+const swap = (arr, index1, index2) => {
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+}
 
 function selectionSort(arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -16,4 +19,5 @@ function selectionSort(arr) {
   return arr;
 }
 
+// 6s
 console.log(selectionSort(array));

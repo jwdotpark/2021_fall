@@ -1,5 +1,8 @@
-const array = require("../utils/array");
-const swap = require("../utils/swap");
+const array = Array.from({length: 100000}, () => Math.floor(Math.random() * 100000));
+
+const swap = (arr, index1, index2) => {
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+}
 
 function bubbleSort(arr) {
   for (let i = arr.length; i > 0; i--) {
@@ -13,4 +16,5 @@ function bubbleSort(arr) {
   return arr;
 }
 
+// 22s
 console.log(bubbleSort(array));
