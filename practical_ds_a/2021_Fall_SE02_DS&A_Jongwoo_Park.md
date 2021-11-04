@@ -796,7 +796,6 @@ let okja = new Student("Okja", "The Cute Dog", 3, "Carrot");
 ### Arrays
 ![Array](./img/array.png)
 
-```
 - push: O(1)
 - pop: O(1)
   - both are basic accessing
@@ -817,7 +816,6 @@ let okja = new Student("Okja", "The Cute Dog", 3, "Carrot");
 
 - forEach/map/filter/reduce: O(n)
   - whatever methods doing, it involves on each element
-```
 
 ### Linked List
 
