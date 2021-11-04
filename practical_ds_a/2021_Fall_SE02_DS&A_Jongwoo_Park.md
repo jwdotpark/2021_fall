@@ -61,7 +61,13 @@ Table of Contents
       - [Quick Sort](#quick-sort)
       - [Radix Sort](#radix-sort)
   - [Analysis of Data structures](#analysis-of-data-structures)
+    - [Before get started with Javascript..](#before-get-started-with-javascript)
+      - [Class](#class)
     - [Arrays](#arrays)
+    - [Linked List](#linked-list)
+      - [What is a Linked List?](#what-is-a-linked-list)
+      - [Comparisons with Array](#comparisons-with-array)
+      - [Singly Linked List](#singly-linked-list)
       - [Traversing](#traversing)
       - [Searching](#searching)
       - [Insertion](#insertion)
@@ -725,9 +731,71 @@ function mergeSort(arr) {
 
 
 
+***
 
 ## Analysis of Data structures
+
+- Data structures are collections of values, the relationships among them, and the functions or operations that canbe applied to the data.
+- It's a essential for computer science and each has their own advantages and disadvantages.
+- e.g. 
+  - For map/location data, graph would be the best data structure. (for shortest path/distance/GPS data/coordinates etc)
+  - For input job for adding a value at the beginning/end of the ordered list, linked list could be the best case.
+  - For scraping nested HTML, tree structure could be the best data structure.
+
+### Before get started with Javascript..
+
+Javascript is prototype based language and doesn't have OOP concept per se but there are some syntactic sugar for it since ES2015.
+#### Class
+
+A blueprint for creating objects with pre-defined properties and methods.
+
+```js
+// define a pattern
+class Student {
+  constructor(firstName, lastName, point, items) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.point = point; 
+    this.items = [];
+  }
+  // method that is.. public to the instances?
+  fullName() {
+    return `Full name is ${this.firstName} ${this.lastName}.`;
+  }
+  markPoint(n) {
+    this.point += n;
+    return `${this.firstName} ${this.lastName} got ${this.point} grade point.`;
+  }
+  addItems(item) {
+    this.items.push(item);
+    return `${this.firstName} got ${this.items}.`;
+  }
+
+  // utility subclass / function
+  static enrollStudents(...students) {
+    return `${students.length} has enrolled.`;
+  }
+}
+
+// instantiate an object
+let okja = new Student("Okja", "The Cute Dog", 3, "Carrot");
+
+// okja.lastName -> "The Cute Dog"
+// okja.fullName(); -> "Full name is Okja The Cute Dog." 
+// okja.markPoint(-2); -> "Okja got 1 grade point."
+// okja.addItems("Carrot"); -> "Okja got Carrot."
+// okja.enrollStudents(okja, jongwoo); -> error
+// Student.enrollStudents(okja, jongwoo); -> "2 has enrolled."
+```
+- The method to create new objects __must__ be called `constructor`.
+- The class keyword create a constant, you can't change the structure of the class.
+- Class instances are created with `new` keyword.
+- `this` keyword is used to access the properties and methods of the class, it refers to the object created from that class.
+- `static` keyword defines a static method or property for a class, which can be called without instantiating an object from the class and can't be called through individual instances.  [MDN static reference ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
+
 ### Arrays
+![Array](./img/array.png)
+
 ```
 - push: O(1)
 - pop: O(1)
@@ -750,6 +818,35 @@ function mergeSort(arr) {
 - forEach/map/filter/reduce: O(n)
   - whatever methods doing, it involves on each element
 ```
+
+### Linked List
+
+#### What is a Linked List?
+
+- A data structure that contains a head(beginning), tail(end) and length property.
+- Linked lists consist of nodes(each element), and each node has a value and a pointer to another node or null.
+- E.g. 
+  - Singly linked list has each node that is only connected to next node in one direction.
+  - Double linked list has each node that is connected to next node in both direction.
+
+![Singly Linked List](./img/singly_linked_list.png)
+
+#### Comparisons with Array
+- List:
+  - There is no indexes.
+  - Connected via nodes with a __next__ pointer.
+  - Raandom access is not possible.
+  - Insertion/Deletion is cheap.
+- Array:
+  - Indexed in order.
+  - Insertion and deletion is expensive, every node has to be re-indexed.
+  - Node can be accessed quickly with a specific index.
+
+#### Singly Linked List
+```js
+
+```
+
 #### Traversing
 #### Searching
 #### Insertion
