@@ -558,3 +558,135 @@ pop() {
   return poppedNode;
 }
 ```
+
+##### Shift
+- it removes a node from the beginning of the doubly linked list and return it.
+- it finds the head at the beginning and remove it.
+
+###### Shift pseudocode
+- if length is 0, return undefined.
+- store the current head property in a variable as an old head.
+- if the length is one.
+  - set the head to be null.
+  - set the tail to be null.
+- update the head to be the next of the old head.
+- set the head's prev property to be null.
+- set the old head's next to null.
+- decrement the length.
+- return old head.
+
+###### Shift implementation
+```js
+shift() {
+  if (this.length === 0) return undefined;
+  let oldHead = this.head;
+  if (this.length === 1) {
+    this.head = null;
+    this.tail = null;
+  } else {
+    this.head = oldHead.next;
+    // remove the connection between old head and new head
+    this.head.prev = null;
+    oldHead.next = null;
+  }
+  this.length--;
+  return oldHead
+}
+```
+
+##### Unshift
+- It adds a node to the beginning of the doubly linked list and return the list.
+
+###### Unshift pseudocode
+- create a new node with the value passed to the function.
+- if the length is 0
+  - set the head to be the new node.
+  - set the tail to be the new node.
+- else 
+  - set the prev property on the head of the list tobe the new node.
+  - set the next property on the new node to be the head property.
+  - set the head property to be the new node.
+- increment the length.
+- return the list.
+
+###### Unshift implementation
+```js
+unshift(val) {
+    let newNode = new Node(val);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
+```
+
+
+##### Get
+- it accesses a node in a doubly linked list by its position.
+- it returns the value of the node at the position passed to the function.
+- Same as get() in singly linked list, but it can start from the tail, depend on the index provided.
+
+###### Get pseudocode
+- if index is less than 0 or greater or equal to the length, return undefined.
+- if index is less than or equal to half of the length 
+  - loop through the list starting from the __head__ and loop towards the middle.
+  - return the node once it is found.
+- if index is greather than laf of the length
+  - loop through the list starting from the __tail__ and loop towards the middle.
+  - return the node once it is found.
+
+###### Get implementation
+
+```js
+get(index) {
+  let count, current;
+  if (index < 0 || index >= this.length) return undefined;
+  if (index <= this.length / 2) {
+    count = 0;
+    current = this.head;
+    while (count !== index) {
+      current = current.next;
+      count++;
+    }
+  } else {
+    count = this.length - 1;
+    current = this.tail;
+    while (count !== index) {
+      current = current.prev;
+      count--;
+    }
+  }
+  return current;
+}
+```
+
+##### Set
+- it replaces the value of a node in a doubly linked list by its position.
+- it works same as get(), but it update the given value of the node at the position passed to the function.
+
+###### Set pseudocode
+- create a variable which is the result of the get() method, at the index passed to the function.
+  - if the get() returns a valid result, set the value of that node to be the given value and return true.
+  - else, return false.
+
+###### Set implementation
+```js
+set(index, val) {
+    let foundNode = this.get(index);
+    if (foundNode) {
+      foundNode.val = val;
+      return true;
+    }
+    return false;
+  }
+```
+
+
+
+
