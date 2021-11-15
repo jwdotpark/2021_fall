@@ -40,6 +40,7 @@ Jongwoo Park<br />
           - [Reverse pseudocode](#reverse-pseudocode)
           - [Reverse implementation](#reverse-implementation)
         - [Big O of Singly Linked Lists](#big-o-of-singly-linked-lists)
+      - [Doubly Linked List](#doubly-linked-list)
 # Data Structure
 ## Analysis of Data Structures
 
@@ -462,3 +463,12 @@ reverse() {
 
 - Singly linked lists excel when __insertion__ and __deletion__ at the beginning are required.
 - The idea of a list data structure that consists of head, tail and nodes is the foundation for other data structures like Stacks and Queues. 
+
+
+#### Doubly Linked List
+
+![Doubly Linked List](./img/doubly_linked_list.png)
+- almost identical to singly linked list, except every node has another pointer to the previous node.
+
+
+t
