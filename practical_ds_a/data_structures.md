@@ -41,6 +41,10 @@ Jongwoo Park<br />
           - [Reverse implementation](#reverse-implementation)
         - [Big O of Singly Linked Lists](#big-o-of-singly-linked-lists)
       - [Doubly Linked List](#doubly-linked-list)
+        - [Doubly Linked List Constructor](#doubly-linked-list-constructor)
+        - [Push](#push-1)
+          - [Push pseudocode](#push-pseudocode-1)
+          - [Push implementation](#push-implementation-1)
 # Data Structure
 ## Analysis of Data Structures
 
@@ -468,7 +472,89 @@ reverse() {
 #### Doubly Linked List
 
 ![Doubly Linked List](./img/doubly_linked_list.png)
+
 - almost identical to singly linked list, except every node has another pointer to the previous node.
+- Comparing to singly linked list, it takes more space(memory) but more flexible.
+##### Doubly Linked List Constructor
+```js
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+    this.prev = null;
+  }
+}
 
+class DoublyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+}
+// Same as singly linked list but has 'prev' node
+```
 
-t
+##### Push
+
+- it adds a node to the end of the doubly linked list.
+- it finds the tail at the end and add a next node with prev property.
+
+###### Push pseudocode
+
+- Create a new node with the value passed to the function.
+- If the head property is null, set the head and tail to be the newly created node.
+-  if not, set th next property on the tail to be that node.
+- set the previous property on the newly created node to be the tail.
+- set the tail to be the newly created node.
+- increment the length.
+- return the doubly linked list.
+
+###### Push implementation
+```js
+...DoublyLinkedList
+
+push(val) {
+    let newNode = new Node(val);
+    if (this.length === 0) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      newNode.prev = this.tail;
+      this.tail = newNode;
+    }
+    this.length++;
+    return this;
+  }
+```
+
+##### Pop
+- it removes a node from the end of the doubly linked list and return it.
+
+###### Pop pseudocode
+- first check if there is no head, return undefined.
+- store the current tail in a variable to return later.
+- if the length is 1, set the head and tail to be null
+- update the tail to be the previous node.
+- set the new tail's next to be null.
+- decrement the length.
+- return the value removed.
+
+###### Pop implementation
+```js
+pop() {
+  if (!this.head) return undefined
+  let poppedNode = this.tail;
+  if (this.length === 1) {
+    this.head = null;
+    this.tail = null;
+  } else {
+    this.tail = poppedNode.prev;
+    this.tail.next = null;
+    poppedNode.prev = null;
+  }
+  this.length--;
+  return poppedNode;
+}
+```
