@@ -687,6 +687,36 @@ set(index, val) {
   }
 ```
 
+##### Insert
+- it adds a node in a doubly linked list by a certain position and returns the list.
+- it accepts an index, value and position and it creates a anew node with that value and adds it at the position to the lengthy list.
+- it uses get() to retrieve the node at the index passed to the function.
 
+###### Insert pseudocode
+- if index is less than 0 or greater than or equal to the length, return false.
+- if index is 0, unshift.
+- if index is the same as the length, push.
+- else, use get() to access the index -1.
+  - set the next and prev properties on the correct nodes to link everything together
+- increment the length.
+- return true.
 
+![Double Linked List Insert](./img/doubly_insert.png)
+###### Insert implementation
+```js
+insert(index, val) {
+  if (index < 0 || index > this.length) return false;
+  if (index === 0) return !!this.unshift(val);
+  if (index === this.length) return !!this.push(val);
+
+  let newNode = new Node(val);
+  let beforeNode = this.get(index - 1);
+  let afterNode = beforeNode.next;
+
+  beforeNode.next = newNode, newNode.prev = beforeNode;
+  newNode.next = afterNode, afterNode.prev = newNode;
+  this.length++;
+  return true;
+}
+```
 
