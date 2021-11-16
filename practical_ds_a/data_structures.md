@@ -761,8 +761,11 @@ remove(index) {
   if (index === this.length - 1) return this.pop();
   let removedNode = this.get(index);
   // connecting in between the nodes before and after the removed node
-  removedNode.prev.next = removedNode.next;
-  removedNode.next.prev = removedNode.prev;
+  let beforeNode = removedNode.prev;
+  let afterNode = removedNode.next;
+  beforeNode.next = afterNode;
+  afterNode.prev = beforeNode;
+  
   // remove the connection of the target node 
   removedNode.next = null;
   removedNode.prev = null;
@@ -770,9 +773,25 @@ remove(index) {
   return removedNode;
 }
 ```
+##### Big O of Doubly Linked Lists
 
+|           | Big O |
+|-----------|-------|
+| Insertion | O(1)  |
+| Removal   | O(1)  |
+| Searching | O(n)  |
+| Access    | O(n)  |
 
+- insertion excels with both O(1), singly and doubly linked list.
+- removal for doubly linked list is always constant, unlike traversing for same in singly linked list.
+- searching is O(n/2) -> O(n) because it starts from start or end of the list to the middle.
 
+##### Comparison with singly linked list
+
+- doubly linked lists are almost same as singly linked list, except there is an additional pointer to previous node. 
+- it fits in a situation where linear backward traversal is needed as much as forward. i.e. history, re/undo, etc.
+- it works better than singly linked list for finding nodes and can be done in half the time.
+- it takes more (almost twice )space given the extra pointer. 
 
 
 
