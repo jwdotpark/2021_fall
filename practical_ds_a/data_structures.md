@@ -812,9 +812,10 @@ e
 
 #### Stack
 
+
 - it is not a built-in data structure in Javascript.
 - it is an abstracted collection of data that abide by LIFO data structure.
-  - LIFO: Last In First Out i.e. last element added to the stack will be the first element removed from the stack.
+  - __LIFO__: Last In First Out i.e. last element added to the stack will be the first element removed from the stack.
   - e.g. STACKS of books, STACKS of plates and so on, as it being piled up, the last thing is what gets removed first.
 
 ![Stack](./img/stack_.png)
@@ -827,8 +828,10 @@ e
 ##### Create Stack 
 
 ###### With Array
-- push, pop for last and shift, unshift for first node for LIFO can be used but adding node at the beginning with array is not efficient cause every rest of element need to be reindexed.
-- that said, stack with array for push/pop might not be a good fit.
+- push, pop for last and shift, unshift for first node for LIFO can be used but adding node at the beginning with array with shift/unshift is not efficient cause every rest of element need to be reindexed.
+- that said, stack with array for shift/unshift might not be a good fit.
+
+![Stack with push/pop](./img/stack_push_pop.png)
 
 ###### With Linked List Implementation
 - stack is supposed to be constant time but push/pop with array occurs traversing, thus using stack with list makes more sense in this case.
@@ -910,10 +913,108 @@ pop() {
 
 #### Queues
 - it's similar to stack but with FIFO data structure. 
-  - FIFO: FIrst In First Out, i.e. first element added to the queue will be the first element removed from the queue.
+  - __FIFO__: FIrst In First Out, i.e. first element added to the queue will be the first element removed from the queue.
   - e.g. background task, uploading resources, printing like task processing in general.
-##### Where Queues Are Used
-- 
+- Due to nature of FIFO, handling first elements in array with queue is more costly because of re-indexing every rest of element, thus using shift/unshift with queue is better being done in a customized class in linked list.
+##### Create Queue 
+- Queue involves with enqueue and dequeue operations. 
+  - enqueue: add a new node to the end of the queue.
+  - dequeue: remove the first node from the queue.
+###### With Array
+- First In could be done with array.unshift() and First Out could be done with array.shift() but it is inefficient because of re-indexing.
+
+###### With Linked List Implementation
+```js
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+}
+```
+
+![Enqueue and Dequeue](./img/enq_deq.png)
+
+###### Enqueue pseudocode
+- create a function enqueue that accepts a value.
+- create a new node that value passed to the function.
+
+###### Enqueue implementation
+```js
+enqueue(value) {
+  let newNode = new Node(val);
+  if (!this.first) {
+    this.first = newNode;
+    this.last = newNode;
+  } else {
+    this.last.next = newNode;
+    this.last = newNode;
+  }
+  return this.size++;
+}
+```
+
+###### Dequeue psesudocode
+- if there is no first property, just return undefined.
+- store the first property in a variable.
+- see if the first is the same as the last(check if there is only one node).
+  - if yes, set the first and last property to be null.
+  - else, set the first property to be the next property of first.
+- decrement the size by 1.
+- return the value of the node dequeued.
+
+###### Dequeue implementation
+```js
+// almost identical to pop() in linked list
+dequeue() {
+  if (!this.first) return undefined;
+  let temp = this.first;
+  if (this.first === this.last) {
+    this.last = null;
+  }
+  this.first = this.first.next;
+  this.size--;
+  return temp.val;
+}
+```
+
+##### Big O of Queues
+
+|           | Big O |
+|-----------|-------|
+| Insertion | O(1)  |
+| Removal   | O(1)  |
+| Searching | O(n)  |
+| Access    | O(n)  |
+
+- Big O Notation of Insertion and Removal on queue is O(1) because it's constant time but it would be O(n) if array is used.
+- Searching and Access is not in a good fit with queue, because of traversing.
+
+### Hash Tables
+
+#### What is Hash Table?
+- it's often called hash maps too.
+- hash table is a data structure that stores __key-value__ pairs.
+- it is like array, but the keys are not ordered.
+- Unlike array, hash tables are fast for all of following:
+  - finding values
+  - adding new values
+  - removing values
+- it is commonly used because of efficiency.
+- it is..
+  - dictionary in Python
+  - objects and maps in Javascript
+  - Maps in Java, Go and Scala
+  - Hashes in Ruby
+- it gives a human-readable representation of the data.
 
 
 
