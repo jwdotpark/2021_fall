@@ -739,3 +739,40 @@ insert(index, val) {
 }
 ```
 
+##### Remove
+- it takes an index or position as argument and removes a node in a doubly linked list on a certain position and returns the removed item.
+- it works similar as get() to check the position from head or tail.
+
+###### Remove pseudocode
+- if index is less than zero or greater than or equal to length, return undefined.
+- if index is 0, shift.
+- if index is the same as the length - 1, pop.
+- otherwise, use get() to retrieve the item to be removed.
+- update the next and prev properties to remove the found node from the list.
+- set next and prev to null on the found node.
+- decrement the length.
+- return the removed node.
+
+###### Remove implementation
+```js
+remove(index) {
+  if (index < 0 || index >= this.length) return undefined;
+  if (index === 0) return this.shift();
+  if (index === this.length - 1) return this.pop();
+  let removedNode = this.get(index);
+  // connecting in between the nodes before and after the removed node
+  removedNode.prev.next = removedNode.next;
+  removedNode.next.prev = removedNode.prev;
+  // remove the connection of the target node 
+  removedNode.next = null;
+  removedNode.prev = null;
+  this.length--;
+  return removedNode;
+}
+```
+
+
+
+
+
+
