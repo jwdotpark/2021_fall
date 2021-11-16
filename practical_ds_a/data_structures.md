@@ -812,6 +812,7 @@ e
 
 #### Stack
 
+- it is not a built-in data structure in Javascript.
 - it is an abstracted collection of data that abide by LIFO data structure.
   - LIFO: Last In First Out i.e. last element added to the stack will be the first element removed from the stack.
   - e.g. STACKS of books, STACKS of plates and so on, as it being piled up, the last thing is what gets removed first.
@@ -895,8 +896,22 @@ pop() {
 }
 ```
 
+##### Big O of Stacks
 
+|           | Big O |
+|-----------|-------|
+| Insertion | O(1)  |
+| Removal   | O(1)  |
+| Searching | O(n)  |
+| Access    | O(n)  |
 
+- stack is prioritized on push/pop and both are constant.
+- searching/accessing individual node is same as O(n).
+
+#### Queues
+
+##### Where Queues Are Used
+- 
 
 
 
