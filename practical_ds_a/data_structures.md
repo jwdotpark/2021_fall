@@ -909,7 +909,9 @@ pop() {
 - searching/accessing individual node is same as O(n).
 
 #### Queues
-
+- it's similar to stack but with FIFO data structure. 
+  - FIFO: FIrst In First Out, i.e. first element added to the queue will be the first element removed from the queue.
+  - e.g. background task, uploading resources, printing like task processing in general.
 ##### Where Queues Are Used
 - 
 
