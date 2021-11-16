@@ -64,6 +64,20 @@ Jongwoo Park<br />
           - [Insert pseudocode](#insert-pseudocode-1)
           - [Insert implementation](#insert-implementation-1)
         - [Remove](#remove-1)
+          - [Remove pseudocode](#remove-pseudocode-1)
+          - [Remove implementation](#remove-implementation-1)
+        - [Reverse](#reverse-1)
+          - [Reverse pseudocode](#reverse-pseudocode-1)
+          - [Reverse implementation](#reverse-implementation-1)
+        - [Big O of Doubly Linked Lists](#big-o-of-doubly-linked-lists)
+        - [Comparison with singly linked list](#comparison-with-singly-linked-list)
+    - [Stacks and Queues](#stacks-and-queues)
+      - [Stack](#stack)
+        - [Where Sttacks are Used](#where-stacks-are-used)
+        - [Create Stack](#create-stack)
+          - [With Array](#with-array)
+          - [From Scratch](#from-scratch)
+
 # Data Structure
 ## Analysis of Data Structures
 
@@ -787,7 +801,7 @@ remove(index) {
 - searching is O(n/2) -> O(n) because it starts from start or end of the list to the middle.
 
 ##### Comparison with singly linked list
-
+e
 - doubly linked lists are almost same as singly linked list, except there is an additional pointer to previous node. 
 - it fits in a situation where linear backward traversal is needed as much as forward. i.e. history, re/undo, etc.
 - it works better than singly linked list for finding nodes and can be done in half the time.
@@ -801,6 +815,88 @@ remove(index) {
 - it is an abstracted collection of data that abide by LIFO data structure.
   - LIFO: Last In First Out i.e. last element added to the stack will be the first element removed from the stack.
   - e.g. STACKS of books, STACKS of plates and so on, as it being piled up, the last thing is what gets removed first.
--  
- 
+
+![Stack](./img/stack_.png)
+
+##### Where Stacks Are Used
+
+- managing function invocations as call stack 
+- history object: undo/redo, backward/forward, routing
+
+##### Create Stack 
+
+###### With Array
+- push, pop for last and shift, unshift for first node for LIFO can be used but adding node at the beginning with array is not efficient cause every rest of element need to be reindexed.
+- that said, stack with array for push/pop might not be a good fit.
+
+###### With Linked List Implementation
+- stack is supposed to be constant time but push/pop with array occurs traversing, thus using stack with list makes more sense in this case.
+- it uses similar structure of class constructor used above.
+
+```js
+class Stack {
+  constructor() {
+    // unlike linked list, terms are for LIFO
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+}
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+```
+
+###### Push pseudocode
+- creeate a function push that create a node which  accept a value.
+- if there are no nodes in the stack, set the first and last property to be the newly create node.
+- if there is one node, create a varialble that stores the current first property on the stack.
+- reset the first property to be the newly created node.
+- set the next property on the node to be the previously created variable.
+increment the size of the stack by 1.
+
+```js
+push(val) {
+  let newNode = new Node(val);
+  if (!this.first) {
+    this.first = newNode;
+    this.last = newNode;
+  } else {
+    let temp = this.first;
+    this.first = newNode;
+    this.first.next = temp;
+  }
+  return this.size++;
+}
+```
+
+###### Pop pseudocode
+- if there are no nodes in the stack, return undefined.
+- create a temporary variable to store the first property on the stack.
+- if there is only one node, set the first and last property to be null.
+- otherwise, set the first property to be the next property on the current first.
+- decrement the size by 1.
+- return the value of the node removed.
+
+```js
+pop() {
+  if (!this.first) return undefined;
+  let temp = this.first;
+  if (this.first === this.last) {
+    this.last = null;
+  }
+  this.first = this.first.next;
+  this.size--;
+  return temp.value;
+}
+```
+
+
+
+
+
 
