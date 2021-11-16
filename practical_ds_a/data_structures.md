@@ -794,4 +794,13 @@ remove(index) {
 - it takes more (almost twice )space given the extra pointer. 
 
 
+### Stacks and Queues
+
+#### Stack
+
+- it is an abstracted collection of data that abide by LIFO data structure.
+  - LIFO: Last In First Out i.e. last element added to the stack will be the first element removed from the stack.
+  - e.g. STACKS of books, STACKS of plates and so on, as it being piled up, the last thing is what gets removed first.
+-  
+ 
 
