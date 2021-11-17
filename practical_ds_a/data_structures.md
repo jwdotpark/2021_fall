@@ -1016,5 +1016,80 @@ dequeue() {
   - Hashes in Ruby
 - it gives a human-readable representation of the data.
 
+#### Hash Function 
+- to impelement a hash table, array will be used in this case.
+- in order to look up the value by key, keys are needed to be converted into valid array index.
+  - __hash function__ can be performed to convert the key into valid array index.
+  - it can takes a string or any type of data and converts it to number or index.
+
+![hasing concep](./img/hashing_conceptually.png)
+
+##### More of Hash Function Basics
+- it's a function that takaes data of arbitrary size, and converts it to a number. e.g. hash() in python
+- hashed output result cannot be reversed, key cannot be extracted from the output.
+- it has to be fast in constant time for its purpose.
+- it should not cluster outputs at specific indices, but distributes them evenly.
+- it has to be deterministic, reproducible. same input should result same output.
+
+##### Simple Hash Function Implementation
+```js
+function hash(key, arrayLength) {
+  let total = 0;
+  for (let char of key) {
+    // a = 1, b = 2..
+    let value = char.charCodeAt(0) - 96;
+    // remainder of total of position num divided by length
+    total = (total + value) % arrayLength;
+  }
+  return total;
+}
+```
+Problems:
+- it only works with strings.
+- it's a function that takes a string and returns a number within array length range.
+- not fast: it has a linear time complexity of array length.
+- there is a collision: output's not totally random.
+
+##### Simple Hash Function Slightly Improved Implementation
+```js
+function hash(key, arrayLength) {
+  let total = 0;
+  let WEIRD_PRIME = 31;
+  for (let i = 0; i < Math.min(key.length, 100); i++) {
+    let char = key[i];
+    let value = char.charCodeAt(0) - 96;
+    total = (total * WEIRD_PRIME + value) % arrayLength;
+  }
+}
+```
+
+- prime number seed is used for reducing collisions(much less, but still happens)
+  - [Relation between array length size of prime number and hash table implemenation](https://www.quora.com/Does-making-array-size-a-prime-number-help-in-hash-table-implementation-Why)
+- it is conditionally constant time.
+- loop runs based smaller value of length of key   or 100 for testing purpose. 
+
+##### Dealing with Collisions
+- collisions are inevitable even with greater array and prime number seed but it can be reduced via:
+  - separate chaining
+    - it stores value using a more nested data structure at each index in array with an array or linked list.
+    - this allows for storing multiple key-value pairs at the same index.
+![Separate Chaining](./img/separate_chaianing.png)
+
+  - linear probing
+    - data is only stored at each index unlike separate chaining.;
+    - when collision is found, it search through the array to find the next empty slot.
+    - but it has a limitted number of key as array length.
+    ![Linear Probing](./img/linear_probing.png)
+
+##### Hash Table Implementation
+- Hash Table class
+  ```js
+  
+  ```
+  
+
+
+
+
 
 
