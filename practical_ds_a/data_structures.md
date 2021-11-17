@@ -76,7 +76,32 @@ Jongwoo Park<br />
         - [Where Sttacks are Used](#where-stacks-are-used)
         - [Create Stack](#create-stack)
           - [With Array](#with-array)
-          - [From Scratch](#from-scratch)
+          - [With Linked List Implemtation](#with-linked-list-implementation)
+          - [Push pseudocode](#push-pseudocode-2)
+          - [Pop pseudocode](#pop-pseudocode-2)
+        - [Big O of Stacks](#big-o-of-stacks)
+      - [Queue](#queue)
+        - [Create Queue](#create-queue)
+          - [With Array](#with-array-1)
+          - [With Linked List Implementation](#with-linked-list-implementation-1)
+          - [Enqueue pseudocode](#enqueue-pseudocode)
+          - [Enqueue iimplementation](#enqueue-implementation)
+          - [Dequeue pseudocode](#dequeue-pseudocode)
+          - [Dequeue implementation](#dequeue-implementation)
+        - [Big O of Queues](#big-o-of-queues)
+    - [Hash Tables](#hash-tables)
+      - [What is Hash Table?](#what-is-hash-table)
+      - [Hash Functions](#hash-functions)
+        - [More of Hash Function Basics](#more-of-hash-function-basics)
+        - [Simple Hash Function Implementation](#simple-hash-function-implementation)
+        - [Simple Hash Function Slightly Improved Implementation](#simple-hash-function-slightly-improved-implementation)
+        - [Dealing With Cillisions](#dealing-with-cillisions)
+        - [Hash Table Implementation](#hash-table-implementation)
+        - [Set](#set-2)
+        - [Get](#get-2)
+      - [Hash Table Keys and Values Method](#hash-table-keys-and-values-method)
+      - [Big O of Hash Tables](#big-o-of-hash-tables)
+      
 
 # Data Structure
 ## Analysis of Data Structures
@@ -1201,8 +1226,17 @@ function hash(key, arrayLength) {
 | Delete | O(1) |
 | Access | O(1) |
 
-- With hash table, insertion, deletion and access of average and best case are constant time. it depends on
-  - how fast hash function it self is
-  - how evenly it distributes keys
-  - how suppressed collisions are
-- that said, hash function still depends on input size, traverse the array
+- with hash table, insertion, deletion and access of average and best case are constant time. 
+- but it depends on
+  - how fast hash function it self is.
+  - how evenly it distributes keys.
+  - how suppressed collisions are.
+- that said, hash function still depends on input size, traverse the array.
+- if searching keys/values of every each item, it would be O(n).
+  ![Good and Bad Hash Function](./img/good_bad_hash_func.png)
+
+
+### Trees
+
+- it's a data structure that consists of nodes in a parent/child relationship.
+
