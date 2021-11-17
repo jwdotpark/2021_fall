@@ -1084,12 +1084,125 @@ function hash(key, arrayLength) {
 ##### Hash Table Implementation
 - Hash Table class
   ```js
-  
+  class HashTable {
+    // arbitrary small size array for test
+    constructor(size = 5) {
+      this.keyMap = new Array(size);
+    }
+
+    _hash(key) {
+      let total = 0;
+      let WEIRD_PRIME = 31;
+      for (let i = 0; i < Math.min(key.length, 100); i++) {
+        let char = key[i];
+        let value = char.charCodeAt(0) - 96;
+        total = (total * WEIRD_PRIME + value) % this.keyMap.length;
+      }
+      return total;
+    }
+  }
   ```
+
+##### Set
+- it accepts a key and a value
+- it hashes the key.
+- it stores the key-value pair in the hash table array via separate chaianing.
+  ```js
+  set(key, value) {
+    let index = this._hash(key);
+    // if empty, set new array
+    if (!this.keyMap[index]) {
+      this.keyMap[index] = [];
+    }
+    // or set nested key value pair
+    this.keyMap[index].push([key, value]);
+    return index;
+  }
+
+  // intantiate hash table
+  let ht = new HashTable();
+  ht.set("Hello World", "Good World");
+  ht.set("color", "brown");
+  ht.set("name", "okgu");
+  ht.set("attr", "cute");
   
+  /*
+  ht.keyMap = [
+    [
+      ["Hello World", "Good World"],       -> nested array at index 0
+      ["color", "brown"]
+    ],
+    [
+      ["name", "okgu"]
+    ],
+    [
+      ["attr", "cute"]
+    ]
+  ]
+  */
+  ```
 
+##### Get
+- it accepts a key.
+- it hashes the key.
+- retrieves the key-value pair in the given index(possibly more than one).
+  - return the value of exact match in sub array.
+- if key is not found, returns undefined.
+  ```js
+  get(key) {
+    let index = this._hash(key);
+    if (this.keyMap[index]) {
+      // traverse the array to fiind the index
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        // look for exact match in sub array
+        if (this.keyMap[index][i][0] === key) {
+          // return the value of exact match
+          return this.keyMap[index][i][1];
+        }
+      }
+    }
+    return undefined;
+  }
 
+  // ht.get("name") -> okgu
+  ```
 
+#### Hash Table Keys and Values Method
+- key: 
+  - it loops through the hash table array and returns an array of keys in the table.
+  - it is unique.
+ 
+- value: 
+  - it loops through the hash table array and returns an array of values in the table.
+  - it is often not unique.
+  ```js
+  values() {
+    let valuesArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          // filter duplicate values
+          if (!valuesArr.includes(this.keyMap[i][j][1])) {
+            // push each second item(value) in array into values arr
+            valuesArr.push(this.keyMap[i][j][1]);
+          }
+        }
+      }
+      return valuesArr;
+    }
+  }
+  ```
 
+#### Big O of Hash Tables
 
+|        | avg  |
+|--------|------|
+| Insert | O(1) |
+| Delete | O(1) |
+| Access | O(1) |
 
+- With hash table, insertion, deletion and access of average and best case are constant time. it depends on
+  - how fast hash function it self is
+  - how evenly it distributes keys
+  - how suppressed collisions are
+- that said, hash function still depends on input size, traverse the array
