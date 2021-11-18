@@ -1238,5 +1238,61 @@ function hash(key, arrayLength) {
 
 ### Trees
 
-- it's a data structure that consists of nodes in a parent/child relationship.
+![Tree](./img/tree_terminology.png)
+- it's a top-down data structure that consists of nodes in a parent/child relationship with branching structure.
+- Unlike linear behavior in lists, trees are non-linear.
+- Tree is consist of 
+  - root: the top node in a tree.
+  - child: a node directly connected to another node when moving away from the root.
+  - parent: the converse notion of a child.
+  - siblings: a group of nodes with the same parent.
+  - leaf: a node with no children.
+  - edge: the connection between one node and another.
+- Tree node can only point to the child node.
+- Tree node can only have one root. 
 
+### What is Tree For?
+
+- Html DOM
+  ![DOM](./img/dom.png)
+- network routing
+- abstract syntax tree
+  ![AST](./img/ast.png)
+- artificial intelligence/machine learning decision tree
+  ![AI/ML](./img/tree_ml.png)
+- folder/directory file structure in OS
+  ![Folder/Directory](./img/cli_tree.png)
+- JSON
+
+#### Binary Tree 
+
+- it has a special condition that it can only have two children at most.(0, 1 or at most 2 children)
+
+#### Binary Search Tree
+
+![Binary Search Tree](./img/bst.png)
+
+- 
+- it's similar with binaray tree but property must be kept in order.
+- it is used to store data that can be compared that is sortable.
+- left side of children of binary search tree are always less than the parent.
+- right side of children of binary search tree are always greater than the parent.
+
+##### Searching in Binary Search Tree
+- binary search tree and node class
+  ```js
+  class BinarySearchTree {
+    constructor() {
+      this.root = null;
+    }
+  }
+
+  class Node {
+    constructor(value) {
+      this.value = value;
+      this.left = null;
+      this.right = null;
+    }
+  }
+  ```
+- 
