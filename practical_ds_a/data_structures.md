@@ -101,6 +101,17 @@ Jongwoo Park<br />
         - [Get](#get-2)
       - [Hash Table Keys and Values Method](#hash-table-keys-and-values-method)
       - [Big O of Hash Tables](#big-o-of-hash-tables)
+    - [Trees](#trees)
+      - [What is Tree For?](#what-is-tree-for)
+      - [Binary Tree](#binary-tree)
+      - [Binary Search Tree](#binary-search-tree)
+        - [Binary Search Tree Implementaion](#binary-search-tree-implementaion)
+          - [Insertion pseudocode](#insertion-pseudocode)
+          - [Insertion implementation](#insertion-implementation)
+          - [Find pseudocode](#find-pseudocode)
+          - [Find implementation](#find-implementation)
+        - [Big O of Binary Search Tree](#big-o-of-binary-search-tree)
+
       
 
 # Data Structure
@@ -1251,7 +1262,7 @@ function hash(key, arrayLength) {
 - Tree node can only point to the child node.
 - Tree node can only have one root. 
 
-### What is Tree For?
+#### What is Tree For?
 
 - Html DOM
   ![DOM](./img/dom.png)
@@ -1398,5 +1409,156 @@ find(value) {
   - even if the size is doubling, it only increases the number of process to insert/find by 1.
   - it is not always guaranteed. if tree structure resembles with one sided linked list, it could be O(n).
 - if the tree isn't sorted, it needs to be traverse all the node and could be O(n).
+
+### Tree Traversal
+
+- unlike linked list, traversing every node in tree structure is much more complicated. 
+- there are two ways to archieve this:
+  - breadth-first search
+    - it goes horizontally first, then vertically.
+  - depth-first search
+    - it goes vertically first, then horizontally.
+
+
+#### Breadth-First Search
+![BFS](./img/bfs.png)
+- general approach of BFS is, it looks for every sibling nodes before looking at a child node regardless of tree structure. 
+- in this case, it would be `[10, 6, 15, 1, 8, 20]` in order.
+
+##### BFS pseudocode
+- initiate a queue/array and a variable to store the values of nodes visited. 
+- place the root node in the queue
+- loop as long as there is anything in the queue
+  - dequeue a node from the queue and push the value of the node into the variable that stores the node.
+  - if there is a left property on the node dequeued, add it to the queue.
+  - if there is a right property on the node dequeued, add it to the queue.
+- return the variable that stores the node values.
+
+##### BFS implementation
+```js
+BFS() {
+  let node = this.root;
+  let visited = [];
+  let queue = [];
+  queue.push(node);
+
+  while (queue.length) {
+    node = queue.shift();
+    visiited.push(node.value);
+    if (node.left) queue.push(node.left);
+    if (node.right) queue.push(node.right);
+  }
+  return visited;
+}
+```
+
+
+#### Depth-First Search
+- it traverse nodes vertically down to the end of the tree before visiting sibling nodes.
+
+##### DFS PreOrder 
+![DFS PreOrder](./img/dfs_preorder.png)
+- DFS PreOrder has three steps: visit the node first, traverse to the left and then right.
+- in this case, it would be `[10, 6, 1, 8, 15, 20]`.
+
+###### DFS PreOrder pseudocode
+- create a variable to store the values of nodes visited.
+- store the root of the BST in a variable called current.
+- write a helper function which accepts a node
+  - push the value of the node to the variable that stores the values.
+  - if the node has a left property, call the helper function with the left property on the node.
+  - if the node has a right property, call the helper function with the right property on the node.
+- call the helper function with current variable.
+- return the array of visited.
+
+###### DFS PreOrder implementation
+```js
+  DFSPreOrder() {
+    // visited
+    let data = [];
+    let current = this.root;
+
+    function traverse(node) {
+      
+      // check left and right and push to data recursively until empty
+      data.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+
+    }
+    traverse(current);
+    return data;
+  }
+```
+
+##### DFS PostOrder
+
+![DFS PostOrder](./img/dfs_postorder.png)
+
+- it's similar with DFS PreOrder, but it traverses the left, right nodes __first__ and then visiting the node.
+- root is the last node visited.
+- in this case, it would be `[1, 8, 6, 20, 15, 10]`.
+
+###### DFS PostOrder pseudocode
+- it's similar with DFS PreOrder but slightly different order in recursive helper function as it looks for left, right and the node.
+
+###### DFS PostOrder implementation
+```js
+DFSPostOrder() {
+  let data = [];
+  let current = this.root;
+  function traverse(node) {
+
+    if (node.left) traverse(node.left);
+    if (node.right) traverse(node.right);
+    data.push(node.value);
+
+  }
+  traverse(current);
+  return data;
+}
+```
+
+##### DFS InOrder
+
+![DFS InOrder](./img/dfs_inorder.png)
+
+- it traverses the entire left side first, visit the node, and then traverse the right side.
+- in this case, it would be `[1, 6, 8, 10, 15, 20]`.
+
+###### DFS InOrder pseudocode
+- it's same pseudo code as other DFS search method except helper function, it traverse the left and push the value to the array and then traverse the right recursively.
+
+###### DFS InOrder implementation
+```js
+ DFSInOrder() {
+    let data = [];
+    let current = this.root;
+    function traverse(node) {
+
+      if (node.left) traverse(node.left);
+      data.push(node.value);
+      if (node.right) traverse(node.right);
+
+    }
+    traverse(current);
+    return data;
+  }
+```
+
+#### BFS or DFS Comparison
+- time complexity in general is the same.
+- space complexity could vary depend on wide or deep tree structure.
+  - in wide tree, BFS could take up more space.
+  - in deep tree, DFS could take up more space.
+- if tree structure is sad one that looks like a one sided list, queue takes only one item at each level and space doesn't matter in this case but it's inefficient.
+
+#### DFS Variants Comparison
+- DFS InOrder returns an ordered result.
+- DFS PreOrder can be used to be exported so that it can be easily reconstructed or copied because tree structure can be replicated easily based on order.
+- At the end of the day, it can be switched each other easily and result may depend on the target data structure itself.
+
+
+
 
 
