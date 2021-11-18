@@ -1272,13 +1272,12 @@ function hash(key, arrayLength) {
 
 ![Binary Search Tree](./img/bst.png)
 
-- 
 - it's similar with binaray tree but property must be kept in order.
 - it is used to store data that can be compared that is sortable.
 - left side of children of binary search tree are always less than the parent.
 - right side of children of binary search tree are always greater than the parent.
 
-##### Searching in Binary Search Tree
+##### Binary Search Tree Implementation
 - binary search tree and node class
   ```js
   class BinarySearchTree {
@@ -1295,4 +1294,109 @@ function hash(key, arrayLength) {
     }
   }
   ```
-- 
+###### insertion pseudocode
+  - create a new node.
+  - starting at the root,
+    - if no root, new node becomes the root.
+    - if root, check if new node value is greater or less than the value of root.
+    - if new value is greater,
+      - check if there is a child node on the right
+        - if there is, move to that node and repeat the process
+        - if not, add that node as a right property
+    - if new value is smaller,
+      - check if there is a node on the left
+        - if there is, move to that node and repeat the process.
+        - if not, add that node as a left property.
+  - return the result.
+
+###### insertion implementation
+```js
+insert(value) {
+  let newNode = new Node(value);
+  // if no root, set root to new node
+  if (this.root === null) {
+    this.root = newNode;
+    return this;
+  } else {
+    let current = this.root;
+    while (true) {
+      // duplicate values
+      if (value === current.value) return undefined;
+      // if value is less than current node, go left
+      if (value < current.value) {
+        if (current.left === null) {
+          current.left = newNode;
+          return this;
+        } else {
+          // if left node, set current to left node
+          current = current.left;
+        }
+      } else {
+        if (current.right === null) {
+          current.right = newNode;
+          return this;
+        } else {
+          current = current.right;
+        }
+      }
+    }
+  }
+}
+```
+
+###### find pseudocode
+- start at the root.
+  - check if there is root, 
+    - if not, return undefined.
+    - if root, check if value of new node is equal to the value of root.
+      - if equal, return the value of root.
+      - if not, check to see if value is greater than or less than the value of the root.
+        - if greater,
+          - check if there is a right node.
+            - if there is, move to that node and repeat the process.
+        - if less,
+          - check if there is a left node.
+            - if there is, move to that node and repeat the process.
+  - if neither, return undefined.
+
+###### find implementation
+```js
+find(value) {
+  if (this.root === null) return undefined;
+  let current = this.root,
+    found = false;
+  while (current && !found) {
+    if (value < current.value) {
+      current = current.left;
+    } else if (value > current.value) {
+      current = current.right;
+    } else {
+      found = true;
+    }
+  }
+  if (!found) return undefined;
+  return current;
+}
+```
+
+##### Big O of Binary Search Tree
+
+|           | Best and avg | Worst |
+|-----------|--------------|-------|
+| Insertion | O(log n)     | O(n)  |
+| Searching | O(log n)     | O(n)  |
+
+- In best and average case, 
+
+| n of nodes | extra step |
+|------------|------------|
+| 2          | 1          |
+| 4          | 2          |
+| 8          | 3          |
+
+- insertion and search are both logarithmic.
+  - even if the size is doubling, it only increases the number of process to insert/find by 1.
+  - it is not always guaranteed. if tree structure resembles with one sided linked list, it could be O(n).
+- if the tree isn't sorted, it needs to be traverse all the node and could be O(n).
+
+
