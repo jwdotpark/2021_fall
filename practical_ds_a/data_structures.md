@@ -1627,3 +1627,19 @@ Unweighted directed graph of relationships between people
 
 Weighted undirected graph of map
 
+#### Breakdown of Graphs
+
+adjacency matrix
+
+![Adjacency Matrix](./img/adjacency_matrix.png)
+
+- in adjacency matrix, edges are represented as a boolean in rows/columns in matrix. 
+  - matrix: two dimensional structure that usually implemented with nested array
+
+adjacency list
+
+![Adjacency List](./img/adjacency_list.png)
+
+- in adjacency list, data can be represented as a array based on index or hash table based on key value.
+
+#### Big O of Adjacency Matrix and List
