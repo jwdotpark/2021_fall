@@ -1643,3 +1643,123 @@ adjacency list
 - in adjacency list, data can be represented as a array based on index or hash table based on key value.
 
 #### Big O of Adjacency Matrix and List
+
+- |V|: number of vertices
+- |E|: number of edges
+
+| Operation     | Adjacency List   | Adjacency Matrix |
+|---------------|------------------|------------------|
+| Add vertex    | O(1)             | O(\|V^2\|)       |
+| Add edge      | O(1)             | O(1)             |
+| Remove Vertex | O(\|V\| + \|E\|) | O(\|V^2\|)       |
+| Remove edge   | O(\|E\|)         | O(1)             |
+| Query         | O(\|V\| + \|E\|) | O(1)             |
+| Storage       | O(\|V\| + \|E\|) | O(\|V^2\|)       |
+
+- adjacency list time complexity grows more linearly depend on the number of vertices and edges because its structure - array based on index.
+  - it can take less space in sparse graphs.
+  - it's fster to iterate over all edges. (it skips the vertices that don't have any edges)
+  - it can be slower to look u[ the specific edge.
+- adjacency matrix time complexity grows more exponentially based on the number of vertices because its structure - square matrix. 
+  - it doesn't matter much how many connections are in adjacency matrix.
+  - it takes up more space in sparse graphs.
+  - it's slower to iterate over all edges. (it looks over every single one)
+  - it's faster to look up specific edge.
+  - if data is sparse, don't have many edges, it's better not to use adjacency matrix.
+
+- real world data generally tends to be sparse(lots of node, relationship but not everything is connected), it's better to use adjacency list.
+- if data is dense and relationship is strong, it's better to use adjacency matrix.
+
+#### Creating Graph
+
+```js
+class Graph {
+  constructor() {
+    this.adjacencyList = {};
+  }
+}
+```
+
+###### Adding Vertex pseudocode
+- write a method called addVertex that accepts a name of a vertex.
+- it should add a key to the adjacency list wit thhe name of the vertex and set its value to be an empty array.
+
+###### Adding Vertex implementation
+```js
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) {
+      this.adjacencyList[vertex] = [];
+    }
+  }
+```
+
+###### Adding Edge pseudocode
+- it should accept two vertices as argument, call it vertex1 and vertex2.
+- the function should find in the adjacency list the key of vertex 1 and push vertex 2 to the array.
+- it should find in the adjacency list the key of vertex2 and push vertex1 to the array.
+
+e.g.
+
+```js
+
+```
+
+###### Adding Edge implementation
+```js
+addEdge(v1, v2) {
+  this.adjacencyList[v1].push(v2);
+  this.adjacencyList[v2].push(v1);
+}
+
+/*
+// init
+{
+  "berlin": [],
+  "paris": [],
+  "amsterdam": [],
+}
+
+g.addEdge("berlin", "paris");
+
+{
+  "berlin": ["paris"],
+  "paris": ["berlin"],
+  "amsterdam": [],
+}
+*/
+```
+
+###### Removing Edge pseudocode
+- it should accept two vertices as v1 and v2.
+- it should reassign the key of v1 to be an array that does not contain v2.
+- it should reassign the key of v2 to be an array that does not contain v1.
+
+###### Removig edge implementation
+```js
+removeEdge(v1, v2) {
+  this.adjacencyList[v1] = this.adjacencyList[v1].filter(
+    v => v !== v2
+  );
+  this.adjacencyList[v2] = this.adjacencyList[v2].filter(
+    v => v !== v1
+  );
+}
+```
+
+###### Removing Vertex pseudocode
+- it should accept a vertex to remove.
+- it should loop as long as there are any other vertieces in the adjency list for that vertex.
+  - inside of the loop, call removeEdge() with the vertex to remove and any values in the adjacency list for that vertex.
+- delete the key in the adjacency list.
+
+###### Removing Vertex implementation
+```js
+removeVertex(vertex) {
+    while (this.adjacencyList[vertex].length) {
+      const adjacentVertex = this.adjacencyList[vertex].pop();
+      this.removeEdge(vertex, adjacentVertex);
+    }
+    delete this.adjacencyList[vertex];
+  }
+```
+
