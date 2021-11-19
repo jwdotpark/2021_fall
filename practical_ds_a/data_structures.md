@@ -1586,11 +1586,16 @@ DFSPostOrder() {
 #### Use Case of Graphs
 - location/Mapping
 - routing algorithms
-  ![graph map](./img/graph_map.jpg)
-  - each point of interest represents a node and routing between nodes is represented by edges.
+
+![graph map](./img/graph_map.jpg)
+
+- each point of interest represents a node and routing between nodes is represented by edges.
+
 - visual hierarchy
-  ![graph hierarchy](./img/graph_net.png)
-  - tiny part of internet map hierarchy
+
+![graph hierarchy](./img/graph_net.png)
+
+- tiny part of internet map hierarchy
 - file system optimizations
 - recommendation engine
 - any structure that requires complex relationships
@@ -1612,9 +1617,12 @@ DFSPostOrder() {
     - edges have weight. there is a information about the connection itself.
 
 Examples
+
 ![Unweighted directed graph](./img/unweighted_directed_graph.png)
+
 Unweighted directed graph of relationships between people
 
 ![Weighted undirected graph](./img/weighted_undirected_graph.png)
+
 Weighted undirected graph of map
 
