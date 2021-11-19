@@ -1589,13 +1589,14 @@ DFSPostOrder() {
 
 ![graph map](./img/graph_map.jpg)
 
-- each point of interest represents a node and routing between nodes is represented by edges.
+each point of interest represents a node and routing between nodes is represented by edges.
 
 - visual hierarchy
 
 ![graph hierarchy](./img/graph_net.png)
 
-- tiny part of internet map hierarchy
+tiny part of internet map hierarchy
+
 - file system optimizations
 - recommendation engine
 - any structure that requires complex relationships
