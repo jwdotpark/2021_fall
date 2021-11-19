@@ -1574,6 +1574,47 @@ DFSPostOrder() {
 - At the end of the day, it can be switched each other easily and result may depend on the target data structure itself.
 
 
+### Graphs
+- a graph data structure consists of a finite(and possibly mutable) set of vertices or nodes or points, together with a set of unordered pairs of these vertices for an undirected graph or a set of ordered pairs for a directed graph.
+- i.e. it is a collection of nodes and edges(connections). 
+![graph](./img/graph.png)
+- node position doesn't matter but connection between nodes is important.
+![graph2](./img/graph2.png)
+- this graph is also valid one.
+- list and tree can be a type of graph.
 
+#### Use Case of Graphs
+- location/Mapping
+- routing algorithms
+  ![graph map](./img/graph_map.jpg)
+  - each point of interest represents a node and routing between nodes is represented by edges.
+- visual hierarchy
+  ![graph hierarchy](./img/graph_net.png)
+  - tiny part of internet map hierarchy
+- file system optimizations
+- recommendation engine
+- any structure that requires complex relationships
 
+#### Terminology of Graphs
+- vertex: a node in a graph.
+- edge: a connection between two nodes.
+- directed/undirected graph: 
+  - directed graph:
+    - edges have direction or polarity.
+      - e.g. instagram one-way follower graph
+  - undirected graph:
+    - edges have no direction or polarity, it goes either way. 
+      - e.g. facebook two-way friend graph
+- weighted/unweighted graph:
+  - unweighted graph:
+    - edges have no weight. there is no information in the connection itself.
+  - weighted graph:
+    - edges have weight. there is a information about the connection itself.
+
+Examples
+![Unweighted directed graph](./img/unweighted_directed_graph.png)
+Unweighted directed graph of relationships between people
+
+![Weighted undirected graph](./img/weighted_undirected_graph.png)
+Weighted undirected graph of map
 
