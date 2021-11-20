@@ -1,18 +1,23 @@
+
+<!-- /code_chunk_output -->
+
+
 __CODE University 2021 Fall Semester<br />__
 __SE_02 Algorithms and Data Structures<br />__
 Jongwoo Park<br />
 ***
 
+
 - [Data Structure](#data-structure)
-  - [Analysis of Data Structures](#analysis-of-data-structures)
-    - [Before get started with Javascript..](#before-get-started-with-javascript)
-      - [Class](#class)
-    - [Arrays](#arrays)
-      - [Array Operations](#array-operations)
-    - [Linked List](#linked-list)
-      - [What is a Linked List?](#what-is-a-linked-list)
-      - [Comparisons with Array](#comparisons-with-array)
-      - [Singly Linked List](#singly-linked-list)
+  - [1. Analysis of Data Structures](#1-a-nameanalysis-of-data-structuresaanalysis-of-data-structures)
+    - [1.1. Before get started with Javascript..](#11-a-namebefore-get-started-with-javascriptabefore-get-started-with-javascript)
+      - [1.1.1. Class](#111-a-nameclassaclass)
+    - [1.2. Arrays](#12-a-namearraysaarrays)
+      - [1.2.1. Array Operations](#121-a-namearray-operationsaarray-operations)
+    - [1.3. Linked List](#13-a-namelinked-listalinked-list)
+      - [1.3.1. What is a Linked List?](#131-a-namewhat-is-a-linked-listawhat-is-a-linked-list)
+      - [1.3.2. Comparisons with Array](#132-a-namecomparisons-with-arrayacomparisons-with-array)
+      - [1.3.3. Singly Linked List](#133-a-namesingly-linked-listasingly-linked-list)
         - [Push](#push)
           - [Push pseudocode](#push-pseudocode)
           - [Push implementation](#push-implementation)
@@ -41,7 +46,7 @@ Jongwoo Park<br />
           - [Reverse pseudocode](#reverse-pseudocode)
           - [Reverse implementation](#reverse-implementation)
         - [Big O of Singly Linked Lists](#big-o-of-singly-linked-lists)
-      - [Doubly Linked List](#doubly-linked-list)
+      - [1.3.4. Doubly Linked List](#134-a-namedoubly-linked-listadoubly-linked-list)
         - [Doubly Linked List Constructor](#doubly-linked-list-constructor)
         - [Push](#push-1)
           - [Push pseudocode](#push-pseudocode-1)
@@ -54,7 +59,7 @@ Jongwoo Park<br />
           - [Shift implementation](#shift-implementation-1)
         - [Unshift](#unshift-1)
           - [Unshift pseudocode](#unshift-pseudocode-1)
-          - [Unshift implementation](#unshift-implementation-1) 
+          - [Unshift implementation](#unshift-implementation-1)
         - [Get](#get-1)
           - [Get pseudocode](#get-pseudocode-1)
           - [Get implementation](#get-implementation-1)
@@ -67,56 +72,53 @@ Jongwoo Park<br />
         - [Remove](#remove-1)
           - [Remove pseudocode](#remove-pseudocode-1)
           - [Remove implementation](#remove-implementation-1)
-        - [Reverse](#reverse-1)
-          - [Reverse pseudocode](#reverse-pseudocode-1)
-          - [Reverse implementation](#reverse-implementation-1)
         - [Big O of Doubly Linked Lists](#big-o-of-doubly-linked-lists)
         - [Comparison with singly linked list](#comparison-with-singly-linked-list)
-    - [Stacks and Queues](#stacks-and-queues)
-      - [Stack](#stack)
-        - [Where Sttacks are Used](#where-stacks-are-used)
+    - [1.4. Stacks and Queues](#14-a-namestacks-and-queuesastacks-and-queues)
+      - [1.4.1. Stack](#141-a-namestackastack)
+        - [Where Stacks Are Used](#where-stacks-are-used)
         - [Create Stack](#create-stack)
           - [With Array](#with-array)
-          - [With Linked List Implemtation](#with-linked-list-implementation)
+          - [With Linked List Implementation](#with-linked-list-implementation)
           - [Push pseudocode](#push-pseudocode-2)
           - [Pop pseudocode](#pop-pseudocode-2)
         - [Big O of Stacks](#big-o-of-stacks)
-      - [Queue](#queue)
+      - [1.4.2. Queues](#142-a-namequeuesaqueues)
         - [Create Queue](#create-queue)
           - [With Array](#with-array-1)
           - [With Linked List Implementation](#with-linked-list-implementation-1)
           - [Enqueue pseudocode](#enqueue-pseudocode)
-          - [Enqueue iimplementation](#enqueue-implementation)
-          - [Dequeue pseudocode](#dequeue-pseudocode)
+          - [Enqueue implementation](#enqueue-implementation)
+          - [Dequeue psesudocode](#dequeue-psesudocode)
           - [Dequeue implementation](#dequeue-implementation)
         - [Big O of Queues](#big-o-of-queues)
-    - [Hash Tables](#hash-tables)
-      - [What is Hash Table?](#what-is-hash-table)
-      - [Hash Functions](#hash-functions)
+    - [1.5. Hash Tables](#15-a-namehash-tablesahash-tables)
+      - [1.5.1. What is Hash Table?](#151-a-namewhat-is-hash-tableawhat-is-hash-table)
+      - [1.5.2. Hash Function](#152-a-namehash-functionahash-function)
         - [More of Hash Function Basics](#more-of-hash-function-basics)
         - [Simple Hash Function Implementation](#simple-hash-function-implementation)
         - [Simple Hash Function Slightly Improved Implementation](#simple-hash-function-slightly-improved-implementation)
-        - [Dealing With Cillisions](#dealing-with-cillisions)
+        - [Dealing with Collisions](#dealing-with-collisions)
         - [Hash Table Implementation](#hash-table-implementation)
         - [Set](#set-2)
         - [Get](#get-2)
-      - [Hash Table Keys and Values Method](#hash-table-keys-and-values-method)
-      - [Big O of Hash Tables](#big-o-of-hash-tables)
-    - [Trees](#trees)
-      - [What is Tree For?](#what-is-tree-for)
-      - [Binary Tree](#binary-tree)
-      - [Binary Search Tree](#binary-search-tree)
-        - [Binary Search Tree Implementaion](#binary-search-tree-implementaion)
-          - [Insertion pseudocode](#insertion-pseudocode)
-          - [Insertion implementation](#insertion-implementation)
-          - [Find pseudocode](#find-pseudocode)
-          - [Find implementation](#find-implementation)
+      - [1.5.3. Hash Table Keys and Values Method](#153-a-namehash-table-keys-and-values-methodahash-table-keys-and-values-method)
+      - [1.5.4. Big O of Hash Tables](#154-a-namebig-o-of-hash-tablesabig-o-of-hash-tables)
+    - [1.6. Trees](#16-a-nametreesatrees)
+      - [1.6.1. What is Tree For?](#161-a-namewhat-is-tree-forawhat-is-tree-for)
+      - [1.6.2. Binary Tree](#162-a-namebinary-treeabinary-tree)
+      - [1.6.3. Binary Search Tree](#163-a-namebinary-search-treeabinary-search-tree)
+        - [Binary Search Tree Implementation](#binary-search-tree-implementation)
+          - [insertion pseudocode](#insertion-pseudocode)
+          - [insertion implementation](#insertion-implementation)
+          - [find pseudocode](#find-pseudocode)
+          - [find implementation](#find-implementation)
         - [Big O of Binary Search Tree](#big-o-of-binary-search-tree)
-    - [Tree Traversal](#tree-traversal)
-      - [Breadth-First Search](#breadth-first-search)
-        - [Breadth-First Search pseudocode](#breadth-first-search-pseudocode)
-        - [Breadth-First Search implementation](#breadth-first-search-implementation)
-      - [Depth-First Search](#depth-first-search)
+    - [1.7. Tree Traversal](#17-a-nametree-traversalatree-traversal)
+      - [1.7.1. Breadth-First Search](#171-a-namebreadth-first-searchabreadth-first-search)
+        - [BFS pseudocode](#bfs-pseudocode)
+        - [BFS implementation](#bfs-implementation)
+      - [1.7.2. Depth-First Search](#172-a-namedepth-first-searchadepth-first-search)
         - [DFS PreOrder](#dfs-preorder)
           - [DFS PreOrder pseudocode](#dfs-preorder-pseudocode)
           - [DFS PreOrder implementation](#dfs-preorder-implementation)
@@ -126,25 +128,35 @@ Jongwoo Park<br />
         - [DFS InOrder](#dfs-inorder)
           - [DFS InOrder pseudocode](#dfs-inorder-pseudocode)
           - [DFS InOrder implementation](#dfs-inorder-implementation)
-      - [BFS or DFS Comparison](#bfs-or-dfs-comparison)
-      - [DFS Variants Comparison](#dfs-variants-comparison)
-    - [Graphs](#graphs)
-      - [Use Case of Graphs](#use-case-of-graphs)
-      - [Termonilogy of Graphs](#termonilogy-of-graphs)
-      - [Breakdown of Graphs](#breakdown-of-graphs)
-      - [Big O of Adjacency Matrix and List](#big-o-of-adjacency-matrix-and-list)
-      - [Creating Graph](#creating-graph)
-        - [Adding Vertex pseudocode](#adding-vertex-pseudocode)
-        - [Adding Vertex implementation](#adding-vertex-implementation)
-        - [Adding Edge pseudocode](#adding-edge-pseudocode)
-        - [Adding Edge implementation](#adding-edge-implementation)
-        - [Removing Edge pseudocode](#removing-edge-pseudocode)
-        - [Removing Edge implementation](#removing-edge-implementation)
-        - [Removing Vertex pseudocode](#removing-vertex-pseudocode)
-        - [Removing Vertex implementation](#removing-vertex-implementation)
-      
+      - [1.7.3. BFS or DFS Comparison](#173-a-namebfs-or-dfs-comparisonabfs-or-dfs-comparison)
+      - [1.7.4. DFS Variants Comparison](#174-a-namedfs-variants-comparisonadfs-variants-comparison)
+    - [1.8. Graphs](#18-a-namegraphsagraphs)
+      - [1.8.1. Use Case of Graphs](#181-a-nameuse-case-of-graphsause-case-of-graphs)
+      - [1.8.2. Terminology of Graphs](#182-a-nameterminology-of-graphsaterminology-of-graphs)
+      - [1.8.3. Breakdown of Graphs](#183-a-namebreakdown-of-graphsabreakdown-of-graphs)
+      - [1.8.4. Big O of Adjacency Matrix and List](#184-a-namebig-o-of-adjacency-matrix-and-listabig-o-of-adjacency-matrix-and-list)
+      - [1.8.5. Creating Graph](#185-a-namecreating-graphacreating-graph)
+          - [Adding Vertex pseudocode](#adding-vertex-pseudocode)
+          - [Adding Vertex implementation](#adding-vertex-implementation)
+          - [Adding Edge pseudocode](#adding-edge-pseudocode)
+          - [Adding Edge implementation](#adding-edge-implementation)
+          - [Removing Edge pseudocode](#removing-edge-pseudocode)
+          - [Removing edge implementation](#removing-edge-implementation)
+          - [Removing Vertex pseudocode](#removing-vertex-pseudocode)
+          - [Removing Vertex implementation](#removing-vertex-implementation)
+    - [1.9. Graph Traversal](#19-a-namegraph-traversalagraph-traversal)
+      - [1.9.1. Graph Traversal Uses](#191-a-namegraph-traversal-usesagraph-traversal-uses)
+      - [1.9.2. Depth First Search Graph Traversal](#192-a-namedepth-first-search-graph-traversaladepth-first-search-graph-traversal)
+        - [Depth First Search Graph Recursively pseudocode](#depth-first-search-graph-recursively-pseudocode)
+        - [Depth First Search Graph Recursively implementation](#depth-first-search-graph-recursively-implementation)
+        - [Depth First Search Graph Iteratively pseudocode](#depth-first-search-graph-iteratively-pseudocode)
+        - [Depth First Search Graph Iteratively implementation](#depth-first-search-graph-iteratively-implementation)
+      - [1.9.3. Breadth First Search Graph Traversal](#193-a-namebreadth-first-search-graph-traversalabreadth-first-search-graph-traversal)
+        - [Breadth First Search Graph Traversal pseudocode](#breadth-first-search-graph-traversal-pseudocode)
+        - [Breadth First Search Graph Traversal implementation](#breadth-first-search-graph-traversal-implementation)
+
 # Data Structure
-## Analysis of Data Structures
+##  1. <a name='analysis-of-data-structures'></a>Analysis of Data Structures
 
 - Data structures are collections of values, the relationships among them, and the functions or operations that canbe applied to the data.
 - It's a essential for computer science and each has their own advantages and disadvantages.
@@ -153,10 +165,10 @@ Jongwoo Park<br />
   - For input job for adding a value at the beginning/end of the ordered list, linked list could be the best case.
   - For scraping nested HTML, tree structure could be the best data structure.
 
-### Before get started with Javascript..
+###  1.1. <a name='before-get-started-with-javascript..'></a>Before get started with Javascript..
 
 Javascript is prototype based language and doesn't have OOP concept per se but there are some syntactic sugar for it since ES2015.
-#### Class
+####  1.1.1. <a name='class'></a>Class
 
 A blueprint for creating objects with pre-defined properties and methods.
 
@@ -204,7 +216,7 @@ let okja = new Student("Okja", "The Cute Dog", 3, "Carrot");
 - `this` keyword is used to access the properties and methods of the class, it refers to the object created from that class.
 - `static` keyword defines a static method or property for a class, which can be called without instantiating an object from the class and can't be called through individual instances.  [MDN static reference ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
 
-### Arrays
+###  1.2. <a name='arrays'></a>Arrays
 
 ![Array2](./img/array2.png)
 
@@ -216,7 +228,7 @@ source: [educative](https://www.educative.io)
 - it's the foundation for complex data structure and simple to create and yse.
 - because of its linear structure, it's expensive to insert/delete values except at the end of the array.
 
-#### Array Operations
+####  1.2.1. <a name='array-operations'></a>Array Operations
 
 There is no guarantee that worst case specifed below is correct case because of how array performs based on various JS engines but generally it follows it.
 
@@ -269,9 +281,9 @@ Deletion
 
 
 
-### Linked List
+###  1.3. <a name='linked-list'></a>Linked List
 
-#### What is a Linked List?
+####  1.3.1. <a name='what-is-a-linked-list?'></a>What is a Linked List?
 
 - A data structure that contains a head(beginning), tail(end) and length property.
 - Linked lists consist of nodes(each element), and each node has a value and a pointer to another node or null.
@@ -281,7 +293,7 @@ Deletion
 
 ![Singly Linked List](./img/singly_linked_list.png)
 
-#### Comparisons with Array
+####  1.3.2. <a name='comparisons-with-array'></a>Comparisons with Array
 - List:
   - There is no indexes.
   - Connected via nodes with a __next__ pointer.
@@ -292,7 +304,7 @@ Deletion
   - Insertion and deletion is expensive, every node has to be re-indexed.
   - Node can be accessed quickly with a specific index.
 
-#### Singly Linked List
+####  1.3.3. <a name='singly-linked-list'></a>Singly Linked List
 
 - linked list has a pointer to the head of the list and a pointer to the tail.
 
@@ -608,7 +620,7 @@ reverse() {
 - The idea of a list data structure that consists of head, tail and nodes is the foundation for other data structures like Stacks and Queues. 
 
 
-#### Doubly Linked List
+####  1.3.4. <a name='doubly-linked-list'></a>Doubly Linked List
 
 ![Doubly Linked List](./img/doubly_linked_list.png)
 
@@ -914,9 +926,9 @@ e
 - it takes more (almost twice )space given the extra pointer. 
 
 
-### Stacks and Queues
+###  1.4. <a name='stacks-and-queues'></a>Stacks and Queues
 
-#### Stack
+####  1.4.1. <a name='stack'></a>Stack
 
 
 - it is not a built-in data structure in Javascript.
@@ -1017,7 +1029,7 @@ pop() {
 - stack is prioritized on push/pop and both are constant.
 - searching/accessing individual node is same as O(n).
 
-#### Queues
+####  1.4.2. <a name='queues'></a>Queues
 - it's similar to stack but with FIFO data structure. 
   - __FIFO__: FIrst In First Out, i.e. first element added to the queue will be the first element removed from the queue.
   - e.g. background task, uploading resources, printing like task processing in general.
@@ -1104,9 +1116,9 @@ dequeue() {
 - Big O Notation of Insertion and Removal on queue is O(1) because it's constant time but it would be O(n) if array is used.
 - Searching and Access is not in a good fit with queue, because of traversing.
 
-### Hash Tables
+###  1.5. <a name='hash-tables'></a>Hash Tables
 
-#### What is Hash Table?
+####  1.5.1. <a name='what-is-hash-table?'></a>What is Hash Table?
 - it's often called hash maps too.
 - hash table is a data structure that stores __key-value__ pairs.
 - it is like array, but the keys are not ordered.
@@ -1122,7 +1134,7 @@ dequeue() {
   - Hashes in Ruby
 - it gives a human-readable representation of the data.
 
-#### Hash Function 
+####  1.5.2. <a name='hash-function'></a>Hash Function 
 - to impelement a hash table, array will be used in this case.
 - in order to look up the value by key, keys are needed to be converted into valid array index.
   - __hash function__ can be performed to convert the key into valid array index.
@@ -1273,7 +1285,7 @@ function hash(key, arrayLength) {
   // ht.get("name") -> okgu
   ```
 
-#### Hash Table Keys and Values Method
+####  1.5.3. <a name='hash-table-keys-and-values-method'></a>Hash Table Keys and Values Method
 - key: 
   - it loops through the hash table array and returns an array of keys in the table.
   - it is unique.
@@ -1299,7 +1311,7 @@ function hash(key, arrayLength) {
   }
   ```
 
-#### Big O of Hash Tables
+####  1.5.4. <a name='big-o-of-hash-tables'></a>Big O of Hash Tables
 
 |        | avg  |
 |--------|------|
@@ -1317,7 +1329,7 @@ function hash(key, arrayLength) {
   ![Good and Bad Hash Function](./img/good_bad_hash_func.png)
 
 
-### Trees
+###  1.6. <a name='trees'></a>Trees
 
 ![Tree](./img/tree_terminology.png)
 - it's a top-down data structure that consists of nodes in a parent/child relationship with branching structure.
@@ -1332,7 +1344,7 @@ function hash(key, arrayLength) {
 - Tree node can only point to the child node.
 - Tree node can only have one root. 
 
-#### What is Tree For?
+####  1.6.1. <a name='what-is-tree-for?'></a>What is Tree For?
 
 - Html DOM
   ![DOM](./img/dom.png)
@@ -1345,11 +1357,11 @@ function hash(key, arrayLength) {
   ![Folder/Directory](./img/cli_tree.png)
 - JSON
 
-#### Binary Tree 
+####  1.6.2. <a name='binary-tree'></a>Binary Tree 
 
 - it has a special condition that it can only have two children at most.(0, 1 or at most 2 children)
 
-#### Binary Search Tree
+####  1.6.3. <a name='binary-search-tree'></a>Binary Search Tree
 
 ![Binary Search Tree](./img/bst.png)
 
@@ -1480,7 +1492,7 @@ find(value) {
   - it is not always guaranteed. if tree structure resembles with one sided linked list, it could be O(n).
 - if the tree isn't sorted, it needs to be traverse all the node and could be O(n).
 
-### Tree Traversal
+###  1.7. <a name='tree-traversal'></a>Tree Traversal
 
 - unlike linked list, traversing every node in tree structure is much more complicated. 
 - there are two ways to archieve this:
@@ -1490,7 +1502,7 @@ find(value) {
     - it goes vertically first, then horizontally.
 
 
-#### Breadth-First Search
+####  1.7.1. <a name='breadth-first-search'></a>Breadth-First Search
 ![BFS](./img/bfs.png)
 - general approach of BFS is, it looks for every sibling nodes before looking at a child node regardless of tree structure. 
 - in this case, it would be `[10, 6, 15, 1, 8, 20]` in order.
@@ -1523,7 +1535,7 @@ BFS() {
 ```
 
 
-#### Depth-First Search
+####  1.7.2. <a name='depth-first-search'></a>Depth-First Search
 - it traverse nodes vertically down to the end of the tree before visiting sibling nodes.
 
 ##### DFS PreOrder 
@@ -1616,20 +1628,20 @@ DFSPostOrder() {
   }
 ```
 
-#### BFS or DFS Comparison
+####  1.7.3. <a name='bfs-or-dfs-comparison'></a>BFS or DFS Comparison
 - time complexity in general is the same.
 - space complexity could vary depend on wide or deep tree structure.
   - in wide tree, BFS could take up more space.
   - in deep tree, DFS could take up more space.
 - if tree structure is sad one that looks like a one sided list, queue takes only one item at each level and space doesn't matter in this case but it's inefficient.
 
-#### DFS Variants Comparison
+####  1.7.4. <a name='dfs-variants-comparison'></a>DFS Variants Comparison
 - DFS InOrder returns an ordered result.
 - DFS PreOrder can be used to be exported so that it can be easily reconstructed or copied because tree structure can be replicated easily based on order.
 - At the end of the day, it can be switched each other easily and result may depend on the target data structure itself.
 
 
-### Graphs
+###  1.8. <a name='graphs'></a>Graphs
 - a graph data structure consists of a finite(and possibly mutable) set of vertices or nodes or points, together with a set of unordered pairs of these vertices for an undirected graph or a set of ordered pairs for a directed graph.
 - i.e. it is a collection of nodes and edges(connections). 
 ![graph](./img/graph.png)
@@ -1638,7 +1650,7 @@ DFSPostOrder() {
 - this graph is also valid one.
 - list and tree can be a type of graph.
 
-#### Use Case of Graphs
+####  1.8.1. <a name='use-case-of-graphs'></a>Use Case of Graphs
 - location/Mapping
 - routing algorithms
 
@@ -1656,7 +1668,7 @@ tiny part of internet map hierarchy
 - recommendation engine
 - any structure that requires complex relationships
 
-#### Terminology of Graphs
+####  1.8.2. <a name='terminology-of-graphs'></a>Terminology of Graphs
 - vertex: a node in a graph.
 - edge: a connection between two nodes.
 - directed/undirected graph: 
@@ -1682,7 +1694,7 @@ Unweighted directed graph of relationships between people
 
 Weighted undirected graph of map
 
-#### Breakdown of Graphs
+####  1.8.3. <a name='breakdown-of-graphs'></a>Breakdown of Graphs
 
 adjacency matrix
 
@@ -1697,7 +1709,7 @@ adjacency list
 
 - in adjacency list, data can be represented as a array based on index or hash table based on key value.
 
-#### Big O of Adjacency Matrix and List
+####  1.8.4. <a name='big-o-of-adjacency-matrix-and-list'></a>Big O of Adjacency Matrix and List
 
 - |V|: number of vertices
 - |E|: number of edges
@@ -1725,7 +1737,7 @@ adjacency list
 - real world data generally tends to be sparse(lots of node, relationship but not everything is connected), it's better to use adjacency list.
 - if data is dense and relationship is strong, it's better to use adjacency matrix.
 
-#### Creating Graph
+####  1.8.5. <a name='creating-graph'></a>Creating Graph
 
 ```js
 class Graph {
@@ -1812,12 +1824,12 @@ removeVertex(vertex) {
   }
 ```
 
-### Graph Traversal
+###  1.9. <a name='graph-traversal'></a>Graph Traversal
 
 - graph traversal is a process of visiting all vertices connected to a starting vertex.
 - unlike tree with root, graph can start from anywhere, so it has to have a starting vertex.
 
-#### Graph Traversal Uses
+####  1.9.1. <a name='graph-traversal-uses'></a>Graph Traversal Uses
 
 - peer to peer networking
 - web crawlers
@@ -1827,7 +1839,7 @@ removeVertex(vertex) {
   - solving mazes
   - AI (shorted path to win the game)
    
-#### Depth First Search Graph Traversal
+####  1.9.2. <a name='depth-first-search-graph-traversal'></a>Depth First Search Graph Traversal
 
 1
 ![DFS Graph Traversa l](./img/graph_dfs_num.png)
@@ -1929,7 +1941,7 @@ depthFirstIterative(start) {
 }
 ```
 
-#### Breadth First Search Graph Traversal
+####  1.9.3. <a name='breadth-first-search-graph-traversal'></a>Breadth First Search Graph Traversal
 
 BFS Graph with height map
 
