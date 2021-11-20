@@ -1787,5 +1787,63 @@ removeVertex(vertex) {
    
 #### Depth First Graph Traversal
 
-- it priortizes deepening of the traversal rather than broadening it out. 
+1
+![DFS Graph Traversa l](./img/graph_dfs_num.png)
+
+2
+![DFS Graph Traversal 2](./img/graph_dfs_alphabetically.png)
+
+3
+![DFS Graph Traversal 3](./img/graph_dfs_alphabetically_2.png)
+
+```js
+// adjacency list of graph 3
+{
+  "A": ["B", "C"],
+  "B": ["A", "D"],
+  "C": ["A", "E"],
+  "D": ["B", "E", "F"],
+  "E": ["C", "D", "F"],
+  "F": ["D", "E"],
+}
+```
+
+- it priortizes deepening of the traversal rather than widening it out to the siblings in tree. (but it doesn't actually look like deepening because of shape of the graph structure..)
+- it's done by following one neighbor at a time.
 - it explores as far as possible down one branch before 'backtracking'. 
+- order of visiting vertices can be different on situations - it can be random, it can be topological, alphabetical or any other order.
+- vertices can be removed after being traversed in the adjacency list. 
+
+##### DFS Graph Recursively pseudocode
+
+- it should accept a starting vertex.
+- create a list to store the visited vertices.
+- create a helper function that accepts a vertex.
+  - the helper function should return early if vertex is empty.
+  - the helpfer function should place the vertex in the visited list.
+  - loop over every neighbors for that vertex.
+  - if any of the neighbors is not in the visited list, recursively call the helpfer function with that vertex.
+
+##### DFS Graph Recursively implementation
+```js
+depthFirstRecursive(start) {
+  const result = [];
+  let visited = {};
+
+  // context of this would change in helper function
+  const adjacencyList = this.adjacencyList;
+
+  (function dfs(vertex) {
+    if (!vertex) return null;
+    visited[vertex] = true;
+    result.push(vertex);
+    adjacencyList[vertex].forEach(neighbor => {
+      if (!visited[neighbor]) {
+        return dfs(neighbor);
+      }
+    })
+  }(start)); // IIFE 
+
+  return result;
+}
+```
