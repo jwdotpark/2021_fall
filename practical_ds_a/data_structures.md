@@ -204,28 +204,69 @@ let okja = new Student("Okja", "The Cute Dog", 3, "Carrot");
 - `static` keyword defines a static method or property for a class, which can be called without instantiating an object from the class and can't be called through individual instances.  [MDN static reference ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)
 
 ### Arrays
-![Array](./img/array.png)
 
-- push: O(1)
-- pop: O(1)
-  - both are basic accessing
+![Array2](./img/array2.png)
 
-- shift: O(n)
-- unshift: O(n)
-  - basic accessing with shifting all the indexes afterwards
+source: [educative](https://www.educative.io)
 
-- concat: O(n)
-  - merge two or more array into one
-- slice: O(n)
-  - returns a shallow copy of a portion of an array into a new array that is selected from begin to end, original array will not be modified
-- splice: O(n)
-  - changes the content of an array by removing existing elements and/or adding new elements
+- array is a data structure that holds an ordered list of values.
+- each array has a fixed number of cells decided on its creation, and each element has a unique number which is index.
+  - index is a integer that start from 0, representing the position of the element in the array.
+- it's the foundation for complex data structure and simple to create and yse.
+- because of its linear structure, it's expensive to insert/delete values except at the end of the array.
 
-- sort: O(n*log N)
-  - slowest among all the array methods
+#### Array in Javascript has common methods
 
-- forEach/map/filter/reduce: O(n)
-  - whatever methods doing, it involves on each element
+There is no guarantee that worst case specifed below is correct case because of how array performs based on various JS engines but generally it follows it.
+
+Access
+
+- concat(): O(n)
+  - it create a new array with the union of the current array and the array passed as an argument.
+
+- slice(): O(n)
+  - it creates a new array with a portion of the current array.
+
+Search
+
+- indexOf(): O(n)
+  - it returns the first index of the element that exists in the array, and if not exists return -1.
+
+- filter(): O(n)
+  - it creates a new array with the elements that apply the given condition.
+
+- find(): O(n)
+  - it returns the first element that apply the given condition, and if not exists return undefined.
+
+- includes(): O(n)
+  - it returns true if the element exists in the array, or it returns false.
+
+Insertion
+
+- push(): 
+  - it adds a new element to the end of the array.
+
+- unshift: 
+  - it adds one or more elements in the beginning of the array.
+  - it's O(n) because it needs to shift all the elements in the array.
+
+Deletion
+
+- pop(): 
+  - it removes the last element of the array.
+
+- shift():
+  - it removes the first element of the array.
+  - it's O(n) because it needs to shift all the elements in the array.
+
+| Array     | Avg  | Worst |
+|-----------|------|-------|
+| Access    | O(1) | O(1)  |
+| Search    | O(n) | O(n)  |
+| Insertion | O(n) | O(n)  |
+| Deletion  | O(n) | O(n)  |
+
+
 
 ### Linked List
 
@@ -1785,7 +1826,7 @@ removeVertex(vertex) {
   - solving mazes
   - AI (shorted path to win the game)
    
-#### Depth First Graph Traversal
+#### Depth First Search Graph Traversal
 
 1
 ![DFS Graph Traversa l](./img/graph_dfs_num.png)
@@ -1814,7 +1855,7 @@ removeVertex(vertex) {
 - order of visiting vertices can be different on situations - it can be random, it can be topological, alphabetical or any other order.
 - vertices can be removed after being traversed in the adjacency list. 
 
-##### DFS Graph Recursively pseudocode
+##### Depth First Search Graph Recursively pseudocode
 
 - it should accept a starting vertex.
 - create a list to store the visited vertices.
@@ -1824,7 +1865,7 @@ removeVertex(vertex) {
   - loop over every neighbors for that vertex.
   - if any of the neighbors is not in the visited list, recursively call the helpfer function with that vertex.
 
-##### DFS Graph Recursively implementation
+##### Depth First Search Graph Recursively implementation
 ```js
 depthFirstRecursive(start) {
   const result = [];
@@ -1848,7 +1889,7 @@ depthFirstRecursive(start) {
 }
 ```
 
-##### DFS Graph Iteratively pseudocode
+##### Depth First Search Graph Iteratively pseudocode
 - it should accept a starting vertex.
 - create a stack to help use keep track of vertices using array.
 - create a list that stores the end result, to be returned at the end.
@@ -1861,7 +1902,7 @@ depthFirstRecursive(start) {
     - add it to the result list.
     - push all of its neighbors onto the stack.
 - return the result array.
-##### DFS Graph Iteratively implementation
+##### Depth First Search Graph Iteratively implementation
 ```js
 depthFirstIterative(start) {
   // init start at the stack and mark it as visited
@@ -1887,7 +1928,7 @@ depthFirstIterative(start) {
 }
 ```
 
-#### Breadth First Graph Traversal
+#### Breadth First Search Graph Traversal
 
 BFS Graph with height map
 
@@ -1900,7 +1941,7 @@ BFS Graph with alphabetical order
 - it visites neighbors at current depth first.
 - i.e. it visits vertices at the same height horizontally.
 
-##### Breadth First Graph Traversal pseudocode
+##### Breadth First Search Graph Traversal pseudocode
 - it should accept a starting vertex.
 - create a queue or array and initiate the starting vertex in it.
 - create an array to store the verticex visited.
@@ -1912,7 +1953,7 @@ BFS Graph with alphabetical order
   - if it's not inside the object that stores vertices visited, mark it as visited and enqueue the vertex.
 - return the array of visited verticies.
 
-##### Breadth First Graph Traversal implementation
+##### Breadth First Search Graph Traversal implementation
 ```js
 breadthFirst(start) {
   // init start at the stack and mark it as visited
@@ -1937,3 +1978,4 @@ breadthFirst(start) {
   return result;
 }
 ```
+
