@@ -138,7 +138,7 @@ Jongwoo Park<br />
         - [Adding Edge pseudocode](#adding-edge-pseudocode)
         - [Adding Edge implementation](#adding-edge-implementation)
         - [Removing Edge pseudocode](#removing-edge-pseudocode)
-        - [Removing edge implementation](#removing-edge-implementation)
+        - [Removing Edge implementation](#removing-edge-implementation)
         - [Removing Vertex pseudocode](#removing-vertex-pseudocode)
         - [Removing Vertex implementation](#removing-vertex-implementation)
       
