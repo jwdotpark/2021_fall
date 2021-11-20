@@ -1770,3 +1770,22 @@ removeVertex(vertex) {
   }
 ```
 
+### Graph Traversal
+
+- graph traversal is a process of visiting all vertices connected to a starting vertex.
+- unlike tree with root, graph can start from anywhere, so it has to have a starting vertex.
+
+#### Graph Traversal Uses
+
+- peer to peer networking
+- web crawlers
+- finding the closed matches/recommendations
+- routing for shorted path
+  - GPS navigation
+  - solving mazes
+  - AI (shorted path to win the game)
+   
+#### Depth First Graph Traversal
+
+- it priortizes deepening of the traversal rather than broadening it out. 
+- it explores as far as possible down one branch before 'backtracking'. 
