@@ -1847,3 +1847,93 @@ depthFirstRecursive(start) {
   return result;
 }
 ```
+
+##### DFS Graph Iteratively pseudocode
+- it should accept a starting vertex.
+- create a stack to help use keep track of vertices using array.
+- create a list that stores the end result, to be returned at the end.
+- create an object to store visited vertices.
+- add the starting vertex to the stack, and mark it visited.
+- while stack is not empty:
+  - pop the next vertex from the stack
+  - if the vertax is not visited
+    - mark it as visited.
+    - add it to the result list.
+    - push all of its neighbors onto the stack.
+- return the result array.
+##### DFS Graph Iteratively implementation
+```js
+depthFirstIterative(start) {
+  // init start at the stack and mark it as visited
+  const stack = [start];
+  const result = [];
+  const visited = {};
+
+  let currentVertex;
+  visited[start] = true;
+  while (stack.length) {
+    currentVertex = stack.pop();
+    result.push(currentVertex);
+    // accessing neighbor
+    this.adjacencyList[currentVertex].forEach(neighbor => {
+      if (!visited[neighbor]) {
+        // mark and push visited
+        visited[neighbor] = true;
+        stack.push(neighbor);
+      }
+    })
+  }
+  return result;
+}
+```
+
+#### Breadth First Graph Traversal
+
+BFS Graph with height map
+
+![Breadth First Search Graph Traversal](./img/bfs_graph1.png)
+
+BFS Graph with alphabetical order
+
+![Bread First Search Graph Traversal 2](./img/bfs_graph2.png)
+
+- it visites neighbors at current depth first.
+- i.e. it visits vertices at the same height horizontally.
+
+##### Breadth First Graph Traversal pseudocode
+- it should accept a starting vertex.
+- create a queue or array and initiate the starting vertex in it.
+- create an array to store the verticex visited.
+- create an object to store the vertices visited.
+- mark the starting vertex as visited.
+- while there is anything left in the queue,
+  - remove the first vertex from the queue and push it into the array that stores vertices visited.
+  - loop over each vertex in the adjacency list for the vertex youo are visiting.
+  - if it's not inside the object that stores vertices visited, mark it as visited and enqueue the vertex.
+- return the array of visited verticies.
+
+##### Breadth First Graph Traversal implementation
+```js
+breadthFirst(start) {
+  // init start at the stack and mark it as visited
+  const queue = [start];
+  const result = [];
+  const visited = {};
+  visited[start] = true;
+
+  let currentVertex;
+  while (queue.length) {
+    // remove the first vertex in the queue
+    currentVertex = queue.shift();
+    // and push it into result
+    result.push(currentVertex);
+    this.adjacencyList[currentVertex].forEach(neighbor => {
+      if (!visited[neighbor]) {
+        visited[neighbor] = true;
+        queue.push(neighbor);
+      }
+    })
+  }
+  return result;
+}
+```

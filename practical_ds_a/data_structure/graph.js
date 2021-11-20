@@ -51,6 +51,52 @@ class Graph {
 
     return result;
   }
+
+  depthFirstIterative(start) {
+    // init start at the stack and mark it as visited
+    const stack = [start];
+    const result = [];
+    const visited = {};
+
+    let currentVertex;
+    visited[start] = true;
+    while (stack.length) {
+      currentVertex = stack.pop();
+      result.push(currentVertex);
+      // accessing neighbor
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          // mark and push visited
+          visited[neighbor] = true;
+          stack.push(neighbor);
+        }
+      })
+    }
+    return result;
+  }
+
+  breadthFirst(start) {
+    // init start at the stack and mark it as visited
+    const queue = [start];
+    const result = [];
+    const visited = {};
+    visited[start] = true;
+
+    let currentVertex;
+    while (queue.length) {
+      // remove the first vertex in the queue
+      currentVertex = queue.shift();
+      // and push it into result
+      result.push(currentVertex);
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          queue.push(neighbor);
+        }
+      })
+    }
+    return result;
+  }
 }
 
 let g = new Graph();
