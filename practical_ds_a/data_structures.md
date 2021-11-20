@@ -8,6 +8,7 @@ Jongwoo Park<br />
     - [Before get started with Javascript..](#before-get-started-with-javascript)
       - [Class](#class)
     - [Arrays](#arrays)
+      - [Array Operations](#array-operations)
     - [Linked List](#linked-list)
       - [What is a Linked List?](#what-is-a-linked-list)
       - [Comparisons with Array](#comparisons-with-array)
@@ -215,7 +216,7 @@ source: [educative](https://www.educative.io)
 - it's the foundation for complex data structure and simple to create and yse.
 - because of its linear structure, it's expensive to insert/delete values except at the end of the array.
 
-#### Array in Javascript has common methods
+#### Array Operations
 
 There is no guarantee that worst case specifed below is correct case because of how array performs based on various JS engines but generally it follows it.
 
