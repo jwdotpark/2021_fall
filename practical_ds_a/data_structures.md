@@ -1711,12 +1711,6 @@ class Graph {
 - the function should find in the adjacency list the key of vertex 1 and push vertex 2 to the array.
 - it should find in the adjacency list the key of vertex2 and push vertex1 to the array.
 
-e.g.
-
-```js
-
-```
-
 ###### Adding Edge implementation
 ```js
 addEdge(v1, v2) {
