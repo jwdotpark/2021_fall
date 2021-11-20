@@ -127,8 +127,21 @@ Jongwoo Park<br />
           - [DFS InOrder implementation](#dfs-inorder-implementation)
       - [BFS or DFS Comparison](#bfs-or-dfs-comparison)
       - [DFS Variants Comparison](#dfs-variants-comparison)
+    - [Graphs](#graphs)
+      - [Use Case of Graphs](#use-case-of-graphs)
+      - [Termonilogy of Graphs](#termonilogy-of-graphs)
+      - [Breakdown of Graphs](#breakdown-of-graphs)
+      - [Big O of Adjacency Matrix and List](#big-o-of-adjacency-matrix-and-list)
+      - [Creating Graph](#creating-graph)
+        - [Adding Vertex pseudocode](#adding-vertex-pseudocode)
+        - [Adding Vertex implementation](#adding-vertex-implementation)
+        - [Adding Edge pseudocode](#adding-edge-pseudocode)
+        - [Adding Edge implementation](#adding-edge-implementation)
+        - [Removing Edge pseudocode](#removing-edge-pseudocode)
+        - [Removing edge implementation](#removing-edge-implementation)
+        - [Removing Vertex pseudocode](#removing-vertex-pseudocode)
+        - [Removing Vertex implementation](#removing-vertex-implementation)
       
-
 # Data Structure
 ## Analysis of Data Structures
 
@@ -1734,7 +1747,7 @@ g.addEdge("berlin", "paris");
 - it should reassign the key of v1 to be an array that does not contain v2.
 - it should reassign the key of v2 to be an array that does not contain v1.
 
-###### Removig edge implementation
+###### Removing edge implementation
 ```js
 removeEdge(v1, v2) {
   this.adjacencyList[v1] = this.adjacencyList[v1].filter(
