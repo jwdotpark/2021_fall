@@ -30,8 +30,6 @@ Jongwoo Park<br />
       - [1.4.4. Base Case](#144-a-namebasecaseabase-case)
       - [1.4.5. Example of Recursion 1](#145-a-nameexampleofrecursion1aexample-of-recursion-1)
       - [1.4.6. Example of Recursion 2](#146-a-nameexampleofrecursion2aexample-of-recursion-2)
-      - [1.4.7. Common Recursion Pitfalls](#147-a-namecommonrecursionpitfallsacommon-recursion-pitfalls)
-      - [1.4.8. Pure Recursion](#148-a-namepurerecursionapure-recursion)
     - [1.5. Searching Algorithms](#15-a-namesearchingalgorithmsasearching-algorithms)
       - [1.5.1. Linear Search](#151-a-namelinearsearchalinear-search)
         - [Linear Search Example](#linear-search-example)
@@ -364,10 +362,6 @@ function sumRange(n) {
 //                             return 1
 // 6
 ```
-
-#### 1.4.7. <a name='CommonRecursionPitfalls'></a>Common Recursion Pitfalls
-
-#### 1.4.8. <a name='PureRecursion'></a>Pure Recursion
 
 ### 1.5. <a name='SearchingAlgorithms'></a>Searching Algorithms
 
