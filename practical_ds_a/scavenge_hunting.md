@@ -473,7 +473,7 @@ Time complexity of an algorithm represents the amount of time required by the al
 ---
 
 We do not want to give the running time of an algorithm in a time unit because this would mean that it is only comparable
-with the same implementations (programming language, compiler, hardware, etc.). Thus, it is given as a function:
+with the same Implementations (programming language, compiler, hardware, etc.). Thus, it is given as a function:
 
 
 
@@ -1658,7 +1658,7 @@ target = 130;
 
 
   <details>
-  <summary>Recursive implementation</summary>
+  <summary>Recursive Implementation</summary>
 
   ```python
 def binarySearchHelper(array, target, left, right):
@@ -1708,7 +1708,7 @@ else:
   </details>
 
   <details>
-  <summary>Iterative implementation</summary>
+  <summary>Iterative Implementation</summary>
   
   ```python
 def binarySearchHelper(array, target, left, right):
@@ -1881,7 +1881,7 @@ case would be 𝑂(1) if the first guess is the searched item.
 <summary>Space Complexity Analysis</summary>
 <br>
 
-No auxiliary space is required in Binary Search implementation
+No auxiliary space is required in Binary Search Implementation
 - Hence space complexity: O(1)
 
 
@@ -1923,7 +1923,7 @@ T(n) = log(n) = O(logn)
 
 > Each time we double (N) we increese the time complexity by one step, where is in an linear case algorithm like linear search, we increese one step at each step we give
 
-Therefore, the time complexity of the binary search algorithm is O(log<sup>2</sup>n), which is very efficient. The auxiliary space required by the program is O(1) for iterative implementation and O(log<sup>2</sup>n)  for recursive implementation due to call stack.
+Therefore, the time complexity of the binary search algorithm is O(log<sup>2</sup>n), which is very efficient. The auxiliary space required by the program is O(1) for iterative Implementation and O(log<sup>2</sup>n)  for recursive Implementation due to call stack.
 
 
 The time complexity of Binary Search can be written as
@@ -1931,7 +1931,7 @@ The time complexity of Binary Search can be written as
 
 The above recurrence can be solved either using Recurrence T ree method or Master method. It falls in case II of Master Method and solution of the recurrence is Theta(Logn).
 
-Auxiliary Space: O(1) in case of iterative implementation. In case of recursive implementation, O(Logn) recursion call stack space.
+Auxiliary Space: O(1) in case of iterative Implementation. In case of recursive Implementation, O(Logn) recursion call stack space.
 
 
 
@@ -2499,7 +2499,7 @@ We can trace this computation in precisely the same way that we trace any sequen
    return 5 * 24 = 120
   ```
 
-  - Our factorial() implementation exhibits the two main components that are required for every recursive function.
+  - Our factorial() Implementation exhibits the two main components that are required for every recursive function.
 
     - The base case returns a value without making any subsequent recursive calls. It does this for one or more special input values for which the function can be evaluated without recursion. For factorial(), the base case is n = 1.
 
@@ -2718,7 +2718,7 @@ Output: 34
 
 
 <details>
-<summary>Recursive implementation</summary>
+<summary>Recursive Implementation</summary>
 
 <br>
 
@@ -2809,7 +2809,7 @@ def getNthFib(n, memoize={1: 0, 2: 1}):
 Time Complexity: T(n) = T(n-1) + T(n-2) which is exponential. 
 ```
 
-We can observe that this implementation does a lot of repeated work (see the following recursion tree). So this is a bad implementation for nth Fibonacci number. 
+We can observe that this Implementation does a lot of repeated work (see the following recursion tree). So this is a bad Implementation for nth Fibonacci number. 
 
   ```
                                 fib(5)   
@@ -2992,7 +2992,7 @@ fibb(0) = 0, fibb(1) = 1; fibb(n) = fibb(n-1) + fibb(n-2)
 
   The base case, or halting case, of a function is the problem that we know the answer to, that can be solved without any more recursive calls. The base case is what stops the recursion from continuing on forever. Every recursive function must have at least one base case (many functions have more than one). If it doesn't, your function will not work correctly most of the time, and will most likely cause your program to crash in many situations, definitely not a desired effect.
 
-Let's return to our factorial example from above. Remember the problem was that we never stopped the recursion process; we didn't have a base case. Luckily, the factorial function in math defines a base case for us. n! = n*(n - 1)! as long as n > 1. If n = = 1 or n = = 0, then n! = 1. The factorial function is undefined for values less than 0, so in our implementation, we'll return some error value. Using this updated definition, let's rewrite our factorial function.
+Let's return to our factorial example from above. Remember the problem was that we never stopped the recursion process; we didn't have a base case. Luckily, the factorial function in math defines a base case for us. n! = n*(n - 1)! as long as n > 1. If n = = 1 or n = = 0, then n! = 1. The factorial function is undefined for values less than 0, so in our Implementation, we'll return some error value. Using this updated definition, let's rewrite our factorial function.
 
 
 
@@ -3041,7 +3041,7 @@ Let's return to our factorial example from above. Remember the problem was that 
   <br>
 
   
-  Our third requirement for a recursive function is that the on each recursive call the problem must be approaching the base case. If the problem isn't approaching the base case, we'll never reach it and the recursion will never end. Imagine the following incorrect implementation of factorial:
+  Our third requirement for a recursive function is that the on each recursive call the problem must be approaching the base case. If the problem isn't approaching the base case, we'll never reach it and the recursion will never end. Imagine the following incorrect Implementation of factorial:
 
 
 
@@ -3751,7 +3751,7 @@ Output
 <br>
 
 <details>
-<summary>#1 implementation</summary>
+<summary>#1 Implementation</summary>
 
 <br>
 
@@ -3777,7 +3777,7 @@ print(selectionSort(array))
 
 
 <details>
-<summary>#2 implementation</summary>
+<summary>#2 Implementation</summary>
 
 <br>
 
@@ -4386,7 +4386,7 @@ Output:
 <br>
 
 <details>
-<summary>Recusrive implementation</summary>
+<summary>Recusrive Implementation</summary>
 
 <br>
 
@@ -4607,7 +4607,7 @@ As stated in 2 complexity of Algorithm running process section.
 
    ![](http://www-scf.usc.edu/~zhan468/public/Notes/resources/C411339B79F92499DCB7B5F304C826F4.gif)
 
-  **Quicksort** or **Partition-exchange sort** is an efficient **divide and conquer**, **in-place**, **unstable**, sorting algorithm, which usually performs about two to three times faster than merge sort and heapsort when implemented well. Quicksort is a comparison sort, meaning that it can sort items of any type for which a less-than relation is defined. In efficient implementations, it is usually not a stable sort. 
+  **Quicksort** or **Partition-exchange sort** is an efficient **divide and conquer**, **in-place**, **unstable**, sorting algorithm, which usually performs about two to three times faster than merge sort and heapsort when implemented well. Quicksort is a comparison sort, meaning that it can sort items of any type for which a less-than relation is defined. In efficient Implementations, it is usually not a stable sort. 
   - **Quicksort**, on average, makes O(n.log(n)) comparisons to sort n items. In the worst-case, it makes O(n2) comparisons, though this behavior is very rare.
   
     ---
@@ -5930,7 +5930,7 @@ Because we need to visit all the vertices, starting at the initial one, checking
 ---
 
 
-- This algorithm will not terminate if implemented for graph traversal on an infinite graph (and could not terminate even if implemented for searching on an infinite graph). Otherwise, it will terminate once it has visited each vertex (or found a given vertex/path, depending on its implementation).
+- This algorithm will not terminate if implemented for graph traversal on an infinite graph (and could not terminate even if implemented for searching on an infinite graph). Otherwise, it will terminate once it has visited each vertex (or found a given vertex/path, depending on its Implementation).
 
 - We know that this algorithm is correct if it can correctly traverse a graph.
 
@@ -6606,11 +6606,11 @@ array = [1, 2, 3,4,5,6]
 
 > In most languages, indexing starts at 0. The first item in an array can be found at the index 0. Arrays can also have multiple dimensions so matrix operations commonly use them in computer science.
 
-- Arrays are stored in memory contiguously, or in one chunk of space, so the memory address of each element in the array can be computed using this formula ```address = start + (cellsize * index)```. So an array with three 32-bit integer variables could be stored at addresses 2000, 2004, 2008 so then the address of an item would be 2000 + 4 * index. In many implementations of arrays, the array block of memory only stores a pointer to the item in the array rather than the item itself in order to support dynamic typing.
+- Arrays are stored in memory contiguously, or in one chunk of space, so the memory address of each element in the array can be computed using this formula ```address = start + (cellsize * index)```. So an array with three 32-bit integer variables could be stored at addresses 2000, 2004, 2008 so then the address of an item would be 2000 + 4 * index. In many Implementations of arrays, the array block of memory only stores a pointer to the item in the array rather than the item itself in order to support dynamic typing.
 
 - Arrays have a fixed size when they are created, so insertion and deletion is not natively supported. If you were able to change the size of an array during runtime, there would be no guarantee that there would be more memory in its reserved block to use.
 
-- Many high level languages take care of resizing behind the scenes by using dynamic arrays, so the user doesn't need to initialize the array with a certain size. For example, in Python, lists are initialized automatically with overfill (or additional unused slots). They resize at 4, 8, 16, 25 etc. items ([source](https://www.laurentluce.com/posts/python-list-implementation/)). From a computational perspective, this makes them less efficient but a lot more programmer friendly!
+- Many high level languages take care of resizing behind the scenes by using dynamic arrays, so the user doesn't need to initialize the array with a certain size. For example, in Python, lists are initialized automatically with overfill (or additional unused slots). They resize at 4, 8, 16, 25 etc. items ([source](https://www.laurentluce.com/posts/python-list-Implementation/)). From a computational perspective, this makes them less efficient but a lot more programmer friendly!
 
 
 
@@ -6659,11 +6659,11 @@ Copying the array | <h3>𝑂(𝑛)</h3>
 ---
 <br>
 
-**Static array**: an implementation of an array that allocates a fixed amount of memory to be used for storing the array's values. Appending values to the array therefore involves copying the entire array and allocating new memory for it, accounting for the extra space needed for the newly appended value. This is a linear-time operation.
+**Static array**: an Implementation of an array that allocates a fixed amount of memory to be used for storing the array's values. Appending values to the array therefore involves copying the entire array and allocating new memory for it, accounting for the extra space needed for the newly appended value. This is a linear-time operation.
 
 <br>
 
-**Dynamic array:** is an implementation of an array that preemptively allocates double the amount of memory needed to store the array's values. Appending values to the array is a constant-time operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated for it. This implementation leads to an amortized constant-time insertion-at-end operation.
+**Dynamic array:** is an Implementation of an array that preemptively allocates double the amount of memory needed to store the array's values. Appending values to the array is a constant-time operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated for it. This Implementation leads to an amortized constant-time insertion-at-end operation.
 
 ---
 
@@ -7128,7 +7128,7 @@ insert and retrieve in a **LIFO** (**Last-In-First-Out**) fashion.
   - In programming terms, putting an item on top of the stack is called push and removing an item is called pop.
 - Read and take it from the top of the stack (pop)
 - Last in, first out or first in, last out
-Push, pop time: 𝑂(1) (best case implementation)
+Push, pop time: 𝑂(1) (best case Implementation)
 Example:
   - Recursive function call:
     - First function is called
@@ -7205,7 +7205,7 @@ Peeking at the element on the top of the stack (Top Operation) | <h3>𝑂(1)</h3
 
 
 
-> Uses of Stacks include situations in which the order in which the elements are inserted/deleted is not important, or when you specifically need to retrieve the last elements first. An example of implementation could be a social media feed or a chat app, because in both cases you need to retrieve the latest information first.
+> Uses of Stacks include situations in which the order in which the elements are inserted/deleted is not important, or when you specifically need to retrieve the last elements first. An example of Implementation could be a social media feed or a chat app, because in both cases you need to retrieve the latest information first.
 
 
 
@@ -7272,7 +7272,7 @@ Peeking at the element on the top of the stack (Top Operation) | <h3>𝑂(1)</h3
 - Enqueue (inserting an item at the rear of the queue) at the rear and dequeue (reading and deleting an item from the front of the queue) at the front
 - Queue is a FIFO( First in First Out )  structure which means that element inserted first will be removed first.
 - The process to add an element into queue is called Enqueue and the process of removal of an element from queue is called Dequeue.
-- Enqueueing, dequeueing time: 𝑂(1) (best case implementation)
+- Enqueueing, dequeueing time: 𝑂(1) (best case Implementation)
 - Once a new element is inserted into the Queue, all the elements inserted before the new element in the queue must be removed, to remove the new element.
 - peek( ) function is oftenly used to return the value of first element without dequeuing it.
 
@@ -7335,7 +7335,7 @@ Front | <h3>𝑂(1)</h3> | Get Front
 
 
 
-> Queues are useful in situations in which the order in which the elements are retrieved matters. An example of implementation is every service that needs to handle the users' requests in the order that they were made (like for online payments).
+> Queues are useful in situations in which the order in which the elements are retrieved matters. An example of Implementation is every service that needs to handle the users' requests in the order that they were made (like for online payments).
 
 >The space complexity of stacks also depends on how they are implemented.
 
@@ -7486,7 +7486,7 @@ Accessing a value at a given index | <h3>𝑂(1)</h3>| Since the values are inde
 
 
 
-> Hash Tables are usually implemented with built-in data structures like python dictionaries and can be used for a variety of things, from the implementation of an actual dictionary to entries of a NoSQL database.
+> Hash Tables are usually implemented with built-in data structures like python dictionaries and can be used for a variety of things, from the Implementation of an actual dictionary to entries of a NoSQL database.
 
 
 
@@ -7520,7 +7520,7 @@ Accessing a value at a given index | <h3>𝑂(1)</h3>| Since the values are inde
   - In a Tree, each node points to some "children" nodes or a null value, creating a hierarchical data structure.
   - Trees have a lot of properties, to understand them we are going to take into consideration the Binary Tree in the image above (a Binary Tree is a Tree in which each node has at most 2 children).
 
-> A tree is effectively a graph that's connected, directed, and acyclic, that has an explicit root node, and whose nodes all have a single parent (except for the root node, which effectively has no parent). Note that in most implementations of trees, tree nodes don't have a pointer to their parent, but they can if desired.
+> A tree is effectively a graph that's connected, directed, and acyclic, that has an explicit root node, and whose nodes all have a single parent (except for the root node, which effectively has no parent). Note that in most Implementations of trees, tree nodes don't have a pointer to their parent, but they can if desired.
 
 
 
@@ -7594,7 +7594,7 @@ Deletion  | Deletion, just like insertion, may require rearranging all the other
 
 
 There are a lot of subcategories of trees, and they are used in a lot of different scenarios and ways. 
-- And below are some specific types of trees and discuss the real-world implementations of each.
+- And below are some specific types of trees and discuss the real-world Implementations of each.
 
 
 
@@ -7851,7 +7851,7 @@ Now, for the first case, we first locate the node after which we have to split t
 
 **Applications on Ropes:**
 
-This data structure is widely used by softwares such as text editors like Sublime, email systems like Gmail and text buffers to handle large strings efficiently because of their performances in managing strings, especially compared with a traditional string implementation (an array of characters) and because they do not require contiguos memory allocation
+This data structure is widely used by softwares such as text editors like Sublime, email systems like Gmail and text buffers to handle large strings efficiently because of their performances in managing strings, especially compared with a traditional string Implementation (an array of characters) and because they do not require contiguos memory allocation
 
 - Text Editors which handle large amounts of strings.
 - E-mail messages which might require lot of editing.
@@ -8129,7 +8129,7 @@ Operation | Description
 
 
 
-> Graphs can be used everywhere we need to store relationships of any kind between elements. Since Trees are a subset of Graphs, all the real-world implementations of Trees are also real-world implementations of graphs.
+> Graphs can be used everywhere we need to store relationships of any kind between elements. Since Trees are a subset of Graphs, all the real-world Implementations of Trees are also real-world Implementations of graphs.
 
 
 <br>
@@ -8229,7 +8229,7 @@ Operation | Description
 
   ## **Galaxies connection algorithm**:
   <details>
-    <summary>Galaxies connections algorithm implementation and analysis | <b>Click to expand</b></summary>
+    <summary>Galaxies connections algorithm Implementation and analysis | <b>Click to expand</b></summary>
     </br>
 
 ![](assets/images/algorithms/galaxies.jpeg)
@@ -8492,7 +8492,7 @@ print(galaxyConnections(galaxies, routes, "LGA"))
 
 <br>
 
-As you can see in the implementation of function `galaxyConnections()` 
+As you can see in the Implementation of function `galaxyConnections()` 
 - i first start by creating the galaxy graph **galaxyNode()** custom data structure 
 - and then Gather all the unreachable galaxies Mark all the connections that are unreachable 
 - and grab them Then sort them by how many unreachable connections they have, 

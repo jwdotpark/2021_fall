@@ -17,59 +17,59 @@ Jongwoo Park<br />
       - [1.3.2. Comparisons with Array](#132-a-namecomparisons-with-arrayacomparisons-with-array)
       - [1.3.3. Singly Linked List](#133-a-namesingly-linked-listasingly-linked-list)
         - [Push](#push)
-          - [Push pseudocode](#push-pseudocode)
-          - [Push implementation](#push-implementation)
+          - [Push Pseudocode](#push-Pseudocode)
+          - [Push Implementation](#push-Implementation)
         - [Pop](#pop)
-          - [Pop pseudocode](#pop-pseudocode)
-          - [Pop implementation](#pop-implementation)
+          - [Pop Pseudocode](#pop-Pseudocode)
+          - [Pop Implementation](#pop-Implementation)
         - [Shift](#shift)
-          - [Shift pseudocode](#shift-pseudocode)
-          - [Shift implementation](#shift-implementation)
+          - [Shift Pseudocode](#shift-Pseudocode)
+          - [Shift Implementation](#shift-Implementation)
         - [Unshift](#unshift)
-          - [Unshift pseudocode](#unshift-pseudocode)
-          - [Unshift implementation](#unshift-implementation)
+          - [Unshift Pseudocode](#unshift-Pseudocode)
+          - [Unshift Implementation](#unshift-Implementation)
         - [Get](#get)
-          - [Get pseudocode](#get-pseudocode)
-          - [Get implementation](#get-implementation)
+          - [Get Pseudocode](#get-Pseudocode)
+          - [Get Implementation](#get-Implementation)
         - [Set](#set)
-          - [Set pseudocode](#set-pseudocode)
-          - [Set implementation](#set-implementation)
+          - [Set Pseudocode](#set-Pseudocode)
+          - [Set Implementation](#set-Implementation)
         - [Insert](#insert)
-          - [Insert pseudocode](#insert-pseudocode)
-          - [Insert implementation](#insert-implementation)
+          - [Insert Pseudocode](#insert-Pseudocode)
+          - [Insert Implementation](#insert-Implementation)
         - [Remove](#remove)
-          - [Remove pseudocode](#remove-pseudocode)
-          - [Remove implementation](#remove-implementation)
+          - [Remove Pseudocode](#remove-Pseudocode)
+          - [Remove Implementation](#remove-Implementation)
         - [Reverse](#reverse)
-          - [Reverse pseudocode](#reverse-pseudocode)
-          - [Reverse implementation](#reverse-implementation)
+          - [Reverse Pseudocode](#reverse-Pseudocode)
+          - [Reverse Implementation](#reverse-Implementation)
         - [Big O of Singly Linked Lists](#big-o-of-singly-linked-lists)
       - [1.3.4. Doubly Linked List](#134-a-namedoubly-linked-listadoubly-linked-list)
         - [Doubly Linked List Constructor](#doubly-linked-list-constructor)
         - [Push](#push-1)
-          - [Push pseudocode](#push-pseudocode-1)
-          - [Push implementation](#push-implementation-1)
+          - [Push Pseudocode](#push-Pseudocode-1)
+          - [Push Implementation](#push-Implementation-1)
         - [Pop](#pop-1)
-          - [Pop pseudocode](#pop-pseudocode-1)
-          - [Pop implementation](#pop-implementation-1)
+          - [Pop Pseudocode](#pop-Pseudocode-1)
+          - [Pop Implementation](#pop-Implementation-1)
         - [Shift](#shift-1)
-          - [Shift pseudocode](#shift-pseudocode-1)
-          - [Shift implementation](#shift-implementation-1)
+          - [Shift Pseudocode](#shift-Pseudocode-1)
+          - [Shift Implementation](#shift-Implementation-1)
         - [Unshift](#unshift-1)
-          - [Unshift pseudocode](#unshift-pseudocode-1)
-          - [Unshift implementation](#unshift-implementation-1)
+          - [Unshift Pseudocode](#unshift-Pseudocode-1)
+          - [Unshift Implementation](#unshift-Implementation-1)
         - [Get](#get-1)
-          - [Get pseudocode](#get-pseudocode-1)
-          - [Get implementation](#get-implementation-1)
+          - [Get Pseudocode](#get-Pseudocode-1)
+          - [Get Implementation](#get-Implementation-1)
         - [Set](#set-1)
-          - [Set pseudocode](#set-pseudocode-1)
-          - [Set implementation](#set-implementation-1)
+          - [Set Pseudocode](#set-Pseudocode-1)
+          - [Set Implementation](#set-Implementation-1)
         - [Insert](#insert-1)
-          - [Insert pseudocode](#insert-pseudocode-1)
-          - [Insert implementation](#insert-implementation-1)
+          - [Insert Pseudocode](#insert-Pseudocode-1)
+          - [Insert Implementation](#insert-Implementation-1)
         - [Remove](#remove-1)
-          - [Remove pseudocode](#remove-pseudocode-1)
-          - [Remove implementation](#remove-implementation-1)
+          - [Remove Pseudocode](#remove-Pseudocode-1)
+          - [Remove Implementation](#remove-Implementation-1)
         - [Big O of Doubly Linked Lists](#big-o-of-doubly-linked-lists)
         - [Comparison with singly linked list](#comparison-with-singly-linked-list)
     - [1.4. Stacks and Queues](#14-a-namestacks-and-queuesastacks-and-queues)
@@ -77,27 +77,27 @@ Jongwoo Park<br />
         - [Where Stacks Are Used](#where-stacks-are-used)
         - [Create Stack](#create-stack)
           - [With Array](#with-array)
-          - [With Linked List Implementation](#with-linked-list-implementation)
-          - [Push pseudocode](#push-pseudocode-2)
-          - [Pop pseudocode](#pop-pseudocode-2)
+          - [With Linked List Implementation](#with-linked-list-Implementation)
+          - [Push Pseudocode](#push-Pseudocode-2)
+          - [Pop Pseudocode](#pop-Pseudocode-2)
         - [Big O of Stacks](#big-o-of-stacks)
       - [1.4.2. Queues](#142-a-namequeuesaqueues)
         - [Create Queue](#create-queue)
           - [With Array](#with-array-1)
-          - [With Linked List Implementation](#with-linked-list-implementation-1)
-          - [Enqueue pseudocode](#enqueue-pseudocode)
-          - [Enqueue implementation](#enqueue-implementation)
+          - [With Linked List Implementation](#with-linked-list-Implementation-1)
+          - [Enqueue Pseudocode](#enqueue-Pseudocode)
+          - [Enqueue Implementation](#enqueue-Implementation)
           - [Dequeue psesudocode](#dequeue-psesudocode)
-          - [Dequeue implementation](#dequeue-implementation)
+          - [Dequeue Implementation](#dequeue-Implementation)
         - [Big O of Queues](#big-o-of-queues)
     - [1.5. Hash Tables](#15-a-namehash-tablesahash-tables)
       - [1.5.1. What is Hash Table?](#151-a-namewhat-is-hash-tableawhat-is-hash-table)
       - [1.5.2. Hash Function](#152-a-namehash-functionahash-function)
         - [More of Hash Function Basics](#more-of-hash-function-basics)
-        - [Simple Hash Function Implementation](#simple-hash-function-implementation)
-        - [Simple Hash Function Slightly Improved Implementation](#simple-hash-function-slightly-improved-implementation)
+        - [Simple Hash Function Implementation](#simple-hash-function-Implementation)
+        - [Simple Hash Function Slightly Improved Implementation](#simple-hash-function-slightly-improved-Implementation)
         - [Dealing with Collisions](#dealing-with-collisions)
-        - [Hash Table Implementation](#hash-table-implementation)
+        - [Hash Table Implementation](#hash-table-Implementation)
         - [Set](#set-2)
         - [Get](#get-2)
       - [1.5.3. Hash Table Keys and Values Method](#153-a-namehash-table-keys-and-values-methodahash-table-keys-and-values-method)
@@ -106,26 +106,26 @@ Jongwoo Park<br />
       - [1.6.1. What is Tree For?](#161-a-namewhat-is-tree-forawhat-is-tree-for)
       - [1.6.2. Binary Tree](#162-a-namebinary-treeabinary-tree)
       - [1.6.3. Binary Search Tree](#163-a-namebinary-search-treeabinary-search-tree)
-        - [Binary Search Tree Implementation](#binary-search-tree-implementation)
-          - [insertion pseudocode](#insertion-pseudocode)
-          - [insertion implementation](#insertion-implementation)
-          - [find pseudocode](#find-pseudocode)
-          - [find implementation](#find-implementation)
+        - [Binary Search Tree Implementation](#binary-search-tree-Implementation)
+          - [insertion Pseudocode](#insertion-Pseudocode)
+          - [insertion Implementation](#insertion-Implementation)
+          - [find Pseudocode](#find-Pseudocode)
+          - [find Implementation](#find-Implementation)
         - [Big O of Binary Search Tree](#big-o-of-binary-search-tree)
     - [1.7. Tree Traversal](#17-a-nametree-traversalatree-traversal)
       - [1.7.1. Breadth-First Search](#171-a-namebreadth-first-searchabreadth-first-search)
-        - [BFS pseudocode](#bfs-pseudocode)
-        - [BFS implementation](#bfs-implementation)
+        - [BFS Pseudocode](#bfs-Pseudocode)
+        - [BFS Implementation](#bfs-Implementation)
       - [1.7.2. Depth-First Search](#172-a-namedepth-first-searchadepth-first-search)
         - [DFS PreOrder](#dfs-preorder)
-          - [DFS PreOrder pseudocode](#dfs-preorder-pseudocode)
-          - [DFS PreOrder implementation](#dfs-preorder-implementation)
+          - [DFS PreOrder Pseudocode](#dfs-preorder-Pseudocode)
+          - [DFS PreOrder Implementation](#dfs-preorder-Implementation)
         - [DFS PostOrder](#dfs-postorder)
-          - [DFS PostOrder pseudocode](#dfs-postorder-pseudocode)
-          - [DFS PostOrder implementation](#dfs-postorder-implementation)
+          - [DFS PostOrder Pseudocode](#dfs-postorder-Pseudocode)
+          - [DFS PostOrder Implementation](#dfs-postorder-Implementation)
         - [DFS InOrder](#dfs-inorder)
-          - [DFS InOrder pseudocode](#dfs-inorder-pseudocode)
-          - [DFS InOrder implementation](#dfs-inorder-implementation)
+          - [DFS InOrder Pseudocode](#dfs-inorder-Pseudocode)
+          - [DFS InOrder Implementation](#dfs-inorder-Implementation)
       - [1.7.3. BFS or DFS Comparison](#173-a-namebfs-or-dfs-comparisonabfs-or-dfs-comparison)
       - [1.7.4. DFS Variants Comparison](#174-a-namedfs-variants-comparisonadfs-variants-comparison)
     - [1.8. Graphs](#18-a-namegraphsagraphs)
@@ -134,25 +134,26 @@ Jongwoo Park<br />
       - [1.8.3. Breakdown of Graphs](#183-a-namebreakdown-of-graphsabreakdown-of-graphs)
       - [1.8.4. Big O of Adjacency Matrix and List](#184-a-namebig-o-of-adjacency-matrix-and-listabig-o-of-adjacency-matrix-and-list)
       - [1.8.5. Creating Graph](#185-a-namecreating-graphacreating-graph)
-        - [Adding Vertex pseudocode](#adding-vertex-pseudocode)
-        - [Adding Vertex implementation](#adding-vertex-implementation)
-        - [Adding Edge pseudocode](#adding-edge-pseudocode)
-        - [Adding Edge implementation](#adding-edge-implementation)
-        - [Removing Edge pseudocode](#removing-edge-pseudocode)
-        - [Removing edge implementation](#removing-edge-implementation)
-        - [Removing Vertex pseudocode](#removing-vertex-pseudocode)
-        - [Removing Vertex implementation](#removing-vertex-implementation)
+        - [Adding Vertex Pseudocode](#adding-vertex-Pseudocode)
+        - [Adding Vertex Implementation](#adding-vertex-Implementation)
+        - [Adding Edge Pseudocode](#adding-edge-Pseudocode)
+        - [Adding Edge Implementation](#adding-edge-Implementation)
+        - [Removing Edge Pseudocode](#removing-edge-Pseudocode)
+        - [Removing edge Implementation](#removing-edge-Implementation)
+        - [Removing Vertex Pseudocode](#removing-vertex-Pseudocode)
+        - [Removing Vertex Implementation](#removing-vertex-Implementation)
     - [1.9. Graph Traversal](#19-a-namegraph-traversalagraph-traversal)
       - [1.9.1. Graph Traversal Uses](#191-a-namegraph-traversal-usesagraph-traversal-uses)
       - [1.9.2. Depth First Search Graph Traversal](#192-a-namedepth-first-search-graph-traversaladepth-first-search-graph-traversal)
-        - [Depth First Search Graph Recursively pseudocode](#depth-first-search-graph-recursively-pseudocode)
-        - [Depth First Search Graph Recursively implementation](#depth-first-search-graph-recursively-implementation)
-        - [Depth First Search Graph Iteratively pseudocode](#depth-first-search-graph-iteratively-pseudocode)
-        - [Depth First Search Graph Iteratively implementation](#depth-first-search-graph-iteratively-implementation)
+        - [Depth First Search Graph Recursively Pseudocode](#depth-first-search-graph-recursively-Pseudocode)
+        - [Depth First Search Graph Recursively Implementation](#depth-first-search-graph-recursively-Implementation)
+        - [Depth First Search Graph Iteratively Pseudocode](#depth-first-search-graph-iteratively-Pseudocode)
+        - [Depth First Search Graph Iteratively Implementation](#depth-first-search-graph-iteratively-Implementation)
       - [1.9.3. Breadth First Search Graph Traversal](#193-a-namebreadth-first-search-graph-traversalabreadth-first-search-graph-traversal)
-        - [Breadth First Search Graph Traversal pseudocode](#breadth-first-search-graph-traversal-pseudocode)
-        - [Breadth First Search Graph Traversal implementation](#breadth-first-search-graph-traversal-implementation)
+        - [Breadth First Search Graph Traversal Pseudocode](#breadth-first-search-graph-traversal-Pseudocode)
+        - [Breadth First Search Graph Traversal Implementation](#breadth-first-search-graph-traversal-Implementation)
 
+***
 # Data Structure
 
 ## 1. <a name='analysis-of-data-structures'></a>Analysis of Data Structures
@@ -312,7 +313,7 @@ Deletion
 
 - push add a value at the end of the list.
 
-###### Push pseudocode
+###### Push Pseudocode
 
 - this function should accept a value.
 - create a new node using the value passed to the function.
@@ -321,7 +322,7 @@ Deletion
 - increment the length by one.
 - return the linked list.
 
-###### Push implementation
+###### Push Implementation
 
 ```js
 // push
@@ -369,7 +370,7 @@ consoole.log(list);
 
 - pop removes the last element of the list.
 
-###### Pop pseudocode
+###### Pop Pseudocode
 
 - if there are no nodes in the list, return undefined
 - loop through the list until you reach the tail
@@ -378,7 +379,7 @@ consoole.log(list);
 - decrement the length of the list by 1.
 - return the value of the node removed.
 
-###### Pop implementation
+###### Pop Implementation
 
 ```js
 ...SinglyLinkedList
@@ -409,7 +410,7 @@ pop() {
 
 - shift removes a new node from the beginning of the linked list and return it.
 
-###### Shift pseudocode
+###### Shift Pseudocode
 
 - If there are no nodes, return undefined
 - store the current head property in a variable
@@ -417,7 +418,7 @@ pop() {
 - decrement the length by 1
 - return the value of the node removed
 
-###### Shift implementation
+###### Shift Implementation
 
 ```js
 ...SingglyLinkedList
@@ -438,7 +439,7 @@ shift() {
 
 - opposite of shift, it adds a anew node to the beginning of the linked list.
 
-###### Unshift pseudocode
+###### Unshift Pseudocode
 
 - unshift accepts a value to be put.
 - create a new node using the value passed to the function.
@@ -448,7 +449,7 @@ shift() {
 - increment the length of the list by 1
 - return the linked list.
 
-###### Unshift implementation
+###### Unshift Implementation
 
 ```js
 ...SinglyLinkedList
@@ -472,13 +473,13 @@ unshift() {
 - get is a method that takes a number(index) and returns the item in that position.
 - i.e. it takes a number and traverse the list n times to get the item at that index.
 
-###### Get pseudocode
+###### Get Pseudocode
 
 - it should take an index as a argument.
 - if the index is less than 0 or greater than or equal to the length of the list, return undefined.
 - loop through the list until you reach the index and return the node at that specific index.
 
-###### Get implementation
+###### Get Implementation
 
 ```js
 ...SinglyLinkedList
@@ -499,14 +500,14 @@ get(index) {
 
 - method set is same as get() but it changes to the given value at the given position.
 
-###### Set pseudocode
+###### Set Pseudocode
 
 - it accepts a value and an index.
 - use get() to find the note at the given index.
   - if there is no node, return false.
   - else there is a node, set the node's value to be the given value and return true.
   
-###### Set implementation
+###### Set Implementation
 
 ```js
 ...SinglyLinkedList
@@ -525,7 +526,7 @@ set(index, val) {
 
 - similar to set(), it accepts an index and a value but it inserts the value at the given index.
 
-###### Insert pseudocode
+###### Insert Pseudocode
 
 - it accepts an index and a value.
 - if the index is less than zero or greather than the length, return false.
@@ -537,7 +538,7 @@ set(index, val) {
 - increment the length of the list by 1.
 - return true.
 
-###### Insert implementation
+###### Insert Implementation
 
 ```js
 ...SinglyLinkedList
@@ -561,7 +562,7 @@ insert(index, val) {
 
 - it's a method that removes a node from the linked list at a specific position.
 
-###### Remove pseudocode
+###### Remove Pseudocode
 
 - if the index is less than zero or greater than the length, return undefined.
 - if the index is the same as the last(length - 1), pop the last node.
@@ -571,7 +572,7 @@ insert(index, val) {
   - decrement the length.
   - return the value of the node removed.
 
-###### Remove implementation
+###### Remove Implementation
 
 ```js
 ...SinglyLinkedList
@@ -593,7 +594,7 @@ remove(index) {
 
 - Opposite of traverse, it reverses the linked list by replacing heads and tails in an opposite direction.
 
-###### Reverse pseudocode
+###### Reverse Pseudocode
 
 - swap the head and tail
 - create a variable called next
@@ -605,7 +606,7 @@ remove(index) {
 - set prev to be the value of the node variable
 - set the node variable to be the value of the next variable
 
-###### Reverse implementation
+###### Reverse Implementation
 
 ```
 // 13 -> 27 -> 32 -> 71
@@ -681,7 +682,7 @@ class DoublyLinkedList {
 - it adds a node to the end of the doubly linked list.
 - it finds the tail at the end and add a next node with prev property.
 
-###### Push pseudocode
+###### Push Pseudocode
 
 - Create a new node with the value passed to the function.
 - If the head property is null, set the head and tail to be the newly created node.
@@ -691,7 +692,7 @@ class DoublyLinkedList {
 - increment the length.
 - return the doubly linked list.
 
-###### Push implementation
+###### Push Implementation
 
 ```js
 ...DoublyLinkedList
@@ -715,7 +716,7 @@ push(val) {
 
 - it removes a node from the end of the doubly linked list and return it.
 
-###### Pop pseudocode
+###### Pop Pseudocode
 
 - first check if there is no head, return undefined.
 - store the current tail in a variable to return later.
@@ -725,7 +726,7 @@ push(val) {
 - decrement the length.
 - return the value removed.
 
-###### Pop implementation
+###### Pop Implementation
 
 ```js
 pop() {
@@ -749,7 +750,7 @@ pop() {
 - it removes a node from the beginning of the doubly linked list and return it.
 - it finds the head at the beginning and remove it.
 
-###### Shift pseudocode
+###### Shift Pseudocode
 
 - if length is 0, return undefined.
 - store the current head property in a variable as an old head.
@@ -762,7 +763,7 @@ pop() {
 - decrement the length.
 - return old head.
 
-###### Shift implementation
+###### Shift Implementation
 
 ```js
 shift() {
@@ -786,7 +787,7 @@ shift() {
 
 - It adds a node to the beginning of the doubly linked list and return the list.
 
-###### Unshift pseudocode
+###### Unshift Pseudocode
 
 - create a new node with the value passed to the function.
 - if the length is 0
@@ -799,7 +800,7 @@ shift() {
 - increment the length.
 - return the list.
 
-###### Unshift implementation
+###### Unshift Implementation
 
 ```js
 unshift(val) {
@@ -823,7 +824,7 @@ unshift(val) {
 - it returns the value of the node at the position passed to the function.
 - Same as get() in singly linked list, but it can start from the tail, depend on the index provided.
 
-###### Get pseudocode
+###### Get Pseudocode
 
 - if index is less than 0 or greater or equal to the length, return undefined.
 - if index is less than or equal to half of the length
@@ -833,7 +834,7 @@ unshift(val) {
   - loop through the list starting from the __tail__ and loop towards the middle.
   - return the node once it is found.
 
-###### Get implementation
+###### Get Implementation
 
 ```js
 get(index) {
@@ -863,13 +864,13 @@ get(index) {
 - it replaces the value of a node in a doubly linked list by its position.
 - it works same as get(), but it update the given value of the node at the position passed to the function.
 
-###### Set pseudocode
+###### Set Pseudocode
 
 - create a variable which is the result of the get() method, at the index passed to the function.
   - if the get() returns a valid result, set the value of that node to be the given value and return true.
   - else, return false.
 
-###### Set implementation
+###### Set Implementation
 
 ```js
 set(index, val) {
@@ -888,7 +889,7 @@ set(index, val) {
 - it accepts an index, value and position and it creates a anew node with that value and adds it at the position to the lengthy list.
 - it uses get() to retrieve the node at the index passed to the function.
 
-###### Insert pseudocode
+###### Insert Pseudocode
 
 - if index is less than 0 or greater than or equal to the length, return false.
 - if index is 0, unshift.
@@ -900,7 +901,7 @@ set(index, val) {
 
 ![Double Linked List Insert](./img/doubly_insert.png)
 
-###### Insert implementation
+###### Insert Implementation
 
 ```js
 insert(index, val) {
@@ -924,7 +925,7 @@ insert(index, val) {
 - it takes an index or position as argument and removes a node in a doubly linked list on a certain position and returns the removed item.
 - it works similar as get() to check the position from head or tail.
 
-###### Remove pseudocode
+###### Remove Pseudocode
 
 - if index is less than zero or greater than or equal to length, return undefined.
 - if index is 0, shift.
@@ -935,7 +936,7 @@ insert(index, val) {
 - decrement the length.
 - return the removed node.
 
-###### Remove implementation
+###### Remove Implementation
 
 ```js
 remove(index) {
@@ -1027,7 +1028,7 @@ class Node {
 }
 ```
 
-###### Push pseudocode
+###### Push Pseudocode
 
 - creeate a function push that create a node which  accept a value.
 - if there are no nodes in the stack, set the first and last property to be the newly create node.
@@ -1051,7 +1052,7 @@ push(val) {
 }
 ```
 
-###### Pop pseudocode
+###### Pop Pseudocode
 
 - if there are no nodes in the stack, return undefined.
 - create a temporary variable to store the first property on the stack.
@@ -1123,12 +1124,12 @@ class Queue {
 
 ![Enqueue and Dequeue](./img/enq_deq.png)
 
-###### Enqueue pseudocode
+###### Enqueue Pseudocode
 
 - create a function enqueue that accepts a value.
 - create a new node that value passed to the function.
 
-###### Enqueue implementation
+###### Enqueue Implementation
 
 ```js
 enqueue(value) {
@@ -1154,7 +1155,7 @@ enqueue(value) {
 - decrement the size by 1.
 - return the value of the node dequeued.
 
-###### Dequeue implementation
+###### Dequeue Implementation
 
 ```js
 // almost identical to pop() in linked list
@@ -1255,7 +1256,7 @@ function hash(key, arrayLength) {
 ```
 
 - prime number seed is used for reducing collisions(much less, but still happens)
-  - [Relation between array length size of prime number and hash table implemenation](https://www.quora.com/Does-making-array-size-a-prime-number-help-in-hash-table-implementation-Why)
+  - [Relation between array length size of prime number and hash table implemenation](https://www.quora.com/Does-making-array-size-a-prime-number-help-in-hash-table-Implementation-Why)
 - it is conditionally constant time.
 - loop runs based smaller value of length of key   or 100 for testing purpose.
 
@@ -1472,7 +1473,7 @@ function hash(key, arrayLength) {
   }
   ```
 
-###### insertion pseudocode
+###### insertion Pseudocode
 
 - create a new node.
 - starting at the root,
@@ -1488,7 +1489,7 @@ function hash(key, arrayLength) {
       - if not, add that node as a left property.
 - return the result.
 
-###### insertion implementation
+###### insertion Implementation
 
 ```js
 insert(value) {
@@ -1524,7 +1525,7 @@ insert(value) {
 }
 ```
 
-###### find pseudocode
+###### find Pseudocode
 
 - start at the root.
   - check if there is root,
@@ -1540,7 +1541,7 @@ insert(value) {
             - if there is, move to that node and repeat the process.
   - if neither, return undefined.
 
-###### find implementation
+###### find Implementation
 
 ```js
 find(value) {
@@ -1597,7 +1598,7 @@ find(value) {
 - general approach of BFS is, it looks for every sibling nodes before looking at a child node regardless of tree structure.
 - in this case, it would be `[10, 6, 15, 1, 8, 20]` in order.
 
-##### BFS pseudocode
+##### BFS Pseudocode
 
 - initiate a queue/array and a variable to store the values of nodes visited.
 - place the root node in the queue
@@ -1607,7 +1608,7 @@ find(value) {
   - if there is a right property on the node dequeued, add it to the queue.
 - return the variable that stores the node values.
 
-##### BFS implementation
+##### BFS Implementation
 
 ```js
 BFS() {
@@ -1637,7 +1638,7 @@ BFS() {
 - DFS PreOrder has three steps: visit the node first, traverse to the left and then right.
 - in this case, it would be `[10, 6, 1, 8, 15, 20]`.
 
-###### DFS PreOrder pseudocode
+###### DFS PreOrder Pseudocode
 
 - create a variable to store the values of nodes visited.
 - store the root of the BST in a variable called current.
@@ -1648,7 +1649,7 @@ BFS() {
 - call the helper function with current variable.
 - return the array of visited.
 
-###### DFS PreOrder implementation
+###### DFS PreOrder Implementation
 
 ```js
   DFSPreOrder() {
@@ -1677,11 +1678,11 @@ BFS() {
 - root is the last node visited.
 - in this case, it would be `[1, 8, 6, 20, 15, 10]`.
 
-###### DFS PostOrder pseudocode
+###### DFS PostOrder Pseudocode
 
 - it's similar with DFS PreOrder but slightly different order in recursive helper function as it looks for left, right and the node.
 
-###### DFS PostOrder implementation
+###### DFS PostOrder Implementation
 
 ```js
 DFSPostOrder() {
@@ -1706,11 +1707,11 @@ DFSPostOrder() {
 - it traverses the entire left side first, visit the node, and then traverse the right side.
 - in this case, it would be `[1, 6, 8, 10, 15, 20]`.
 
-###### DFS InOrder pseudocode
+###### DFS InOrder Pseudocode
 
 - it's same pseudo code as other DFS search method except helper function, it traverse the left and push the value to the array and then traverse the right recursively.
 
-###### DFS InOrder implementation
+###### DFS InOrder Implementation
 
 ```js
  DFSInOrder() {
@@ -1851,12 +1852,12 @@ class Graph {
 }
 ```
 
-###### Adding Vertex pseudocode
+###### Adding Vertex Pseudocode
 
 - write a method called addVertex that accepts a name of a vertex.
 - it should add a key to the adjacency list wit thhe name of the vertex and set its value to be an empty array.
 
-###### Adding Vertex implementation
+###### Adding Vertex Implementation
 
 ```js
   addVertex(vertex) {
@@ -1866,13 +1867,13 @@ class Graph {
   }
 ```
 
-###### Adding Edge pseudocode
+###### Adding Edge Pseudocode
 
 - it should accept two vertices as argument, call it vertex1 and vertex2.
 - the function should find in the adjacency list the key of vertex 1 and push vertex 2 to the array.
 - it should find in the adjacency list the key of vertex2 and push vertex1 to the array.
 
-###### Adding Edge implementation
+###### Adding Edge Implementation
 
 ```js
 addEdge(v1, v2) {
@@ -1898,13 +1899,13 @@ g.addEdge("berlin", "paris");
 */
 ```
 
-###### Removing Edge pseudocode
+###### Removing Edge Pseudocode
 
 - it should accept two vertices as v1 and v2.
 - it should reassign the key of v1 to be an array that does not contain v2.
 - it should reassign the key of v2 to be an array that does not contain v1.
 
-###### Removing edge implementation
+###### Removing edge Implementation
 
 ```js
 removeEdge(v1, v2) {
@@ -1917,14 +1918,14 @@ removeEdge(v1, v2) {
 }
 ```
 
-###### Removing Vertex pseudocode
+###### Removing Vertex Pseudocode
 
 - it should accept a vertex to remove.
 - it should loop as long as there are any other vertieces in the adjency list for that vertex.
   - inside of the loop, call removeEdge() with the vertex to remove and any values in the adjacency list for that vertex.
 - delete the key in the adjacency list.
 
-###### Removing Vertex implementation
+###### Removing Vertex Implementation
 
 ```js
 removeVertex(vertex) {
@@ -1980,7 +1981,7 @@ removeVertex(vertex) {
 - order of visiting vertices can be different on situations - it can be random, it can be topological, alphabetical or any other order.
 - vertices can be removed after being traversed in the adjacency list.
 
-##### Depth First Search Graph Recursively pseudocode
+##### Depth First Search Graph Recursively Pseudocode
 
 - it should accept a starting vertex.
 - create a list to store the visited vertices.
@@ -1990,7 +1991,7 @@ removeVertex(vertex) {
   - loop over every neighbors for that vertex.
   - if any of the neighbors is not in the visited list, recursively call the helpfer function with that vertex.
 
-##### Depth First Search Graph Recursively implementation
+##### Depth First Search Graph Recursively Implementation
 
 ```js
 depthFirstRecursive(start) {
@@ -2015,7 +2016,7 @@ depthFirstRecursive(start) {
 }
 ```
 
-##### Depth First Search Graph Iteratively pseudocode
+##### Depth First Search Graph Iteratively Pseudocode
 
 - it should accept a starting vertex.
 - create a stack to help use keep track of vertices using array.
@@ -2030,7 +2031,7 @@ depthFirstRecursive(start) {
     - push all of its neighbors onto the stack.
 - return the result array.
 
-##### Depth First Search Graph Iteratively implementation
+##### Depth First Search Graph Iteratively Implementation
 
 ```js
 depthFirstIterative(start) {
@@ -2070,7 +2071,7 @@ BFS Graph with alphabetical order
 - it visites neighbors at current depth first.
 - i.e. it visits vertices at the same height horizontally.
 
-##### Breadth First Search Graph Traversal pseudocode
+##### Breadth First Search Graph Traversal Pseudocode
 
 - it should accept a starting vertex.
 - create a queue or array and initiate the starting vertex in it.
@@ -2083,7 +2084,7 @@ BFS Graph with alphabetical order
   - if it's not inside the object that stores vertices visited, mark it as visited and enqueue the vertex.
 - return the array of visited verticies.
 
-##### Breadth First Search Graph Traversal implementation
+##### Breadth First Search Graph Traversal Implementation
 
 ```js
 breadthFirst(start) {

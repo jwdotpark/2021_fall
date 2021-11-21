@@ -703,6 +703,69 @@ function mergeSort(arr) {
 
 #### Quick Sort
 
+![Quick Sort](./img/quick_sort.png)
+
+- First, like merge sort, it exploits the fact that arrays of 0 or 1 elements are always sorted.
+- it works by selecting one element(pivot) and and finding the index where the pivot should end up in the sorted array.
+- once the pivot is positionted properly, quick sort can be applied on either side of the pivot recursively.
+
+##### Quick Sort Pivot Helper Function
+
+- in order to implement quick sort, it's useful to first implement a function responsible for arranging elements in an array on either side of a pivot(partition).
+- Given an array, this helper function should designate an element as the pivot.
+  - it should then rearrange elements in the array so that all values less than the pivot are moved to the left of the pivot,
+  - and all values greater than the pivot are moved to the right of the pivot.
+- the order of elements on either side of the pivot doesn't matter.
+- this helper function should do this in place, should not create a separated array.
+- finally, this function should return the index of the pivot.
+
+##### Picking a Pivot
+
+- the runtime of quick sort depends in part on how one select the pivot.
+- the best pivot is the median of the first, middle and last element of the array. But we still don't know the shape of the data beforehand.
+  - e.g. if the array is [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], the median is 5.
+- for simple implementation, the first element of the data will be used as the pivot.
+
+##### Pivot Helper Pseudocode
+
+- It accepts three argument: an array, start index and end index.
+- Grab the pivot from the start of the array.
+- Store the current pivot index in a variable(this will keep track of where the pivot should end up).
+- Loop through the array from the start to the end.
+  - If the pivot is greater than the current element, increment the pivot index variable and then swap the current element with the element at the pivot index.
+- Swap the starting element(pivot) with the pivot index.
+- Return the pivot index.
+
+##### Pivot Helper 
+```js
+function pivot(arr, start = 0, end = arr.length + 1) {
+  const swap = (arr, idx1, idx2) => {
+    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+  };
+  // first element as pivot
+  const pivot = arr[start];
+  let swapIdx = start;
+  // loop while omit the first element
+  for (let i = start + 1; i < arr.length; i++) {
+    // compare pivot to current element
+    if (pivot > arr[i]) {
+      // move to next
+      swapIdx++;
+      swap(arr, swapIdx, i);
+    }
+  }
+  swap(arr, start, swapIdx);
+  return swapIdx;
+}
+
+const res = pivot([4, 8, 2, 1, 5, 7, 6, 3]);
+console.log(res);
+// > 3
+```
+
+##### Quicksort Pseudocode
+
+
 #### Radix Sort
 
 
