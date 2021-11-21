@@ -758,15 +758,81 @@ function pivot(arr, start = 0, end = arr.length + 1) {
   return swapIdx;
 }
 
-const res = pivot([4, 8, 2, 1, 5, 7, 6, 3]);
-console.log(res);
-// > 3
+const arr = [4, 8, 2, 1, 5, 7, 6, 3]
+const pivotRes = pivot(arr);
+// 3
 ```
 
 ##### Quicksort Pseudocode
 
+- First, call the pivot helper on the array.
+- When the helper returnes the index of the pivot, recursively call the pivot helper on the subarray to the left of the pivot, and the subarray to the right of the pivot.
+- Base case happens when there is a subarray with less than 2 elements.
 
-#### Radix Sort
+##### Quicksort Implementation
+
+```js
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    // call the pivot helper to get the pivot index and save it
+    let pivotIndex = pivot(arr, left, right);
+    // recursively call the quick sort on the sub arrays
+    // left
+    quickSort(arr, left, pivotIndex - 1);
+    // right
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+
+const arr = [4, 8, 2, 1, 5, 7, 6, 3]
+const qsRes = quickSort(arr);
+console.log(qsRes);
+// [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+```
+
+##### Big O of Quick Sort
+
+| Best Time Complexity | Average    | Worst  | Space Complexity |
+|----------------------|------------|--------|------------------|
+| O(n log n)           | O(n log n) | O(n^2) | O(log n)         |
+
+```
+       8
+   4         12
+ 2   6   10      14
+1  3 5 7 9  11  13  15 
+```
+
+- At best,
+  - it consists of 5 decomposition O(log n) steps and each decomposition process
+  - it also has a O(n) comparisons per each decomposition process, so best case is O(n log n).
+
+```
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+1
+ 2
+  3
+   4
+    5
+     6
+      7
+       8
+        9
+         10
+          11
+           12
+            13
+             14
+              15
+```
+
+- At worst is already sorted data, 
+  - in this case 1 would be the pivot, compares to every single item in the array but it's still the smallest, i.e. decomposition only returns a single item.
+  - eventually each decomposition always returns only single item till the end of array.
+  - then the time complexity is O(n^2), quadratic time for the worst case.
+  - it occurs when pivot is min value in the array or max value in the array all the time.
+  - random pivot or median pivot can solve the problem but there is a chance that next decomposition will return only single item.
 
 
 
