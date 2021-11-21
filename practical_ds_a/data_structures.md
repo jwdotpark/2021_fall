@@ -641,15 +641,20 @@ reverse() {
 
 ##### Big O of Singly Linked Lists
 
-|           | Time Complexity | Comparison                                                                 |
-|-----------|-----------------|----------------------------------------------------------------------------|
-| Insertion | O(1)            | much faster iteration than array O(n)                                      |
-| Removal   | O(1) or O(n)    | If it's start, it's O(1) but gets difficult if popping is at the end, O(n) |
-| Searching | O(1) or O(n)    |                                                                            |
-| Access    | O(n)            |                                                                            |
+|           | Avg  | Worst        | Space Complexity |
+|-----------|------|--------------|------------------|
+| Insertion | O(1) | O(1)         | O(n)             |
+| Removal   | O(1) | O(n)         | O(n)             |
+| Searching | O(n) | O(n)         | O(n)             |
+| Access    | O(n) | O(n)         | O(n)             ||                                                                     
 
-- Singly linked lists excel when __insertion__ and __deletion__ at the beginning are required.
+- Insertion is constant time O(1) that doesn not depend on the size of array, it just puts the new node at the begining/end of the list and update the head/tail. 
+- Removal depends on the position of target node, it takes O(1) to remove the node at the begining/end of the list and O(n) to remove the node in the middle of the list.
+- Searching starts from the very beginning of the list and it checks every single node until it finds the target node, so it takes O(n) time. 
+- Same goes for access, it also depends on the size of the array to reach the base case, so it takes O(n) time.
+- Singly linked lists excel at __insertion__ and __deletion__ compared to array becaus there is no index.
 - The idea of a list data structure that consists of head, tail and nodes is the foundation for other data structures like Stacks and Queues.
+
 
 #### 1.3.4. <a name='doubly-linked-list'></a>Doubly Linked List
 
@@ -657,7 +662,7 @@ reverse() {
 
 source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
 
-- almost identical to singly linked list, except every node has another pointer to the previous node.
+- Almost identical to singly linked list, except every node has extra pointer to the previous node.
 - Comparing to singly linked list, it takes more space(memory) but more flexible.
 
 ##### Doubly Linked List Constructor
@@ -903,10 +908,6 @@ set(index, val) {
 - increment the length.
 - return true.
 
-![Doubly Linked List Insert](./img/doubly_insert.png)
-
-source: [C-Sharp Corner](https://www.c-sharpcorner.com/article/doubly-linked-list-and-circular-linked-list-in-c-sharp/)
-
 ###### Insert Implementation
 
 ```js
@@ -966,25 +967,26 @@ remove(index) {
 
 ##### Big O of Doubly Linked Lists
 
-|           | Big O |
-|-----------|-------|
-| Insertion | O(1)  |
-| Removal   | O(1)  |
-| Searching | O(n)  |
-| Access    | O(n)  |
+|           | Avg  | Worst | Space Complexity |
+|-----------|------|-------|------------------|
+| Insertion | O(1) | O(1)  | O(n)             |
+| Removal   | O(1) | O(1)  | O(n)             |
+| Searching | O(n) | O(n)  | O(n)             |
+| Access    | O(n) | O(n)  | O(n)             |
 
-- insertion excels with both O(1), singly and doubly linked list.
-- removal for doubly linked list is always constant, unlike traversing for same in singly linked list.
-- searching is O(n/2) -> O(n) because it starts from start or end of the list to the middle.
+- Lots of cases are similar with singly linked list.
+- Insertion excels with both constant O(1), singly and doubly linked list.
+  - It doesn't matter where to put the value or how long the list is.
+- Removal for doubly linked list is always constant, unlike traversing for same in singly linked list.
+- Searching is O(n/2) -> O(n) because it starts from start or end of the list to the middle.
+- Access is O(n) because it still needs to go through the whole list to find the node.
 
 ##### Comparison with singly linked list
 
-e
-
-- doubly linked lists are almost same as singly linked list, except there is an additional pointer to previous node.
-- it fits in a situation where linear backward traversal is needed as much as forward. i.e. history, re/undo, etc.
-- it works better than singly linked list for finding nodes and can be done in half the time.
-- it takes more (almost twice )space given the extra pointer.
+- Doubly linked lists are almost same as singly linked list, except there is an additional pointer to previous node.
+- It fits in a situation where linear backward traversal is needed as much as forward. i.e. history, re/undo, etc.
+- It works better than singly linked list for finding nodes and can be done in half the time.
+- It takes more (almost twice)space given the extra pointer.
 
 ### 1.4. <a name='stacks-and-queues'></a>Stacks and Queues
 
@@ -1093,8 +1095,8 @@ pop() {
 | Searching | O(n)  |
 | Access    | O(n)  |
 
-- stack is prioritized on push/pop and both are constant.
-- searching/accessing individual node is same as O(n).
+- Stack is all about insertion and removal, prioritized on mutating data at the beginning and both are constant.
+- For searching/accessing, it has to start at the beginning and just traverse the entire stack one by one, so it is O(n).
 
 #### 1.4.2. <a name='queues'></a>Queues
 

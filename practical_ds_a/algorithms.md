@@ -33,11 +33,14 @@ Jongwoo Park<br />
     - [1.5. Searching Algorithms](#15-a-namesearchingalgorithmsasearching-algorithms)
       - [1.5.1. Linear Search](#151-a-namelinearsearchalinear-search)
         - [Linear Search Example](#linear-search-example)
+        - [Linear Search Time Complexity](#linear-search-time-complexity)
       - [1.5.2. Binary Search](#152-a-namebinarysearchabinary-search)
         - [Divide and Conquer](#divide-and-conquer)
         - [Binary Search Example](#binary-search-example)
+        - [Binary Search Time Complexity](#binary-search-time-complexity)
       - [1.5.3. Naive String Search](#153-a-namenaivestringsearchanaive-string-search)
         - [Naive String Searach Example](#naive-string-searach-example)
+        - [Naive String Search Time Complexity](#naive-string-search-time-complexity)
     - [1.6. Sorting](#16-a-namesortingasorting)
       - [1.6.1. What is Sorting?](#161-a-namewhatissortingawhat-is-sorting)
       - [1.6.2. swap(): sorting helper function](#162-a-nameswapsortinghelperfunctionaswap-sorting-helper-function)
@@ -371,6 +374,10 @@ function sumRange(n) {
 
 #### 1.5.1. <a name='LinearSearch'></a>Linear Search
 
+![Linear Search](./img/linear_search.jpg)
+
+source: [Medium](https://medium.com/karuna-sehgal/an-simplified-explanation-of-linear-search-5056942ba965)
+
 - It's the simplest search algorithm, checking every single element at a time. e.g. indexOf(), includes(), find(), findIndex()
 - Linear searcch accepts an array and a value, looking through the array. And it checks if the current array element is equal to the value.
 - If the value is not found, return `-1`.
@@ -379,6 +386,7 @@ function sumRange(n) {
 
 ```js
 function linearSearch(arr, value) {
+  // loop through every single element
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] == value) {
       return i;
@@ -389,6 +397,12 @@ function linearSearch(arr, value) {
 ```
 
 - Time complexity grows as the length of `arr` grows, so big O of this linear searach is `O(n)`.
+
+##### Linear Search Time Complexity
+
+- it just loops through every single element till the result is found.
+- in worst case where the result is at the end of list, it would be O(n).
+- in best case where the result is at the beginning of list, it would be O(1).
 
 #### 1.5.2. <a name='BinarySearch'></a>Binary Search
 
@@ -403,8 +417,22 @@ function linearSearch(arr, value) {
 
 ##### Binary Search Example
 
+![Binary Search](./img/b_search.png)
+
+source: 
+[wikipedia](https://www.wikiwand.com/en/Binary_search_algorithm)
+[Kheri](https://kheri.net/binary-search-algorithm-java-example/)
+
+- This function accepts a __sorted__ array and a value
+- Create a left pointer at the start of the array and a right pointer at the end of the array(length - 1)
+- While the left pointer comes before the right pointer, check if the middle element is equal to the value.
+- If the value is too small, move the left pointer to the middle + 1.
+- If the value is too large, move the right pointer to the middle - 1.
+- If no value, just return -1.
+
 ```js
 function binarySearch(arr, value) {
+  // set left/right pointers at the beginning/end of the array
   let left = 0;
   let right = arr.length - 1;
   while (left <= right) {
@@ -422,38 +450,29 @@ function binarySearch(arr, value) {
 }
 ```
 
-- This function accepts a __sorted__ array and a value
-- Create a left pointer at the start of the array and a right pointer at the end of the array(length - 1)
-- While the left pointer comes before the right pointer, check if the middle element is equal to the value.
-- If the value is too small, move the left pointer to the middle + 1.
-- If the value is too large, move the right pointer to the middle - 1.
-- If no value, just return -1.
-- Best case would be O(1) and worst/average case would be O(log n).
+##### Binary Search Time Complexity
+
+- Best case would be O(1)
+  - The item looked for could be at the very first of the array.
+- Worst and average case would be O(log n)
+  - The item looked for could be at the very end of the array.
+
+![Binary Search Time Complexity](./img/binary_search_2.png)
+
+  - above binary search has the worst case, with 16 elements and it took 4 steps to reach the base case. 
+  - if it's 32 elements array with worst case, it would take maximum 5 steps.
+
+![Binary Search Time Complexity 2](./img/binary_search_3.png)
+
+  - so worst case would be O(log n).
 
 #### 1.5.3. <a name='NaiveStringSearch'></a>Naive String Search
+
 
 - It's a search algorithm that checks a smaller string appears in a longer string.
 - Naive string search involves checking pairs of character individudally.
 
 ##### Naive String Searach Example
-
-```js
-let long = "hello world goodbye earth";
-let short = "bye";
-function naiveStringSearch(long, short) {  
-  for (let i = 0; i < long.length; i++) {
-    if (long[i] === short[0]) {
-      let j = 1;
-      while (long[i + j] === short[j]) {
-        j++;
-        if (j === short.length) {
-          return i;
-        }
-      }
-    }
-  }
-}
-```
 
 - First, define a long string and a short string
 - Loop over the longer string
@@ -462,7 +481,37 @@ function naiveStringSearch(long, short) {
 - If characters do match, keep going
 - If character matching complete, increment the count of matches
 - return the count of matches
+
+```js
+let long = "hello world goodbye earth bi buy bye buy bai bye eye bey bye";
+let short = "bye";
+
+function naiveSearch(long, short) {
+  let count = 0;
+  // iterate over the long string
+  for (let i = 0; i < long.length; i++) {
+    // iterate over the short string
+    for (let j = 0; j < short.length; j++) {
+      // if characters don't match, move to the next character in the long string
+      if (short[j] !== long[i + j]) break;
+      if (j === short.length - 1) count++;
+    }
+  }
+  return count;
+}
+
+const res = naiveStringSearch(long, short);
+console.log(res);
+// 4
+```
+
+##### Naive String Search Time Complexity
+
 - The best case would be `O(n)` and the worst would show exponential growth of `O(n^2)`
+  - At best, the string looked for does not exist at all in outer loop, which would be O(n).
+  - Worst case is when all the characters of long and short string is the same or the last character of the short string is different.
+    - it iterates two outer and inner loop till the end to find the result, which would be O(n^2).
+
 
 ### 1.6. <a name='Sorting'></a>Sorting
 
@@ -502,7 +551,21 @@ const swap = (arr, index1, index2) =>{
 
 ##### Bubble Sort Example
 
+![Bubble Sort](./img/bubble_sort.png)
+
+- Make a function that accepts an array(assuming unordered numbers)
+- Start looping with a variable `i` at the end of the array towards the beginning i.e. shrinking the array backwards.
+- Start looping with a variable `j` at the beginning of the array towards the end i.e. expanding the array forwards
+- If arr[j] is greater than arr[j+1], swap them.
+- Return the sorted array
+
 ```js
+const arr = [8, 5, 2, 6, 12]
+
+const swap = (arr, index1, index2) =>{
+  [arr[index1], arr[index2]] = [arr[index2], arr[index1]];
+}
+
 function bubbleSort(arr) {
   for (let i = arr.length; i > 0; i--) {
     for (let j = 0; j < i - 1; j++) {
@@ -514,13 +577,13 @@ function bubbleSort(arr) {
   }
   return arr;
 }
+
+const res = bubbleSort(arr)
+console.log(res)
+// [2, 5, 6, 8, 12]
 ```
 
-- Make a function that accepts an array(assuming unordered numbers)
-- Start looping with a variable `i` at the end of the array towards the beginning i.e. shrinking the array backwards.
-- Start looping with a variable `j` at the beginning of the array towards the end i.e. expanding the array forwards
-- If arr[j] is greater than arr[j+1], swap them.
-- Return the sorted array
+
 
 ##### Bubble Sort Optimization
 
@@ -548,8 +611,8 @@ function bubbleSort(arr) {
 
 ##### Big O of Bubble Sort
 
-- In general, it's O(n^2), there's two nested for loops.
-- If it's nearly ordered array, it's almost O(n) because of noSwap condition checking.
+- In worst and average case, it's O(n^2), there's two nested loops, each array iterating every single item in the array.
+- If it's nearly ordered array, best case could be almost linear time of O(n) because of noSwap condition checking.
 
 #### 1.6.4. <a name='SelectionSort'></a>Selection Sort
 
@@ -557,6 +620,9 @@ function bubbleSort(arr) {
 
 source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
 
+![selection sort 2](./img/selection_sort2.png)
+
+source: [Python Plain English](https://python.plainenglish.io/selection-sort-examples-in-python-python-coding-c0df8a46bb60)
 
 - It works by finding the smallest element in the array and swapping it with the first element.
 - In the first loop, Compare first two value, find the small value and set the index on it and move on till find a smaller value.
@@ -593,21 +659,22 @@ function selectionSort(arr) {
 
 ##### Big O of Selection Sort
 
-- In general, it's O(n^2), because of two nested for loops.
-- It compares a lot but only swaps one time at the end of the loop.
-- It's only effective when trying to minimize the number of swapping.
-  
+- Roughly, it compares every item with every other item in the array.
+- In best, average and worst case, it's O(n^2), because it consists of two nested loops
+  - It compares a lot but only swaps one time at the end of the loop.
+  - It's only effective when trying to minimize the number of swapping.
+  - swaps only happen O(n) times and it could be useful for space complexity wise. 
 <!-- NOTE very confusing one -->
 #### 1.6.5. <a name='InsertionSort'></a>Insertion Sort
+
+![Insertion sort](./img/insertion_sort.png)
+
+source: [geeksforgeeks](https://www.geeksforgeeks.org/insertion-sort/)
 
 - It builds up the sort by gradually creating a larger left half which is always sorted.
 - It takes each element and place it where it should go in the sorted half.
 - The value being compared moves to the left sorted array by comparing it to the value to the left.
 - It gets slower as array grows larger,
-
-![Insertion sort](./img/insertion_sort.png)
-
-source: [geeksforgeeks](https://www.geeksforgeeks.org/insertion-sort/)
 
 ##### Example of Insertion Sort
 
@@ -635,7 +702,7 @@ function insertionSort(arr) {
 
 ##### Big O of Insertion Sort
 
-- In general, Insertion Sort time complexity is O(n^2) when the array is completely inversed, because of two nested loops.
+- Worst and average case is quadratic O(n^2) when the array is completely inversed.
 - Best case would be when the data is almost sorted, it's O(n) because it only swaps once.
 - Best usage could be a stream of data in real time, where the items are already pretty much sorted.
 
@@ -648,20 +715,23 @@ function insertionSort(arr) {
 
 source: [Toptal Sorting Animation](https://www.toptal.com/developers/sorting-algorithms)
 
-
-
 | Algorithm      | Big Omega(best) | Big Theta(avg) | Big O(worst) | Space Complexity |
 |----------------|-----------------|----------------|--------------|------------------|
 | Bubble Sort    | O(n)            | O(n^2)         | O(n^2)       | O(1)             |
 | Insertion Sort | O(n)            | O(n^2)         | O(n^2)       | O(1)             |
 | Selection Sort | O(n^2)          | O(n^2)         | O(n^2)       | O(1)             |
 
-|   10^5 rnd int arr  | Bubble Sort | Selection Sort | Insertion Sort |
+Tested locally
+
+|   10^5 rnd arr of int  | Bubble Sort | Selection Sort | Insertion Sort |
 |:-------------------:|:-----------:|:--------------:|:--------------:|
 |       Time took     |     21s     |       6s       |       3s       |
 
-- Bubble and Insertion Sort works well with nearly sorted data but inefficient in most scenario. i.e. don't scale properly
+
+
+- Bubble and Insertion Sort only works well with nearly sorted data but inefficient in most scenario.
 - Selection Sort doesn't work well with nearly sorted data.
+- Three of them don't work well if data is scaled up.
 - Space Complexities are all same because it is not creating any space(new array or object).
 - Though it's inefficient compared to more complex algorithms, all in all it still works well in the small set of data.
 
@@ -671,7 +741,7 @@ source: [Toptal Sorting Animation](https://www.toptal.com/developers/sorting-alg
 
 source: [wikipedia](https://www.wikiwand.com/en/Merge_sort)
 
-
+- It also uses divide and conquer approach like quick sort.
 - It's a combination of splitting, merging and sorting.
 - Arrays of 0 or 1 element are always sorted.
 - It works by decomposing an array into smaller arrays of 0 or 1 elements, then building up a newly sorted array(divide and conquer)
