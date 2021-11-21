@@ -4,3 +4,5 @@
 4. visualgo
 5. Freecodecamp
 6. learn from examples: LFX
+
+diagram/pictures without source is self made

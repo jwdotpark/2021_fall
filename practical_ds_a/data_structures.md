@@ -293,6 +293,8 @@ Deletion
 
 ![Singly Linked List](./img/singly_linked_list.png)
 
+source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
+
 #### 1.3.2. <a name='comparisons-with-array'></a>Comparisons with Array
 
 - List:
@@ -653,6 +655,8 @@ reverse() {
 
 ![Doubly Linked List](./img/doubly_linked_list.png)
 
+source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
+
 - almost identical to singly linked list, except every node has another pointer to the previous node.
 - Comparing to singly linked list, it takes more space(memory) but more flexible.
 
@@ -899,7 +903,9 @@ set(index, val) {
 - increment the length.
 - return true.
 
-![Double Linked List Insert](./img/doubly_insert.png)
+![Doubly Linked List Insert](./img/doubly_insert.png)
+
+source: [C-Sharp Corner](https://www.c-sharpcorner.com/article/doubly-linked-list-and-circular-linked-list-in-c-sharp/)
 
 ###### Insert Implementation
 
@@ -991,6 +997,8 @@ e
 
 ![Stack](./img/stack_.png)
 
+source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
+
 ##### Where Stacks Are Used
 
 - managing function invocations as call stack
@@ -1004,6 +1012,8 @@ e
 - that said, stack with array for shift/unshift might not be a good fit.
 
 ![Stack with push/pop](./img/stack_push_pop.png)
+
+source: [wikipedia](https://www.wikiwand.com/en/Stack_(abstract_data_type))
 
 ###### With Linked List Implementation
 
@@ -1124,6 +1134,8 @@ class Queue {
 
 ![Enqueue and Dequeue](./img/enq_deq.png)
 
+source: [wikipedia](https://www.wikiwand.com/en/Queue_(abstract_data_type))
+
 ###### Enqueue Pseudocode
 
 - create a function enqueue that accepts a value.
@@ -1209,7 +1221,7 @@ dequeue() {
   - __hash function__ can be performed to convert the key into valid array index.
   - it can takes a string or any type of data and converts it to number or index.
 
-![hasing concep](./img/hashing_conceptually.png)
+![hasing concept](./img/hashing_conceptually.png)
 
 ##### More of Hash Function Basics
 
@@ -1256,7 +1268,9 @@ function hash(key, arrayLength) {
 ```
 
 - prime number seed is used for reducing collisions(much less, but still happens)
-  - [Relation between array length size of prime number and hash table implemenation](https://www.quora.com/Does-making-array-size-a-prime-number-help-in-hash-table-Implementation-Why)
+
+[Relation between array length size of prime number and hash table implemenation](https://www.quora.com/Does-making-array-size-a-prime-number-help-in-hash-table-Implementation-Why)
+
 - it is conditionally constant time.
 - loop runs based smaller value of length of key   or 100 for testing purpose.
 
@@ -1266,37 +1280,39 @@ function hash(key, arrayLength) {
   - separate chaining
     - it stores value using a more nested data structure at each index in array with an array or linked list.
     - this allows for storing multiple key-value pairs at the same index.
+
 ![Separate Chaining](./img/separate_chaianing.png)
 
   - linear probing
     - data is only stored at each index unlike separate chaining.;
     - when collision is found, it search through the array to find the next empty slot.
     - but it has a limitted number of key as array length.
-    ![Linear Probing](./img/linear_probing.png)
+
+![Linear Probing](./img/linear_probing.png)
 
 ##### Hash Table Implementation
 
 - Hash Table class
 
-  ```js
-  class HashTable {
-    // arbitrary small size array for test
-    constructor(size = 5) {
-      this.keyMap = new Array(size);
-    }
-
-    _hash(key) {
-      let total = 0;
-      let WEIRD_PRIME = 31;
-      for (let i = 0; i < Math.min(key.length, 100); i++) {
-        let char = key[i];
-        let value = char.charCodeAt(0) - 96;
-        total = (total * WEIRD_PRIME + value) % this.keyMap.length;
-      }
-      return total;
-    }
+```js
+class HashTable {
+  // arbitrary small size array for test
+  constructor(size = 5) {
+    this.keyMap = new Array(size);
   }
-  ```
+
+  _hash(key) {
+    let total = 0;
+    let WEIRD_PRIME = 31;
+    for (let i = 0; i < Math.min(key.length, 100); i++) {
+      let char = key[i];
+      let value = char.charCodeAt(0) - 96;
+      total = (total * WEIRD_PRIME + value) % this.keyMap.length;
+    }
+    return total;
+  }
+}
+```
 
 ##### Set
 
@@ -1304,40 +1320,40 @@ function hash(key, arrayLength) {
 - it hashes the key.
 - it stores the key-value pair in the hash table array via separate chaianing.
 
-  ```js
-  set(key, value) {
-    let index = this._hash(key);
-    // if empty, set new array
-    if (!this.keyMap[index]) {
-      this.keyMap[index] = [];
-    }
-    // or set nested key value pair
-    this.keyMap[index].push([key, value]);
-    return index;
+```js
+set(key, value) {
+  let index = this._hash(key);
+  // if empty, set new array
+  if (!this.keyMap[index]) {
+    this.keyMap[index] = [];
   }
+  // or set nested key value pair
+  this.keyMap[index].push([key, value]);
+  return index;
+}
 
-  // intantiate hash table
-  let ht = new HashTable();
-  ht.set("Hello World", "Good World");
-  ht.set("color", "brown");
-  ht.set("name", "okgu");
-  ht.set("attr", "cute");
-  
-  /*
-  ht.keyMap = [
-    [
-      ["Hello World", "Good World"],       -> nested array at index 0
-      ["color", "brown"]
-    ],
-    [
-      ["name", "okgu"]
-    ],
-    [
-      ["attr", "cute"]
-    ]
+// intantiate hash table
+let ht = new HashTable();
+ht.set("Hello World", "Good World");
+ht.set("color", "brown");
+ht.set("name", "okgu");
+ht.set("attr", "cute");
+
+/*
+ht.keyMap = [
+  [
+    ["Hello World", "Good World"],       -> nested array at index 0
+    ["color", "brown"]
+  ],
+  [
+    ["name", "okgu"]
+  ],
+  [
+    ["attr", "cute"]
   ]
-  */
-  ```
+]
+*/
+```
 
 ##### Get
 
@@ -1347,24 +1363,24 @@ function hash(key, arrayLength) {
   - return the value of exact match in sub array.
 - if key is not found, returns undefined.
 
-  ```js
-  get(key) {
-    let index = this._hash(key);
-    if (this.keyMap[index]) {
-      // traverse the array to fiind the index
-      for (let i = 0; i < this.keyMap[index].length; i++) {
-        // look for exact match in sub array
-        if (this.keyMap[index][i][0] === key) {
-          // return the value of exact match
-          return this.keyMap[index][i][1];
-        }
+```js
+get(key) {
+  let index = this._hash(key);
+  if (this.keyMap[index]) {
+    // traverse the array to fiind the index
+    for (let i = 0; i < this.keyMap[index].length; i++) {
+      // look for exact match in sub array
+      if (this.keyMap[index][i][0] === key) {
+        // return the value of exact match
+        return this.keyMap[index][i][1];
       }
     }
-    return undefined;
   }
+  return undefined;
+}
 
-  // ht.get("name") -> okgu
-  ```
+// ht.get("name") -> okgu
+```
 
 #### 1.5.3. <a name='hash-table-keys-and-values-method'></a>Hash Table Keys and Values Method
 
@@ -1376,23 +1392,23 @@ function hash(key, arrayLength) {
   - it loops through the hash table array and returns an array of values in the table.
   - it is often not unique.
 
-  ```js
-  values() {
-    let valuesArr = [];
-    for (let i = 0; i < this.keyMap.length; i++) {
-      if (this.keyMap[i]) {
-        for (let j = 0; j < this.keyMap[i].length; j++) {
-          // filter duplicate values
-          if (!valuesArr.includes(this.keyMap[i][j][1])) {
-            // push each second item(value) in array into values arr
-            valuesArr.push(this.keyMap[i][j][1]);
-          }
+```js
+values() {
+  let valuesArr = [];
+  for (let i = 0; i < this.keyMap.length; i++) {
+    if (this.keyMap[i]) {
+      for (let j = 0; j < this.keyMap[i].length; j++) {
+        // filter duplicate values
+        if (!valuesArr.includes(this.keyMap[i][j][1])) {
+          // push each second item(value) in array into values arr
+          valuesArr.push(this.keyMap[i][j][1]);
         }
       }
-      return valuesArr;
     }
+    return valuesArr;
   }
-  ```
+}
+```
 
 #### 1.5.4. <a name='big-o-of-hash-tables'></a>Big O of Hash Tables
 
@@ -1409,7 +1425,10 @@ function hash(key, arrayLength) {
   - how suppressed collisions are.
 - that said, hash function still depends on input size, traverse the array.
 - if searching keys/values of every each item, it would be O(n).
-  ![Good and Bad Hash Function](./img/good_bad_hash_func.png)
+
+![Good and Bad Hash Function](./img/good_bad_hash_func.png)
+
+source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
 
 ### 1.6. <a name='trees'></a>Trees
 
@@ -1430,14 +1449,28 @@ function hash(key, arrayLength) {
 #### 1.6.1. <a name='what-is-tree-for?'></a>What is Tree For?
 
 - Html DOM
-  ![DOM](./img/dom.png)
+
+![DOM](./img/dom.png)
+
+source:[SelfHTML](https://wiki.selfhtml.org/wiki/JavaScript/DOM) 
+
 - network routing
 - abstract syntax tree
-  ![AST](./img/ast.png)
+
+![AST](./img/ast.png)
+
+source:[wikipedia](https://www.wikiwand.com/en/Abstract_syntax_tree) 
+
 - artificial intelligence/machine learning decision tree
-  ![AI/ML](./img/tree_ml.png)
+
+![AI/ML](./img/tree_ml.png)
+
+source: [DZone](https://dzone.com/articles/skps-ai-ml-dm-series-01-tic-tac-toe-using-the-mini)
+
 - folder/directory file structure in OS
-  ![Folder/Directory](./img/cli_tree.png)
+
+![Folder/Directory](./img/cli_tree.png)
+
 - JSON
 
 #### 1.6.2. <a name='binary-tree'></a>Binary Tree
@@ -1747,9 +1780,13 @@ DFSPostOrder() {
 
 - a graph data structure consists of a finite(and possibly mutable) set of vertices or nodes or points, together with a set of unordered pairs of these vertices for an undirected graph or a set of ordered pairs for a directed graph.
 - i.e. it is a collection of nodes and edges(connections).
+
 ![graph](./img/graph.png)
+
 - node position doesn't matter but connection between nodes is important.
+
 ![graph2](./img/graph2.png)
+
 - this graph is also valid one.
 - list and tree can be a type of graph.
 
@@ -1760,11 +1797,15 @@ DFSPostOrder() {
 
 ![graph map](./img/graph_map.jpg)
 
+source: [Google Map](https://www.google.com/maps)
+
 each point of interest represents a node and routing between nodes is represented by edges.
 
 - visual hierarchy
 
 ![graph hierarchy](./img/graph_net.png)
+
+source: [wikipedia](https://www.wikiwand.com/en/Graph_drawing)
 
 tiny part of internet map hierarchy
 

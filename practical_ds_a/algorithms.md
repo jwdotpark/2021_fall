@@ -107,6 +107,8 @@ I still don't fully understand the implementation detail of this function but th
   <center>The difference between fast InvSqrt() and the original libstdc direct inversison of square root</center>
 </p>
 
+source: [Wikipedia](https://www.wikiwand.com/en/Fast_inverse_square_root)
+
 ### 1.2. <a name='TimeandSpaceComplexityTheory'></a>Time and Space Complexity Theory
 
 #### 1.2.1. <a name='TimeComplexity'></a>Time Complexity
@@ -261,6 +263,8 @@ Asymptotic notations can be refered to best, average and worst case. In reality,
 #### 1.3.7. <a name='VisualizingComplexities'></a>Visualizing Complexities
 
 ![big o graph](./img/time_complexity.png)
+
+source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
 
 <!-- ### Problem Solving Approach
 
@@ -551,6 +555,9 @@ function bubbleSort(arr) {
 
 ![selection sort](./img/selection_sort.png)
 
+source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
+
+
 - It works by finding the smallest element in the array and swapping it with the first element.
 - In the first loop, Compare first two value, find the small value and set the index on it and move on till find a smaller value.
 - When hit the baseline, swap the first value with the smallest value that was found.
@@ -600,6 +607,8 @@ function selectionSort(arr) {
 
 ![Insertion sort](./img/insertion_sort.png)
 
+source: [geeksforgeeks](https://www.geeksforgeeks.org/insertion-sort/)
+
 ##### Example of Insertion Sort
 
 ```js
@@ -633,11 +642,13 @@ function insertionSort(arr) {
 #### 1.6.6. <a name='ComparingBubbleSelectionandInsertionSort'></a>Comparing Bubble, Selection and Insertion Sort
 
 <!-- FIXME move these two visual aid after finising sorting part -->
-[![Visual Comparison of Sorting Algorithms](./img/sorting_visual_comparison.png)](https://www.youtube.com/watch?v=kPRA0W1kECg "15 Sorting Algorithms in 6 Minutes")
-Visual Comparison of Sorting Algorithms
+
 
 ![Sorting Algorithms with Animation](./img/sorting_algorithms_with_animation.png)
-Sorting Algorithms with Animation
+
+source: [Toptal Sorting Animation](https://www.toptal.com/developers/sorting-algorithms)
+
+
 
 | Algorithm      | Big Omega(best) | Big Theta(avg) | Big O(worst) | Space Complexity |
 |----------------|-----------------|----------------|--------------|------------------|
@@ -658,7 +669,8 @@ Sorting Algorithms with Animation
 
 ![Merge Sort](./img/merge__sort.png)
 
-[Merge Sort Analysis](https://www.wikiwand.com/en/Merge_sort)
+source: [wikipedia](https://www.wikiwand.com/en/Merge_sort)
+
 
 - It's a combination of splitting, merging and sorting.
 - Arrays of 0 or 1 element are always sorted.
@@ -736,6 +748,7 @@ function mergeSort(arr) {
 
 ![Merge Sort Diagram](./img/merge_sort_diagram.png)
 
+source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
 ##### Big O of Merge Sort
 
 | Best       | Avg        | Worst      | Space Complexity |
@@ -751,6 +764,7 @@ function mergeSort(arr) {
 
 ![Merge Sort Time Complexity](./img/merge_sort_time_complexity.png)
 
+source: []
 #### 1.6.8. <a name='QuickSort'></a>Quick Sort
 
 ![Quick Sort](./img/quick_sort.png)
