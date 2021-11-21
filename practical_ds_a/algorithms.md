@@ -1,6 +1,9 @@
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
+__CODE University 2021 Fall Semester<br />__
+__SE_02 Algorithms and Data Structures<br />__
+Jongwoo Park<br />
+***
 <!-- code_chunk_output -->
 
 - [Algorithms](#algorithms)
