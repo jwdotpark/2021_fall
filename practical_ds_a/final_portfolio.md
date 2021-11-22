@@ -982,7 +982,8 @@ source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/co
 
 ![Merge Sort Time Complexity](./img/merge_sort_time_complexity.png)
 
-source: []
+source: [JS Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/)
+
 #### 1.6.8. <a name='QuickSort'></a>Quick Sort
 
 ![Quick Sort](./img/quick_sort.png)
