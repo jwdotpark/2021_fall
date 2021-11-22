@@ -216,6 +216,7 @@ Jongwoo Park
       - [1.9.3. Breadth First Search Graph Traversal](#193-a-namebreadth-first-search-graph-traversalabreadth-first-search-graph-traversal)
         - [Breadth First Search Graph Traversal Pseudocode](#breadth-first-search-graph-traversal-pseudocode)
         - [Breadth First Search Graph Traversal Implementation](#breadth-first-search-graph-traversal-implementation)
+- [References](#references)
 
 <!-- /code_chunk_output -->
 
@@ -230,7 +231,7 @@ Jongwoo Park
 
 The scale of the program grows over time and the amount of data that needs to be processed increases. If the amount of input data is small, ignoring it may not matter much. But if the amount of it is large, the difference in efficiency between algorithms will inevitably increase.
 
-Below code is famous example of necessity of good algorithm, the [fast inverse square root implementation from Quake 3 Arena(1999)](https://www.wikiwand.com/en/Fast_inverse_square_root#/Aliasing_to_an_integer_as_an_approximate_logarithm), which was used in lighting effect part in the game. The purpose of this function was used in digital signal processing for computing the reflection of lighting and shading, expecting to have a return of normalized vector.
+Below code is famous example of necessity of good algorithm, the [fast inverse square root implementation from Quake 3 Arena(1999)](https://www.wikiwand.com/en/Fast_inverse_square_root#/Aliasing_to_an_integer_as_an_approximate_logarithm) , which was used in lighting effect part in the game. The purpose of this function was used in digital signal processing for computing the reflection of lighting and shading, expecting to have a return of normalized vector.
 
 ```cpp
 float Q_rsqrt( float number )
@@ -700,6 +701,8 @@ const swap = (arr, index1, index2) =>{
 ##### Bubble Sort Example
 
 ![Bubble Sort](./img/bubble_sort.png)
+
+source: [FacePrep](https://www.faceprep.in/c/bubble-sort-in-c/)
 
 - Make a function that accepts an array(assuming unordered numbers)
 - Start looping with a variable `i` at the end of the array towards the beginning i.e. shrinking the array backwards.
@@ -3130,3 +3133,28 @@ breadthFirst(start) {
   return result;
 }
 ```
+
+***
+
+# References
+
+* Udemy Javascript Algorithms and Data Structures Masterclass
+  - https://www.udemy.com/javascript-algorithms-and-data-structures-masterclass
+* Wikipedia
+  - https://www.wikiwand.com/en/Fast_inverse_square_root
+  - https://www.wikiwand.com/en/Binary_search_algorithm
+  - https://www.wikiwand.com/en/Merge_sort
+  - https://www.wikiwand.com/en/Stack_(abstract_data_type)
+  - https://www.wikiwand.com/en/Queue_(abstract_data_type)
+  - https://www.wikiwand.com/en/Abstract_syntax_tree
+  - https://www.wikiwand.com/en/Graph
+  - https://www.wikiwand.com/en/Graph_drawing
+* Kheri
+  - https://kheri.net/binary-search-algorithm-java-example
+* Geeksforgeeks
+  - https://www.geeksforgeeks.org/insertion-sort
+* Visualgo: Visualization/animation of various algorithm and data structure methods
+  - https://visualgo.net/en/sorting
+* Freecodecamp
+* Learn From Examples: LFX
+* Diagram/pictures without source is self made
