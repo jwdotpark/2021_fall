@@ -29,6 +29,60 @@
   - pair: a pair of values `<int, int>`
   - union: value that may have several formats within the same positionh in memory: `{int, float, string, array, object}`
 
+#### Typing
+
+##### Structural Typing
+
+```ts
+type Person = {
+  name: string;
+  age: number;
+};
+
+type Student = {
+  name: string;
+  age: number;
+};
+
+const person: Person = {
+  name: "John",
+  age: 30,
+};
+
+const doe: Student = person; // no problem
+console.log(doe); // { name: "John", age: 30 }
+```
+
+- It is a system that uses structure to define the type of data. If structure is same, it's considered to be the same type.
+- i.e. if `x` has at least the same members as `y`, `y` is compatible with `x`.
+
+##### Nominal Typing
+
+- It is a system that uses names to define the type of data.
+- Object can be only considered as a type if it's explicitly declared to be, hence reduced flexibility.
+
+##### Duck Typing
+
+```js
+class Duck {
+  sound() {
+    console.log("Quack");
+  }
+}
+
+class Dog {
+  sound() {
+    console.log("Woof");
+  }
+}
+
+const duck = new Duck();
+const dog = new Dog();
+[duck, dog].forEach((animal) => animal.sound()); // Quack, Woof
+```
+
+- If two or more unrelated objects respond to the same set of methods, they are considered to be compatible.
+
 #### Static/dynamic typing
 
 - Static typing
@@ -274,11 +328,213 @@ console.log(person.getInfo()); // 50 years old..
 console.log(employee.getInfo()); // My salary is ..
 ```
 
-## Functional concepts
+## Functional programming concepts
 
-- Pure functions and referential transparency
-- Anonymous functions and lambda expressions
-- Higher-order functions (e.g., map, filter, reduce)
+### Pure functions
+
+```js
+// impure function
+const arr = [1, 2, 3];
+const addElement = (arr, element) => {
+  arr.push(element); // altering the original arr
+  return arr;
+};
+
+// pure function
+const arr = [1, 2, 3];
+const addElement = (arr, element) => {
+  // return new array while external arr is not changed
+  return [...arr, element];
+};
+```
+
+- A pure function is a function that
+
+  - is deterministic, given the same input, always returns the same output.
+  - produces no side effects.
+  - is easier to test because mocking is not needed.
+  - is easy to construct and reconfigure.
+    - Because simple functions are written first and further combined at a higher level.
+
+- Code with **referential transparency** has following characteristics
+
+  1. self-contained, it doesn't depend on the code outside of the function, user only need to provide valid argument/parameters.
+  2. deterministic, it always produces the same output given the same input.
+  3. No exception, out of memory/stack overflow error is considered bug and beyond the control of user.
+  4. Don't create conditions for other code e.g. not changing the value of parameter or change the data outside of the function
+  5. Operation doesn't depend on external condition e.g. database, file system or network
+
+### Anonymous functions and lambda expressions
+
+#### Anonymous Function
+
+```js
+someButton.click(function (event) {
+  /*do something*/
+});
+```
+
+- It is a function that doesn't have any name related to it.
+- It's not accessible after its initial creation.
+- It's often used as a callback function in JS.
+
+##### Arrow Function
+
+```js
+someButton.click((e) => {
+  /*do something*/
+});
+
+const buttonClicked = SomeButton.click((e) => {
+  /*do something*/
+});
+```
+
+- It's a shorthand for declaring anonymous function in ES6.
+- It can be assigned to a variable for later use.
+
+### Higher-order functions
+
+- It's a functions that operate on other function, either by taking them as argument or by returning them.
+- i.e. it receives a function as an argument or returns the function as output.
+
+#### Map
+
+```js
+// without higher order function
+const arr1 = [1, 2, 3];
+const arr2 = [];
+
+for (let i = 0; i < arr1.length; i++) {
+  arr2.push(arr1[i * 2]);
+}
+
+console.log(arr2); // [2, 4, 6]
+```
+
+```js
+// with higher order function
+const arr1 = [1, 2, 3];
+const arr2 = arr1.map((i) => i * 2);
+console.log(arr2); //[2, 4, 6]
+```
+
+- Map method creates a new array by calling the callback function provided as an argument on **every** element in the input array.
+- It creates a new array with the value from the callback function inside.
+
+#### Filter
+
+```js
+// without higher order function
+const persons = [
+  { name: "Peter", age: 16 },
+  { name: "Mark", age: 18 },
+  { name: "John", age: 27 },
+  { name: "Jane", age: 14 },
+  { name: "Tony", age: 24 },
+];
+
+const fullAge = [];
+
+for (let i = 0; i < persons.length; i++) {
+  if (persons[i].age >= 18) {
+    fullAge.push(persons[i]);
+  }
+}
+console.log(fullAge);
+```
+
+```js
+const persons = [
+  { name: "Peter", age: 16 },
+  { name: "Mark", age: 18 },
+  { name: "John", age: 27 },
+  { name: "Jane", age: 14 },
+  { name: "Tony", age: 24 },
+];
+
+const fullAge = persons.filter((person) => person.age >= 18);
+console.log(fullAge);
+```
+
+- Filter method creates a new array with all elements that pass the condition provided by the callback function.
+- The callback passed to the filter() accepts 3 arguments: element, index and array.
+
+#### Reduce
+
+```js
+// without higher order function
+const arr = [1, 3, 5, 7];
+
+function sum(arr) {
+  let sum = 0;
+  for (let i = 0, i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+console.log(sum(arr)); // 16
+```
+
+```js
+// with higher order function
+const arr = [1, 3, 5, 7];
+
+function sum(arr) {
+  const reducer = (sum, val) => sum + val;
+  const initialValue = 0;
+  return arr.reduce(reducer, initialValue);
+}
+
+console.log(sum(arr)); // 16)
+```
+
+- Reduce method executes the callback on each member of the array which results in a single output value.
+- reduce() accepts two parameters: reducer function(callback) and optional initial value.
+- Callback reducer function accepts four params: accumulator, currentValue, currentIndex and array.
+- If initialValue is not provided, it takes first element of the input array.
+
+#### Recursion
+
+```js
+const sumRange = (n) => {
+  if (n === 1) {
+    return 1;
+  }
+  return n + sumRange(n - 1);
+};
+
+// sumRange(3)
+//          3 + sumRange(2)
+//                       2 + sumRange(1)
+//                                    1
+//                                    break
+// 6
+```
+
+- It is a process or function that calls itself until the base condition is met.
+- It is often used to solve problems that conotain smaller sub-problems.
+
+#### Currying
+
+```js
+const transferMoney = (name) => {
+  return function (amount) {
+    return function (fromAccount) {
+      return function (toAccount) {
+        return `${name} transfered €${amount} from ${fromAccount} to ${toAccount} account.`;
+      };
+    };
+  };
+};
+
+console.log(transferMoney("Jongwoo")(9999)("Savings")("Checking"));
+// Jongwoo transfered €9999 from Savings to Checking account.
+```
+
+- It's a transformation of function that takes multiple arguments into a sequence of functions, each expecting a single argument.
+- It is a checking method to make sure that everything checks in before you proceed.
+- It divides functions into smaller chunk, making functions more pure and less prone to error.
 
 ## Advanced Topics
 
