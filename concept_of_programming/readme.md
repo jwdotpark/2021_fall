@@ -262,7 +262,7 @@ class Employee extends Person {
 
   // method override
   getInfo() {
-    return  My salary is " + this.salary + " and " + super.getInfo() + ".";
+    return "Salary is " + this.salary + " and " + super.getInfo() + ".";
   }
 }
 
