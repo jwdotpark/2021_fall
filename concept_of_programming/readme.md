@@ -4,6 +4,46 @@
 
 ### Variables and scoping
 
+#### Closure
+
+```js
+function getClosure() {
+  var text = "variable 1";
+  return function () {
+    return text;
+  };
+}
+
+var closure = getClosure();
+console.log(closure()); // 'variable 1'
+```
+
+```js
+let i;
+for (i = 0; i < 10; i++) {
+  setTimeout(function () {
+    console.log(i);
+  }, 100);
+}
+// 10, 10, 10, 10, 10..
+```
+
+```js
+let i;
+for (i = 0; i < 10; i++) {
+  (function (j) {
+    setTimeout(function () {
+      console.log(j);
+    }, 100);
+  })(i);
+}
+// 1, 2, 3, 4, 5, 6..
+```
+
+- Usually when a function is defined and used within a function, it is called a closure.
+- It is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment).
+- In other words, a closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+
 #### Primitive data types
 
 - (In JS) a primitive data type is data that is not an object and has no methods. There are 7 primitive data types in JS:
@@ -13,10 +53,9 @@
   - boolean
   - undefined
   - null
-  - [symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
+  - [symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) : a type that contains a unique identifier for an object
 - Most of time its value is represented directly at the lowerest level of the language implementation.
 - Primitives are immutable i.e. they cannot be altered.
-- It is important not to confuse a primitive itself with a variable assigned a primitive value. The variable may be reassigned a new value, but the existing value cannot be changed in the ways that objects, arrays, and fuunctions can be altered.
 
 ### Type System
 
@@ -28,6 +67,38 @@
   - grapheme: a single valid unicode grapheme / glyph?
   - pair: a pair of values `<int, int>`
   - union: value that may have several formats within the same positionh in memory: `{int, float, string, array, object}`
+
+#### Static/dynamic typing
+
+- Static typing
+  - Type checking is performed at compile-time.
+  - For some languages, user must specify what type each variable is.
+  - Once variable's type is set, it cannot be changed.
+  - Bug can be caught at a very early stage.
+  - Generally it's faster, because compiler knows the exact data type already.
+  - C, C++, Java, Haskell, Rust, Go, Typescript
+
+```java
+// java
+
+int data;
+data = 50;
+data = "Hello World!"; // compilation error!
+```
+
+- Dynamic typing
+  - Type checking is performed at run-time.
+  - After variable's type is set, it can be changed later.
+  - You can make faster progress but bug might not be caught in early stage.
+  - Generally it's less optimized, because compiler doesn't know the exact data type already.
+  - It depends on type inference.
+  - Python, Ruby, Javascript
+
+```js
+// js
+let data = "2" + 2;
+console.log(data); // "22"
+```
 
 #### Typing
 
@@ -58,8 +129,28 @@ console.log(doe); // { name: "John", age: 30 }
 
 ##### Nominal Typing
 
+```ts
+type Person = {
+  name: string;
+  age: number;
+};
+
+type Student = {
+  name: string;
+  age: number;
+};
+
+const person: Person = {
+  name: "John",
+  age: 30,
+};
+
+const doe: Student = person;
+// Error: Person is not assignable to Student
+```
+
 - It is a system that uses names to define the type of data.
-- Object can be only considered as a type if it's explicitly declared to be, hence reduced flexibility.
+- Object can be only considered as a type if it's explicitly declared to be, so it has a reduced flexibility.
 
 ##### Duck Typing
 
@@ -81,50 +172,16 @@ const dog = new Dog();
 [duck, dog].forEach((animal) => animal.sound()); // Quack, Woof
 ```
 
+- It's a dynamic typing, set of variables and methods of an object determines the type of the object.
 - If two or more unrelated objects respond to the same set of methods, they are considered to be compatible.
-
-#### Static/dynamic typing
-
-- Static typing
-  - Type checking is performed at compile-time.
-  - For some languages, programmer must specify what type each variable is.
-  - Once variable's type is set, it cannot be changed.
-  - Bug can be caught at a very early stage.
-  - Generally it's faster, because compiler knows the exact data type already.
-  - C, C++, Java, Haskell, Rust, Go, Typescript
-
-```java
-// java
-
-int data;
-data = 50;
-data = "Hello World!"; // compilation error!
-```
-
-- Dynamic typing
-  - Type checking is performed at run-time.
-  - After variable's type is set, it can be changed later.
-  - You can make faster progress but bug might not be caught in early stage.
-  - Generally it's less optimized, because compiler doesn't know the exact data type already.
-  - It depends on type inference.
-  - Python, Ruby, Javascript
-
-```js
-// js
-let data = "2" + 2;
-console.log(data); // "22"
-```
 
 ### Type inference
 
 - Type inference refers to the automatic detection of the type of an expression. It is a process of analyzing the code and figuring out what type of data is being used.
 
 ```ts
-// ts
-
 let x: number = 3; // x: number type
 let y = 3; // y: infered to number type
-const z = 3; // z: infered to 3 type
 
 // best common type
 let x = [0, 1, null]; // x: array type of num or null
@@ -147,6 +204,8 @@ window.onMouseDown = function (mouseEvent) {
 };
 ```
 
+- Here, the TypeScript type checker used the type of the Window.onmousedown function to infer the type of the function expression on the right hand side of the assignment. When it did so, it was able to infer the type of the mouseEvent parameter, which does contain a button property, but not a kangaroo property.
+
 [Type inference in TS](https://www.typescriptlang.org/docs/handbook/type-inference.html)
 
 ## Object-oriented concepts
@@ -160,10 +219,10 @@ window.onMouseDown = function (mouseEvent) {
 ### Encapsulation
 
 - it is used to hide the value or state of object inside a class, preventing accidental access to it.
-- access method
+- property access method
   - public: can be accessed from anywhere
   - protected: cannot be accessed from anywhere but the child class
-  - private: cannot be accessed from anywhere but the class itself
+  - private members cannot be accessed from anywhere but the class itself
 
 ```cpp
 // cpp
@@ -343,7 +402,7 @@ const addElement = (arr, element) => {
 // pure function
 const arr = [1, 2, 3];
 const addElement = (arr, element) => {
-  // return new array while external arr is not changed
+  // return new array while original arr is not changed
   return [...arr, element];
 };
 ```
@@ -376,7 +435,7 @@ someButton.click(function (event) {
 
 - It is a function that doesn't have any name related to it.
 - It's not accessible after its initial creation.
-- It's often used as a callback function in JS.
+- It's often used as a callback function.
 
 ##### Arrow Function
 
@@ -491,7 +550,7 @@ console.log(sum(arr)); // 16)
 
 - Reduce method executes the callback on each member of the array which results in a single output value.
 - reduce() accepts two parameters: reducer function(callback) and optional initial value.
-- Callback reducer function accepts four params: accumulator, currentValue, currentIndex and array.
+- Callback reducer function accepts four params: accumulator, currentValue, index and array.
 - If initialValue is not provided, it takes first element of the input array.
 
 #### Recursion
